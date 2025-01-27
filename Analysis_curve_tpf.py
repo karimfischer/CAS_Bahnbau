@@ -5,6 +5,7 @@ from matplotlib.patches import Patch
 import seaborn as sns
 import numpy as np
 from scipy.stats import skew, kurtosis
+import math
 
 file_path = "report2025-01-08_13-28.csv"
 
@@ -34,11 +35,14 @@ def fun_groupe(df,ligne,r_min, r_max):
 
 def boxplot_wavelength(df):
     fig = plt.subplots(2, 3, figsize = (12,6))
-    ax = plt.subplot(2,3,1)
+    ax1 = plt.subplot(2,3,1)
+    medianprops = dict(color='r',
+                          linewidth=0.75)
+    boxprops = dict(facecolor='w', linewidth=0.5)
+    whiskerprops = dict(linewidth=0.5)
     sns.boxplot(x='groupe', y='CAL Riffel 10-100 l', data=df,
-                showfliers=False)
-    ax.set_xlim(0,32)
-    ax.set_xticks([1,12,30])
+                showfliers=False, medianprops = medianprops, boxprops = boxprops,
+                whiskerprops=whiskerprops, capprops=whiskerprops, ax=ax1)
     plt.ylim(0, 0.3)
     plt.subplot(2, 3, 2)
     sns.boxplot(x='groupe', y='CAL Riffel 30-300 l', data=df, showfliers=False)
@@ -61,9 +65,6 @@ csd_mbv = fun_groupe(df,'Chatel-St-Denis - Montbovon',10,600)
 reseau = [pal_csd, csd_mbv]
 reseau = pd.concat(reseau)
 
-##Boxplots par courbe pour évaluer la dispersion des mesures + éléments stat. d'analyse:
-boxplot_wavelength(pal_csd)
-#boxplot_wavelength(csd_mbv)
 
 #- Skewness par courbe:
 # Calcul du skewness par groupe en filtrant les cas problématiques
@@ -114,9 +115,11 @@ def output_riffel(df, gw):
     mean_300_1000_r = df6.mean()
 
     km_debut = df.groupby('groupe')['km_debut'].max()
+    groupe = df.groupby('groupe')['groupe'].max()
     km_fin = df.groupby('groupe')['km_fin'].max()
     rayon = df.groupby('groupe')['rayon_courbe'].max()
-    stat_par_courbe = {'Median_10_100_l': median_10_100_l,
+    stat_par_courbe = {'groupe': groupe,
+                       'Median_10_100_l': median_10_100_l,
                        'Mean_10_100_l': mean_10_100_l,
                        'Skewness_10_100_l': skewness_par_courbe_10_100_l,
                        'Kurtosis_10_100_l': kurtosis_par_courbe_10_100_l,
@@ -159,8 +162,22 @@ def output_riffel(df, gw):
     stat_curve['reserve_usure_min'] = stat_curve[['reserve_usure_l', 'reserve_usure_r']].min(axis=1)
     return stat_curve
 
-
 pal_csd_riffel = output_riffel(pal_csd, 0.08)
+fig, ax = plt.subplots(1, 1, figsize=(12, 6))
+ax.scatter(x=pal_csd_riffel['groupe'], y= pal_csd_riffel['Skewness_30_300_l'],
+           s = pal_csd_riffel['length'])
+ax.scatter(x=pal_csd_riffel['groupe'], y= [x - 3 for x in pal_csd_riffel['Kurtosis_30_300_l']],
+           s = pal_csd_riffel['length'])
+indicator = [(1*x*(1+1*(y-3))) for x,y in zip(pal_csd_riffel['Skewness_30_300_l'],
+                                          pal_csd_riffel['Kurtosis_30_300_l'])]
+ax.scatter(x=pal_csd_riffel['groupe'], y= indicator)
+ax.axhline(0.5)
+ax.axhline(1)
+ax.axhline(-1)
+
+
+##Boxplots par courbe pour évaluer la dispersion des mesures + éléments stat. d'analyse:
+boxplot_wavelength(pal_csd)
 
 fig, ax1 = plt.subplots(1, 1, figsize=(12, 6))
 ax1.hlines(pal_csd_riffel["Median_10_100_l"], pal_csd_riffel['km_debut'], pal_csd_riffel['km_fin'], color='g')
