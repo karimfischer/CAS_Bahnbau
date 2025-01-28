@@ -163,17 +163,19 @@ def output_riffel(df, gw):
     return stat_curve
 
 pal_csd_riffel = output_riffel(pal_csd, 0.08)
+
+
 fig, ax = plt.subplots(1, 1, figsize=(12, 6))
-ax.scatter(x=pal_csd_riffel['groupe'], y= pal_csd_riffel['Skewness_30_300_l'],
-           s = pal_csd_riffel['length'])
-ax.scatter(x=pal_csd_riffel['groupe'], y= [x - 3 for x in pal_csd_riffel['Kurtosis_30_300_l']],
-           s = pal_csd_riffel['length'])
-indicator = [(1*x*(1+1*(y-3))) for x,y in zip(pal_csd_riffel['Skewness_30_300_l'],
-                                          pal_csd_riffel['Kurtosis_30_300_l'])]
-ax.scatter(x=pal_csd_riffel['groupe'], y= indicator)
-ax.axhline(0.5)
-ax.axhline(1)
-ax.axhline(-1)
+ax.scatter(x=pal_csd_riffel['Skewness_30_300_l'], y= pal_csd_riffel['Kurtosis_30_300_l'],
+           alpha=0.3, edgecolors='none')
+ax.scatter(x=pal_csd_riffel['Skewness_10_100_l'], y= pal_csd_riffel['Kurtosis_10_100_l'],
+           alpha=0.3, edgecolors='none')
+ax.scatter(x=pal_csd_riffel['Skewness_300_1000_l'], y= pal_csd_riffel['Kurtosis_300_1000_l'],
+           alpha=0.3, edgecolors='none')
+plt.axhline(y = 1, color = 'k', linestyle = '-', linewidth=0.5)
+plt.axhline(y = -1, color = 'k', linestyle = '-', linewidth=0.5)
+plt.axvline(x = 0.5, color = 'k', linestyle = '-', linewidth=0.5)
+plt.axvline(x = -0.5, color = 'k', linestyle = '-', linewidth=0.5)
 
 
 ##Boxplots par courbe pour évaluer la dispersion des mesures + éléments stat. d'analyse:
@@ -211,6 +213,9 @@ print("s1 =", s1)
 print("k1 =", k1)
 print("s2 = ", s2)
 print("k2 = ", k2)
+
 plt.show()
+
+
 
 

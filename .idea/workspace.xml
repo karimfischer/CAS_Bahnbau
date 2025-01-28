@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="First">
+    <list default="true" id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="27.01">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Analysis_curve_tpf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analysis_curve_tpf.py" afterDir="false" />
     </list>
@@ -121,12 +121,21 @@
       <option name="project" value="LOCAL" />
       <updated>1737924803059</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="27.01">
+      <option name="closed" value="true" />
+      <created>1738016336001</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1738016336001</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First" />
-    <option name="LAST_COMMIT_MESSAGE" value="First" />
+    <MESSAGE value="27.01" />
+    <option name="LAST_COMMIT_MESSAGE" value="27.01" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
