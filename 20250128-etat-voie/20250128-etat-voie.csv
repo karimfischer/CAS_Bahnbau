@@ -1,0 +1,471 @@
+ligne;km_db;sect_db;km_fin;sect_fin;longueur;etat;an_d_ref;an_p_ref;typ_voie;typ_rail;an_rail;typ_trav;an_trav;typ_att;typ_bala;d_supers;d_infras;d_geotex;d_draina;p_supers;p_infras;p_draina;remarques;qualite_acier;dur_vie_rest;ac_rail;grave_pss;id;niv_av_acrail;niv_prebalast;niv_voie_ap_2bourr
+;0;;0;;0;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;09d99a28-4ae1-476d-bda0-857ff3b7cd08;0;0;0
+;0;;0;;1;0;0;0;;;0;;0;;;;;;;;;;;;;;;c434db14-46cc-4a1d-b187-f35857f730cd;0;0;0
+;0;;0;;1;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;8832b1be-32fd-468b-bb82-f2ad20407428;0;0;0
+;0;;0;;2;0;0;0;;;0;;0;;;;;;;;;;;;;;;3ba50ade-4321-4ecb-8b41-09a27181b920;0;0;0
+CM;0;;0;;3;1;2019;2052;Soudée;CFF I;2019;Béton;2019;;CFF Q1;;;;;;;;;R 260;%;;;4393b80f-7bf9-40f2-84bc-280dd015bfe7;0;0;0
+;0;;0;;3;0;0;0;;;0;;0;;;;;;;;;;;;;;;dc5dbf32-52ca-47a0-aa33-fc5d1b370378;0;0;0
+;0;;0;;3;0;0;0;;;0;;0;;;;;;;;;;;;;;;81e36bcc-a16e-468e-9f5e-69059390c09e;0;0;0
+;0;;0;;3;0;0;0;;;0;;0;;;;;;;;;;;;;;;24fb3d14-ea10-45b6-986a-43d611b606cd;0;0;0
+;0;;0;;3;0;0;0;;;0;;0;;;;;;;;;;;;;;;0c3029d0-e980-45f5-a747-ee90bb013d64;0;0;0
+Bull;0;;0;;3;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;30ca4c58-eb33-45bb-808b-7d6d8f441f22;0;0;0
+CM;16.407;Vuadens;16.411;Vuadens;4;1;2020;2053;Soudée;CFF I;2020;Bois;2020;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;;t;t;63c4817c-a7a0-4fed-a512-21905212edb0;-730;-440;-20
+CM;0;;0;;4;1;2019;2052;Soudée;CFF I;2019;;2019;;CFF Q1;f;f;f;f;f;f;f;;R 260;%;f;f;a7f18f9c-b744-45fd-9401-33eb735b6406;0;0;0
+CM;0;;0;;4;1;2019;2052;Soudée;CFF I;2019;Bois;2019;;;;;;;;;;;;;;;4052a597-edb5-4eab-9e75-1ff654433100;0;0;0
+BR;0;;0;;4;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;e27d7318-7b02-4ece-a037-041cbedfc201;0;0;0
+;0;;0;;5;0;0;0;;;0;;0;;;;;;;;;;;;;;;b4acb412-49a6-4b38-bd82-3985291e9d4e;0;0;0
+CM;0;;0;;5;1;2020;2053;Soudée;CFF I;2020;;0;;;t;f;f;f;t;f;f;;R 350 HT;;f;f;915e9453-b43a-4208-9407-34e392019eae;0;0;0
+FMA;0;G7;0;G7;6;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;eb22f4f7-65a2-48f0-ad33-0cee0f41be2f;0;0;0
+FMA;0;G7;0;G7;6;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;f6b4957c-94e9-468e-9bbd-908e3b56a121;0;0;0
+;0;;0;;6;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;118887cd-81d0-4329-9643-444b6e3ed727;0;0;0
+;0;;0;;6;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;849442d3-9f78-4e75-98c5-5d8a7287a90e;0;0;0
+CM;17.179;PI de Planches-Mailles;17.187;PI de Planches-Mailles;7;1;2020;2053;Soudée;CFF I;2020;Bois;2020;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;;t;t;2c8dfc5b-682f-4e66-9e07-182ddb68a4a6;-730;-440;-20
+CM;0;;0;;7;1;2019;2052;Soudée;CFF I;2019;Béton;2019;;;f;f;f;f;f;f;f;;;;f;f;0b161380-4499-4da1-9094-d5a448d3dae9;0;0;0
+;0;;0;;7;0;0;0;;;0;;0;;;;;;;;;;;;;;;a15aa698-bdc5-41f3-baf1-a7b772795c13;0;0;0
+FMA;0;G7;0;G7;7;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;91%;t;;5a145ad9-efd1-471a-905a-dd43842e8ff0;0;0;0
+FMA;0;G7;0;G7;7;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;5915875b-c9c0-4cbf-9b35-738d6e95397f;0;0;0
+CM;0;;0;;8;1;2022;2055;Soudée;CFF IV;2022;Bois;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;fc4749aa-66c8-4238-99b7-18de7c501d42;0;0;0
+CM;0;;0;;8;1;2019;2052;Soudée;CFF I;2019;Béton;2019;;;f;f;f;f;f;f;f;;;;f;f;59b8e0c1-876e-4b08-a735-dd7ab499644a;0;0;0
+CM;0;;0;;8;1;2019;2052;Soudée;CFF I;2019;Béton;2019;;;f;f;f;f;f;f;f;;;;f;f;cb2fe944-66a9-44ae-bb70-fd35ea041105;0;0;0
+FMA;0;G7;0;G7;8;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;4704afa0-04cb-4c68-844c-b58c7f5af972;0;0;0
+FMA;0;G7;0;G7;8;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;e243d86c-1ff5-420d-b111-408b71715f9d;0;0;0
+FMA;0;G7;0;G7;8;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;3df0ed09-6a60-4737-adde-c09a9d13a2f3;0;0;0
+;0;;0;;8;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;5bb54c0d-a3a5-43cd-ba3a-ad7b844f4bdb;0;0;0
+CM;0;;0;;9;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;c1bfe7af-52b3-4a50-8a9a-3df55ad204a4;0;0;0
+;0;;0;;9;0;0;0;;;0;;0;;;;;;;;;;;;;;;26eb50ae-8e8f-4180-994d-96a15abc0d1a;0;0;0
+PC;93.775;PN de Tatroz;93.785;PN de Tatroz;10;1;2016;2049;Soudée;CFF I;2014;Bois;2014;Ke;CFF Q1;t;t;f;t;t;f;f;;R 260;88%;t;f;b95bada0-0e38-46bf-a7f5-e5fad9d52a16;0;0;0
+CM;0;Montbovon;0;Montbovon;10;1;2018;2051;Soudée;CFF IV;2018;;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;de1f3cb9-d44b-468a-bb98-3bd4f44da867;0;0;0
+;0;;0;;10;0;0;0;;;0;;0;;;;;;;;;;;;;;;6ab79f27-2b20-4a30-8682-af2403b7e6a6;0;0;0
+PC;95.73;PN Rouvena;95.74;PN Rouvena;10;1;2016;2049;Soudée;CFF I;2014;Bois;2014;Ke;CFF Q1;t;t;f;t;t;f;f;;R 260;88%;t;f;658dec21-1c4f-4743-ad6d-478a1e525038;0;0;0
+CM;0;;0;;11;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;ff7c0da0-f301-4906-a643-ce0b4fd7cfc5;0;0;0
+BR;0;;0;;12;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;7d07be64-9097-4dd8-8481-d339451e7864;0;0;0
+FMA;20.484;;20.496;;12;1;2017;2050;Soudée;CFF I;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 2;R 260;91%;t;f;98a1d2db-0800-42c1-bebb-3760fc770f59;0;0;0
+FMA;20.484;;20.496;;12;1;2017;2050;Soudée;CFF I;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 1;R 260;91%;t;f;411172b4-f180-412c-938e-dad46ac5560f;0;0;0
+CM;0;Montbovon;0;Montbovon;13;1;2018;2051;Soudée;CFF IV;2018;;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;bc61fb47-8004-4532-841c-82e25da38037;0;0;0
+CM;0;Montbovon;0;Montbovon;14;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;868114a8-a785-40cc-a167-62321d73b257;0;0;0
+CM;0;Montbovon;0;Montbovon;14;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;dc3043e1-e342-4a57-bd2e-564bf4402e39;0;0;0
+CM;0;Montbovon;0;Montbovon;14;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;231f2de6-4d7d-4a87-9288-f738d42167c1;0;0;0
+CM;0;Montbovon;0;Montbovon;14;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;0de88b83-4d16-48e6-8d81-4ada03356a3f;0;0;0
+CM;0;Montbovon;0;Montbovon;14;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;b8130b8f-528f-40de-aecf-7d969cfc8eaa;0;0;0
+CM;0;;0;;14;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;83d82059-19d3-4679-bf34-5bd00b6d724a;0;0;0
+CM;0;;0;;14;1;2019;2052;Soudée;CFF I;2019;Bois;2019;;;;;;;;;;;;;;;45e4c303-8771-49b2-9802-b9292d5a038a;0;0;0
+CM;0;;0;;14;1;2019;2052;Soudée;CFF I;2019;Bois;2019;;;;;;;;;;;;;;;ba57830d-85cb-4783-bc69-0e51367f5189;0;0;0
+CM;0;Montbovon;0;Montbovon;14;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;f0fab6f8-7c7b-46ca-9efc-12fe65206e2e;0;0;0
+CM;0;Montbovon;0;Montbovon;14;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;fb52602d-f570-42b6-adc5-46b3936fcbe9;0;0;0
+CM;0;Montbovon;0;Montbovon;14;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;74fbd9db-c0a2-4963-bfc4-7d3ce0039c15;0;0;0
+CM;0;Montbovon;0;Montbovon;14;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;3dfea6b0-9ae2-4451-ac8a-d90bbf114d70;0;0;0
+CM;0;Montbovon;0;Montbovon;14;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;fa82826b-25df-48fd-8061-4621255bf4c9;0;0;0
+CM;0;Montbovon;0;Montbovon;14;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;e9c1903e-9e55-4a20-b24d-b96f0ed872c7;0;0;0
+CM;0;Montbovon;0;Montbovon;14;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;91fb6d67-d26d-4a61-8fa6-6b8a893e77cc;0;0;0
+FMA;0;G7;0;G7;14;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;91%;t;;b7587be1-cf59-404d-858a-b4d313c1ca99;0;0;0
+FMA;0;G7;0;G7;14;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;2565f2bb-99fe-4426-8e28-31660e4be3cd;0;0;0
+CM;0;;0;;15;1;2019;2052;Soudée;CFF I;2019;Béton;2019;;CFF Q1;;;;;;;;;R 260;%;;;bb002c82-c5c3-49ab-b541-6ff4a6fe153e;0;0;0
+CM;0;;0;;15;1;2019;2052;Soudée;CFF I;2019;Béton;2019;;CFF Q1;;;;;;;;;R 260;%;;;fcb5e4b2-0ba5-4ac3-b19f-67a96ad24617;0;0;0
+PC;95.51;PN Au Moulin;95.525;PN Au Moulin;15;1;2016;2049;Soudée;CFF I;2014;Bois;2014;Ke;CFF Q1;t;t;f;t;t;f;f;;R 260;88%;t;f;ea3a22b2-077e-48b8-9f72-4f841d4762f9;0;0;0
+;0;;0;;15;0;0;0;;;0;;0;;;;;;;;;;;;;;;f052b7d1-29c5-46a6-acc3-cecfc8d30e42;0;0;0
+CM;0;Montbovon;0;Montbovon;15;1;2018;2051;Soudée;CFF IV;2018;;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;4d0f5297-d115-4bfb-8c9b-224fb1c93acd;0;0;0
+CM;0;;0;;15;1;2019;2052;Soudée;CFF I;2019;Béton;2019;;CFF Q1;;;;;;;;;R 260;%;;;b59f732b-6c3c-407b-9b82-7dd9f297413d;0;0;0
+;0;;0;;15;0;0;0;;;0;;0;;;;;;;;;;;;;;;2350e713-2439-4459-8699-98639f000298;0;0;0
+BR;0;;0;;15;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;b61e0378-4bbc-4da5-911f-0cf06454772b;0;0;0
+BR;0;;0;;15;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;d64e5bf9-418c-4f2e-9098-183f346729f0;0;0;0
+CM;0;Montbovon;0;Montbovon;15;1;2018;2051;Soudée;CFF IV;2018;;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;300e0fd3-a36b-43e8-a0d1-5775de27ab55;0;0;0
+CM;0;Montbovon;0;Montbovon;15;1;2018;2051;Soudée;CFF IV;2018;;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;4cd87f16-2909-4ced-a774-4cb400b84eae;0;0;0
+CM;0;Montbovon;0;Montbovon;15;1;2018;2051;Soudée;CFF IV;2018;;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;b48d1f85-8a72-4b23-b9b6-2dc87625b274;0;0;0
+CM;0;Montbovon;0;Montbovon;15;1;2018;2051;Soudée;CFF IV;2018;;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;24a82e2a-b963-403d-af1c-abab3208001a;0;0;0
+CM;0;Montbovon;0;Montbovon;15;1;2018;2051;Soudée;CFF IV;2018;;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;4e649ee6-aacd-42cf-9388-c340a3a8071a;0;0;0
+CM;0;Montbovon;0;Montbovon;15;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;13b6ab92-57f3-406e-a8eb-8591194644c9;0;0;0
+CM;0;;0;;15;1;2019;2052;Soudée;CFF I;2019;Béton;2019;;CFF Q1;;;;;;;;;R 260;%;;;ca4ff638-182f-41bc-babb-e1d308c94303;0;0;0
+;0;;0;;16;0;0;0;;;0;;0;;;;;;;;;;;;;;;f31698e0-23a4-4471-b233-f507d4bc78a9;0;0;0
+BR;7.655;PN Sâles;7.672;Entrée Sâles;17;1;2011;2044;Soudée;CFF IV;2011;Bois;2011;Ke;CFF Q1;t;t;f;t;t;f;f;;R 260;73%;f;;7d7d51af-5b90-47bf-9da2-8310d7a7b3c3;0;0;0
+BR;11.454;PN1 Rte Cantonale;11.471;Entrée Vuisternens-Dt-Romont;17;1;2011;2044;Soudée;CFF IV;2011;Bois;2011;Ke;CFF Q1;t;t;f;t;t;f;f;;R 260;73%;f;;9663a159-4a59-41e7-9d68-0b3c4535ead0;0;0;0
+;0;;0;;18;0;0;0;;;0;;0;;;;;;;;;;;;;;;627343a2-cdfd-4aa9-bb18-c3b15d5d80bf;0;0;0
+CM;0;;0;;18;1;2019;2052;Soudée;CFF I;2019;Bois;2019;;;;;;;;;;;;;;;bf270e96-1c9c-44d5-a4e6-e32480451320;0;0;0
+;0;;0;;18;0;0;0;;;0;;0;;;;;;;;;;;;;;;9475076d-1447-4e38-848d-67afa134ed65;0;0;0
+;0;;0;;18;0;0;0;;;0;;0;;;;;;;;;;;;;;;a3471d71-a690-48c6-80a2-17dbf8f41916;0;0;0
+CM;0;;0;;18;1;2019;2052;Soudée;CFF I;2019;Bois;2019;;;;;;;;;;;;;;;34b031f9-c516-41e1-990b-6751acd05631;0;0;0
+CM;0;;0;;18;1;2019;2052;Soudée;CFF I;2019;Bois;2019;;;;;;;;;;;;;;;39eddf7f-aa3d-48b4-9ce4-bc07c1ef6bb6;0;0;0
+;0;;0;;18;0;0;0;;;0;;0;;;;;;;;;;;;;;;6a88c1c5-e362-4ace-ae3f-82da91889cce;0;0;0
+;0;;0;;18;0;0;0;;;0;;0;;;;;;;;;;;;;;;eb901d12-c528-48db-af6d-666c02a58ad9;0;0;0
+;0;;0;;18;0;0;0;;;0;;0;;;;;;;;;;;;;;;dab396de-7b83-4421-928a-ce84206c381d;0;0;0
+;0;;0;;18;0;0;0;;;0;;0;;;;;;;;;;;;;;;2bab0a73-888a-4e81-a1bc-17130c4b04e8;0;0;0
+;0;;0;;18;0;0;0;;;0;;0;;;;;;;;;;;;;;;b38f6d63-85fb-4744-83ce-6a49af37b225;0;0;0
+;0;;0;;18;0;0;0;;;0;;0;;;;;;;;;;;;;;;475636d8-39d8-4f31-8ab6-9c6499858ee4;0;0;0
+CM;0;;0;;18;1;2019;2052;Soudée;CFF I;2019;Bois;2019;;;;;;;;;;;;;;;c59f8e32-00aa-4090-94fb-42a3403423e5;0;0;0
+;0;;0;;18;0;0;0;;;0;;0;;;;;;;;;;;;;;;1b10f297-23e3-4953-b4d8-f1e9091f883f;0;0;0
+;0;;0;;18;0;0;0;;;0;;0;;;;;;;;;;;;;;;1aaaad7a-fa00-4502-83f7-df373586a841;0;0;0
+;0;;0;;18;0;0;0;;;0;;0;;;;;;;;;;;;;;;2f141992-6ffa-4cc9-bc04-53147c5bdea8;0;0;0
+;0;;0;;18;0;0;0;;;0;;0;;;;;;;;;;;;;;;ce299c48-884d-441b-9a5a-8dab802522a3;0;0;0
+PC;94.75;PN Vuarrat;94.768;PN Vuarrat;18;1;2014;2047;Soudée;CFF I;2014;Bois;2014;Ke;CFF Q1;t;t;f;t;t;f;f;;R 260;82%;f;;964a5763-8985-4fea-bd67-221c0a64a204;0;0;0
+PC;0;;0;;18;2;2019;2052;Soudée;CFF I;2005;Bois;2005;Ke;CFF Q1;t;t;f;t;t;f;f;;R 260;97%;t;t;62d8403a-c78c-4785-a2d9-622966d41a6e;-710;-410;0
+PC;0;;0;;18;2;2019;2052;Soudée;CFF I;2005;Bois;2005;Ke;CFF Q1;t;t;f;t;t;f;f;;R 260;97%;t;t;4092d6c4-6307-4f59-bf68-dadb70aa1a99;-710;-410;0
+CM;0;;0;;19;1;2019;2052;Soudée;CFF I;2019;Bois;2019;;;;;;;;;;;;;;;42c98800-dddf-4dcb-b05d-897d1cae218b;0;0;0
+;0;;0;;19;0;0;0;;;0;;0;;;;;;;;;;;;;;;7b1ff6c7-229c-4e8e-83a3-512c66739d9f;0;0;0
+;0;;0;;20;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;24139fc2-0140-442a-95d3-6b91b13cb451;0;0;0
+BR;0;;0;;20;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;t;t;f;t;f;f;f;;R 350 HT;;t;t;39aad1ac-33ad-4e44-b566-3628da2cfa8c;0;0;0
+CM;0;Montbovon;0;Montbovon;20;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;0c976b4a-4c2d-4469-b3fc-a609a5b2c6bd;0;0;0
+PC;0;;0;;20;2;2019;2052;Soudée;CFF I;2000;Bois;2000;Ke;CFF Q1;f;t;f;t;t;f;f;;R 260;97%;t;t;71163345-4eef-4fca-a67a-5fa5aefa615a;-710;-410;0
+FMA;20.188;;20.194;;20;1;2017;2050;Soudée;CFF IV;2017;Acier (bêches longues);2017;Aek;CFF Q1;t;t;f;t;t;f;f;;R 260;91%;t;f;c2e03511-dbe3-4500-ae3b-48e418249b7e;0;0;0
+FMA;20.066;PN La Pose;20.086;PN La Pose;20;1;2017;2050;Soudée;CFF I;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;;R 260;91%;t;f;444f9d71-a58f-4e26-b8f5-e590eed08db4;0;0;0
+FMA;20.622;PN Gare Münchenwiler;20.642;PN Gare Münchenwiler;20;1;2017;2050;Soudée;CFF I;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 2;R 260;91%;t;f;6f9f668b-c6f8-4db6-8a98-77cc99070aa1;0;0;0
+FMA;20.622;PN Gare Münchenwiler;20.642;PN Gare Münchenwiler;20;1;2017;2050;Soudée;CFF I;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 1;R 260;91%;t;f;52388f2c-529f-48a9-b5e5-090df20bcc9c;0;0;0
+;0;;0;;21;0;0;0;;;0;;0;;;;;;;;;;;;;;;5ebfea4d-4307-477a-a31a-b53011be8313;0;0;0
+BR;0;;0;;21;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;8979556c-c9db-4023-ac99-febbaa014675;0;0;0
+PC;0;;0;;21;2;2019;2052;Soudée;CFF I;2000;Bois;2000;Ke;CFF Q1;f;t;f;t;t;f;f;;R 260;97%;t;t;84f3dc2c-8ed2-431f-84db-453210bab54d;-710;-410;0
+FMA;12.017;PN Ecole;12.038;Entrée Courtepin;21;1;2018;2051;Soudée;CFF IV;2018;Acier (bêches longues);2018;Aek;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;3359d109-6a4f-46ec-827c-9d5fd9347ff9;0;0;0
+;0;;0;;21;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;1bbc1e4d-a043-4049-8ddb-2cc83d034b5e;0;0;0
+;0;;0;;21;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;59ddb37f-ad0e-4203-82a2-754e8ea288c2;0;0;0
+CM;10.698;Pont de la Gissetta;10.72;Pont de la Gissetta;22;1;2011;2044;Soudée;CFF I;2010;Bois;2010;K;CFF Q1;t;t;f;t;t;t;t;Etanchéité de l'auge refaite;R 260;73%;;;7cc80578-62d1-45d1-ab87-fbb221076f4f;0;0;0
+;0;;0;;22;0;0;0;;;0;;0;;;;;;;;;;;;;;;df9d3dd4-e8ee-482c-9a8e-ca1a68041e12;0;0;0
+;0;;0;;22;0;0;0;;;0;;0;;;;;;;;;;;;;;;e559faa4-0880-4c6a-9de4-60a27a959072;0;0;0
+CM;16.449;PN Vuadens Rte cantonale;16.471;PN Vuadens Rte cantonale;22;1;2016;2049;Soudée;CFF I;2014;Bois;2016;Ke;CFF Q1;t;t;f;t;t;f;f;;R 260;88%;f;f;f314cca7-2468-4923-84da-61eb3f130b23;0;0;0
+FMA;0;G7;0;G7;23;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;91%;t;;fae21b22-8340-4501-b12b-d55236a4834f;0;0;0
+FMA;27.887;Sortie gare Sugiez;27.912;Après PN Sugiez;23;1;2010;2043;Soudée;CFF IV;2010;Bois;2010;Ke;CFF Q1;t;t;f;f;t;f;f;Dalle en béton coulée sur place;R 260;70%;;;e43f0490-5326-4bd2-a3e7-a252bc5fcbc3;0;0;0
+CM;0;;0;;24;1;2022;2055;Soudée;CFF I;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;904d73e5-a2b7-4f2c-9995-20097a085c3e;0;0;0
+;0;;0;;24;0;0;0;;;0;;0;;;;;;;;;;;;;;;d64942e8-77a3-4bc6-b96e-47c07aa2315e;0;0;0
+CM;0;Montbovon;0;Montbovon;25;1;2018;2051;Soudée;CFF IV;2018;;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;569209a2-1cee-49b5-90ea-3528c94de3ae;0;0;0
+PC;91.47;La Goletta;91.495;La Goletta;25;1;2019;2052;Soudée;CFF I;0;Acier (bêches longues);2014;Aek;CFF Q1;t;t;f;f;t;f;f;;R 350 HT;97%;t;;99bee710-78a6-4ee0-ad59-fe003e7729f8;0;-410;0
+FMA;24.869;PN de Montilier;24.894;PN de Montilier;25;2;2009;2042;Soudée;CFF IV;2009;Bois;2009;Ke;CFF Q1;t;t;f;f;t;t;t;;R 260;67%;f;f;1e986775-ba84-46ee-85f3-d46b09da1107;0;0;0
+;0;;0;;25;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;0545e107-7049-408a-b9a8-8fc9aad726be;0;0;0
+CM;0;;0;;26;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;9be31279-8f16-4805-a5a3-f5046af8dcf2;0;0;0
+CM;0;;0;;26;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;45443af1-2c20-4e9c-a21a-ebb04daed332;0;0;0
+CM;0;;0;;26;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;5fa5cf14-5a29-4849-987f-4515c2947f66;0;0;0
+CM;0;;0;;26;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;f96b2674-6d11-481f-9d36-e265d82b5ec1;0;0;0
+CM;0;Montbovon;0;Montbovon;26;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;35f666ad-ba5b-40fa-99c7-c607612fd7df;0;0;0
+;0;;0;;26;0;0;0;;;0;;0;;;;;;;;;;;;;;;a9042855-2a93-4392-bf9f-c16b213b555d;0;0;0
+;0;;0;;26;0;0;0;;;0;;0;;;;;;;;;;;;;;;f4943aa1-23f7-486c-b961-b36cb3140f98;0;0;0
+CM;0;;0;;26;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;18d90b01-c211-43a7-bf0b-23ab91094558;0;0;0
+;0;;0;;26;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;9a98ed78-9896-4068-baba-b48fbc5802c8;0;0;0
+;0;;0;;26;0;0;0;;;0;;0;;;;;;;;;;;;;;;c766255e-ec02-45aa-8ea4-542da557dbd7;0;0;0
+;0;;0;;26;0;0;0;;;0;;0;;;;;;;;;;;;;;;15c688e0-c525-49b6-987d-8f46bc3c75c3;0;0;0
+;0;;0;;26;0;0;0;;;0;;0;;;;;;;;;;;;;;;9b970744-01aa-4711-81bd-aa4adb05be28;0;0;0
+;0;;0;;26;0;0;0;;;0;;0;;;;;;;;;;;;;;;977b48a7-e4f0-49cb-8887-6d79ab49f81b;0;0;0
+;0;;0;;26;0;0;0;;;0;;0;;;;;;;;;;;;;;;914451ea-2fd4-44a1-b619-bbd7ab54809d;0;0;0
+CM;0;;0;;26;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;0775571e-a7e5-4150-a3eb-e8b57577a639;0;0;0
+;0;;0;;26;0;0;0;;;0;;0;;;;;;;;;;;;;;;3e5e1f4f-1a17-48a4-a3f4-c72759c00643;0;0;0
+;0;;0;;26;0;0;0;;;0;;0;;;;;;;;;;;;;;;acb79134-3ba3-46dd-875b-033e5ba0cbd8;0;0;0
+;0;;0;;26;0;0;0;;;0;;0;;;;;;;;;;;;;;;d4fa9782-3d34-43db-ab8a-81df54011ee1;0;0;0
+;0;;0;;26;0;0;0;;;0;;0;;;;;;;;;;;;;;;9bd20573-259a-4705-ae77-fd272d9b3f93;0;0;0
+CM;0;;0;;26;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;03345d59-85f0-4f4d-bf49-ae70e17de528;0;0;0
+BR;0;;0;;26;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;b550cd69-df0f-41c0-80e6-c0e9f396b526;0;0;0
+BR;0;;0;;26;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;ff7b1005-83ed-47fa-b04d-78b06ff58a84;0;0;0
+CM;0;Montbovon;0;Montbovon;26;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;072ce084-8746-471d-8407-cdd3b53049a3;0;0;0
+BR;0;;0;;26;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;cc9785e4-e04c-4061-8760-712fed55ef80;0;0;0
+BR;0;;0;;26;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;33169b88-0769-4ffb-9b7c-eac63f26751f;0;0;0
+CM;0;Montbovon;0;Montbovon;26;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;1c4e7c9a-4d00-4d30-a661-7a710aab1e58;0;0;0
+CM;0;Montbovon;0;Montbovon;26;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;47424d59-109f-4d7c-b73a-48382a630f4c;0;0;0
+FMA;0;G7;0;G7;26;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;0148e065-fb3d-4f04-b464-6ff6c1223fe9;0;0;0
+FMA;0;G7;0;G7;26;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;ef456d9e-ca01-4d6f-9874-82737e309d08;0;0;0
+FMA;0;G7;0;G7;26;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;91%;t;;c560e5a9-192c-4f08-84df-16c66788538c;0;0;0
+FMA;0;G7;0;G7;26;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;91%;t;;44275b29-87b6-4a6e-850d-c8f1f5d59add;0;0;0
+FMA;0;G7;0;G7;26;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;91%;t;;b0662588-227d-4fd4-9890-bb555c8e7592;0;0;0
+FMA;0;G7;0;G7;26;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;91%;t;;2c48a56d-8c9f-4787-b70d-04f545f8f44b;0;0;0
+FMA;0;G7;0;G7;26;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;ab6aecd0-38a1-479a-9644-bac27c7fa548;0;0;0
+FMA;0;G7;0;G7;26;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;8c19ca75-56cc-4eed-8344-7fc26e88b013;0;0;0
+FMA;0;G7;0;G7;26;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;6b043310-5e66-4fa7-bb92-da6fdd629c45;0;0;0
+FMA;0;G7;0;G7;26;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;37519d43-04dd-466e-9d65-ade8ea32096f;0;0;0
+;0;;0;;26;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;93baed29-03bf-49cb-9a8a-420f606846f7;0;0;0
+;0;;0;;26;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;a11ebfea-ce8e-4ca0-9f2b-764a793c309c;0;0;0
+;0;;0;;26;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;cd88b697-b0c9-47f5-8d26-9718056ae869;0;0;0
+CM;0;;0;;26;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;91bf6299-22ac-4337-a965-1713c3badbdd;0;0;0
+FMA;0;G7;0;G7;27;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;b1c02402-89b3-4b0c-bc89-09ab9057db74;0;0;0
+CM;0;;0;;27;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;0bd7a426-4ac3-4fec-a815-4f1ad4f0c2d9;0;0;0
+CM;0;;0;;27;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;aea6f40f-f10a-460c-b659-69ca32f99316;0;0;0
+CM;0;Montbovon;0;Montbovon;27;1;2018;2051;Soudée;CFF IV;2018;;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;10d892a6-5fdb-415e-b053-db7fdb6ead39;0;0;0
+CM;0;Montbovon;0;Montbovon;27;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;327b49ab-a327-4311-82ae-50b6527c1224;0;0;0
+CM;0;Montbovon;0;Montbovon;27;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;de3b0828-b6ed-44a5-a44c-ae27f5cb9472;0;0;0
+CM;0;Montbovon;0;Montbovon;27;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;f884867e-d231-4417-8545-fffa6b2e83a9;0;0;0
+CM;0;Montbovon;0;Montbovon;27;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;07dbeb15-f68f-481b-9661-b8fa1ab0b367;0;0;0
+CM;0;Montbovon;0;Montbovon;27;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;837b896f-98ba-4836-af82-5397038b6af0;0;0;0
+FMA;0;G7;0;G7;27;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;2b271d19-7448-4847-a881-b905584aec41;0;0;0
+FMA;0;G7;0;G7;27;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;a2cd2077-de8a-4432-ae7b-d1bdc2bc9d08;0;0;0
+FMA;0;G7;0;G7;27;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;aa77868d-1213-4da2-9960-de70f875db7a;0;0;0
+FMA;0;G7;0;G7;27;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;1a80c86b-6893-444a-aef9-76a1fe7c2928;0;0;0
+FMA;0;G7;0;G7;27;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;52678762-ae40-47d3-9e9a-18ad02d5df0e;0;0;0
+BR;0;;0;;28;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;59e602b6-374d-487e-b741-cbfa38bbb762;0;0;0
+CM;0;Montbovon;0;Montbovon;29;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;f46ea50b-a572-411f-b187-64fb7c429c23;0;0;0
+FMA;12.543;PN Moulin;12.572;PN Moulin;29;1;2018;2051;Soudée;CFF I;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;84ebbd8a-85ba-443a-8c02-dca5f6f9fc8d;0;0;0
+FMA;12.775;;12.805;AV 101;30;1;2018;2051;Soudée;CFF IV;2018;Acier (bêches longues);2018;Aek;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;369dbf5a-0c4f-4527-8ea9-dcdb6c2b4a71;0;0;0
+FMA;5.765;Entrée Belfaux-Village;5.796;Sortie Belfaux-Village;30;1;2015;2048;Soudée;CFF IV;2015;Bois;2015;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 1;R 260;85%;t;f;1cfbb143-2464-4ab9-b316-67564bfab433;0;0;0
+FMA;12.838;;12.87;;31;1;2018;2051;Soudée;CFF IV;2018;Acier (bêches longues);2018;Aek;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;79561715-b534-4c2d-8fec-30e7d45d0db0;0;0;0
+CM;0;Montbovon;0;Montbovon;32;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;42060985-b8a4-45b1-a6dc-e2ae2a77d737;0;0;0
+CM;0;Montbovon;0;Montbovon;32;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;b151d0bf-da0e-4d3a-9f0c-cdf21853cb92;0;0;0
+CM;0;Montbovon;0;Montbovon;32;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;9a7215af-759a-4ae0-b189-24e880275eb9;0;0;0
+CM;0;Montbovon;0;Montbovon;32;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;f8fb05be-2f9c-46c6-aa0f-86e0d8d57f2f;0;0;0
+BB;0;;0;;33;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;db4273fe-77e6-4491-8567-5403faa23bfc;0;0;0
+BB;0;;0;;33;1;2023;2056;Soudée;CFF IV;2023;Béton;2023;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;74162620-ff6a-4f93-a4bc-fa9b7a75f350;0;0;0
+;0;;0;;33;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;1e8e9936-226c-4437-a965-bd212c47b03f;0;0;0
+BB;0;;0;;33;1;2023;2056;Soudée;CFF IV;2023;Béton;2023;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;deaa2b1c-9be8-4817-89b5-0663d905dfca;0;0;0
+;0;;0;;33;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;8ccd078b-ea9d-41b8-bfaf-1e6f792fdf9b;0;0;0
+BR;0;;0;;33;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;70276421-eeff-4499-b914-973aaa362f3e;0;0;0
+BR;0;;0;;33;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;f96b9dcf-efad-4c83-95e5-dce59bb82fd4;0;0;0
+BR;0;;0;;33;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;e5f1b9b1-4b67-4ed7-afa6-dd96395ff984;0;0;0
+BR;0;;0;;33;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;075d0edc-c45f-4609-af45-12cfcb5f5186;0;0;0
+BR;0;;0;;33;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;2befd1d9-04dc-46e6-a770-dd0f1585d1d4;0;0;0
+BR;0;;0;;33;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;f168893e-e830-4065-b1a9-36e7b66372cc;0;0;0
+BR;0;;0;;33;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;f6d9a9d3-50aa-4fb6-b535-0906b1fb3f6c;0;0;0
+BR;0;;0;;33;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;3084ec57-f9f5-47c9-ba79-d38992a17079;0;0;0
+BR;0;;0;;33;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;948a70ab-77f7-41ea-a972-a9a3f0e58ec1;0;0;0
+CM;0;Montbovon;0;Montbovon;33;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;8a301f34-aa82-49ab-890b-ef9a602ecfc5;0;0;0
+FMA;0;G7;0;G7;33;1;2017;2050;Soudée;CFF IV;2011;Bois;2011;Ke;CFF Q1;t;t;f;t;t;f;f;TJD;R 350 HT;91%;t;;d638ad86-0f06-42a2-b961-fa2c6f10b595;0;0;0
+FMA;0;G7;0;G7;33;1;2017;2050;Soudée;CFF IV;2011;Bois;2011;Ke;CFF Q1;t;t;f;t;t;f;f;TJD;R 350 HT;91%;t;;8e298c1b-1c23-4d91-b988-22a673693ec3;0;0;0
+FMA;0;;0;;33;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;b689b561-df13-4465-a195-1d7ccd10a5e6;0;0;0
+FMA;12.805;AV 101;12.838;AV 101;33;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;84dc6a2c-ec38-4616-9d53-bf649c0c1321;0;0;0
+FMA;0;G7;0;G7;33;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;20602a0a-4ed2-4b4a-8dd5-479383d6a1af;0;0;0
+;0;;0;;33;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;8efc9185-86cf-43f5-8395-f3ac624bca47;0;0;0
+FMA;0;G7;0;G7;33;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;e432d967-0228-4bf7-95d7-a244e84b19f2;0;0;0
+FMA;21.957;;21.99;;33;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;;R 260;91%;t;f;7d3fc753-adb2-4cfb-95c2-076766d595b1;0;0;0
+;0;;0;;33;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;b55c7c2c-d4c9-4250-96f9-9908b667f373;0;0;0
+CM;0;Montbovon;0;Montbovon;34;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;Voie 224;R 350 HT;94%;t;;7e4b48d4-805e-4b06-8cb8-6502ee56a501;0;0;0
+BR;0;;0;;35;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;712210ff-1d12-4be6-9d25-6956f7cab7db;0;0;0
+CM;0;;0;;35;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;61dba6fa-b912-4b32-9870-fb000d60a9a9;0;0;0
+CM;0;;0;;37;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;38cd3488-beb0-4ae9-b3d0-642a89e89c1b;0;0;0
+;0;;0;;37;0;0;0;;;0;;0;;;;;;;;;;;;;;;8803304d-1d62-445a-a775-00b3a585e100;0;0;0
+CM;0;;0;;37;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;16f36c2a-f185-4896-a6ec-8390192aab28;0;0;0
+BR;0;;0;;37;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;9e869eaa-67cf-4be8-a1fc-77646a2a1039;0;0;0
+CM;16.411;Vuadens;16.449;Vuadens;38;1;2020;2053;Soudée;CFF I;2020;Béton;2020;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;;t;t;956c609a-35ee-4d2e-a158-12ebb676dcda;-730;-440;-20
+;0;;0;;38;0;0;0;;;0;;0;;;;;;;;;;;;;;;82518c34-cb75-4a21-a521-08b3d8ea2ebc;0;0;0
+CM;0;Montbovon;0;Montbovon;40;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;37cc1889-ce93-4d4b-8527-2e15550e1ff5;0;0;0
+CM;0;Montbovon;0;Montbovon;40;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;32796e8c-4b58-4209-9e39-e3c10e4d6958;0;0;0
+FMA;12.838;AV 101;12.878;;41;1;2018;2051;Soudée;CFF IV;2018;Acier (bêches longues);2018;Aek;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;32d4dcf6-5b9c-43b5-b806-42114eb70604;0;0;0
+BR;0;;0;;42;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;7590f3ed-c28b-41ba-9d16-c6e9659db1bb;0;0;0
+BR;0;;0;;42;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;06d385e3-1210-4956-a7d9-5c0d553085b7;0;0;0
+BR;0;;0;;42;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;25813c0e-79a9-42c5-928e-12f774f1a480;0;0;0
+BR;0;;0;;42;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;0bb4e539-6ce9-4262-a5d1-48ec56d06374;0;0;0
+BR;0;;0;;42;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;712ec3e3-089a-4035-9644-357a94f6828e;0;0;0
+BR;0;;0;;42;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;a483c0a7-7060-47fe-983c-388b21476384;0;0;0
+BR;0;;0;;42;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;24c2f7e9-1d52-48da-ac83-92a9c622ce43;0;0;0
+BR;0;;0;;42;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;4795dd20-1cf7-4485-b0f9-eca0a23e4e53;0;0;0
+BR;0;;0;;42;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;ecee5375-306d-4be6-9e41-b695ac1efe8e;0;0;0
+BR;0;;0;;42;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;68ad3c59-5218-48e3-b7b7-17d6180f9904;0;0;0
+PC;0;;0;;44;1;2019;2052;Soudée;CFF I;2019;Acier (bêches longues);2014;Aek;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;97%;t;t;67dfb7a8-3fe4-4e54-9c5e-d42f65a6a78d;-710;-410;-10
+CM;12.915;Pont d'Amont;12.96;Pont d'Amont;45;1;2011;2044;Soudée;CFF I;2010;Bois;2010;K;CFF Q1;t;t;f;f;t;t;t;Etanchéité de l'auge refaite;R 260;73%;f;f;d92dc7b6-2bc6-4a92-a5b1-b235acadfce4;0;0;0
+FMA;0;G7;0;G7;45;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;91%;t;;6881d0b8-b90e-49ad-b1e4-aa765bb1f04c;0;0;0
+BR;0;;0;;46;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;;t;t;9ddc7624-4b05-4def-bcef-dca10aa7fe93;0;0;0
+CM;0;;0;;48;1;2019;2052;Soudée;CFF I;2019;;2019;;;f;f;f;f;f;f;f;;;;f;f;20e9e1dd-3c4a-430d-af57-3c51c017f172;0;0;0
+CM;0;Montbovon;0;Montbovon;49;1;2018;2051;Soudée;CFF IV;2018;;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;fef69c28-897b-42ca-b487-7dad12c2277d;0;0;0
+CM;0;Montbovon;0;Montbovon;52;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;Voie 231;R 350 HT;94%;t;;0f98b82c-65b8-4150-8c57-0d4232e30a41;0;0;0
+CM;0;Montbovon;0;Montbovon;52;1;2018;2051;Soudée;CFF IV;2018;;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;ee65611a-39b5-4300-b942-e08dbda47ba7;0;0;0
+PC;0;;0;;53;2;2019;2052;Soudée;CFF I;2010;Bois;2010;Ke;CFF Q1;f;t;f;t;t;f;f;;R 260;97%;t;t;a873f4d8-9283-45c5-889f-58e24181bffe;-710;-410;0
+CM;0;;0;;55;1;2019;2052;Soudée;CFF I;2019;Béton;2019;;;;;;;;;;;;;;;98f6a0f1-f174-408c-8b20-b2b63d3aae3d;0;0;0
+;0;;0;;57;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;4737457a-0ad6-4b1f-80de-a192d6067098;0;0;0
+CM;0;;0;;57;1;2019;2052;Soudée;CFF I;2019;Béton;2019;;CFF Q1;;;;;;;;;R 260;%;;;003e1e66-e8f9-4058-84c6-b2e29452dec2;0;0;0
+CM;0;Montbovon;0;Montbovon;57;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;Voie 223;R 350 HT;94%;t;;de9ad4e3-b964-44ad-8655-7b780da23f96;0;0;0
+FMA;12.485;Sortie Courtepin;12.543;PN Moulin;58;1;2018;2051;Soudée;CFF I;2018;Acier (bêches longues);2018;Aek;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;cc204626-a06d-4869-98da-3698c834ed01;0;0;0
+FMA;0;G7;0;G7;59;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;3fe68077-6cb6-40e3-b1de-8cec74880dc1;0;0;0
+;0;;0;;59;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;f2a91a68-e6dd-4455-aeef-6212625692a7;0;0;0
+CM;31.42;Pont de Neirivue;31.48;Pont de Neirivue;60;3;1986;2025;Soudée;UST 36;1986;Bois;1986;K;Grandjean - Enney;t;f;f;f;t;f;f;Pont de Neirivue;R 260;-3%;;;7695fb47-5f2b-4f68-93b1-3f869a5f39f4;0;0;0
+CM;0;Montbovon;0;Montbovon;60;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;Voie 232;R 350 HT;94%;t;;d31bf048-ead8-4227-af22-11e3804bd87e;0;0;0
+CM;0;Montbovon;0;Montbovon;61;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;f574a481-9e1f-42ec-9b60-a40d0a14f5f2;0;0;0
+FMA;12.572;PN Moulin;12.635;;63;1;2018;2051;Soudée;CFF I;2018;Acier (bêches longues);2018;Aek;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;c5d360c0-1c65-493b-a3eb-2ed9f57c7d0e;0;0;0
+FMA;20.729;;20.801;Sortie gare Münchenwiler;63;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 2;R 260;91%;t;f;6a4183e2-d9ef-4065-aaef-b20c7ae30083;0;0;0
+;0;;0;;64;0;0;0;;;0;;0;;;;;;;;;;;;;;;f59b3b6b-8647-414c-b9c8-5ef0426f2b73;0;0;0
+FMA;20.729;;20.801;Sortie gare Münchenwiler;64;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 1;R 260;91%;t;f;08bda6a4-1cfb-42b7-b6c6-2792797ba8f7;0;0;0
+;0;;0;;65;0;0;0;;;0;;0;;;;;;;;;;;;;;;bf87e3f4-971e-42bb-9bdb-e07fb00c3f9a;0;0;0
+CM;0;;0;;65;1;2019;2052;Soudée;CFF I;2019;;2019;;;f;f;f;f;f;f;f;;;;f;f;9028b428-3006-4ffe-8b2c-91026e2684b9;0;0;0
+;0;;0;;66;0;0;0;;;0;;0;;;;;;;;;;;;;;;3720187e-fa8a-4cf1-9908-dca5442fa4f1;0;0;0
+FMA;31.833;Entrée Anet;32.19;Anet;67;0;0;0;;;0;;0;;;f;f;f;f;f;f;f;Gare BLS;R 260;%;;;1c0048d9-fba2-4460-a08e-0879a7eed49b;0;0;0
+BB;0;;0;;68;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;a816188f-89a1-4647-ad76-98a53130ce12;0;0;0
+CM;0;;0;;68;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;71c74d13-8f8c-4ae8-bd13-903c2b7efcb3;0;0;0
+FMA;24.8;Montilier / Bifurcation;24.869;Montilier / Avant PN;69;2;1996;2029;Soudée;CFF I;0;Acier (bêches courtes);0;Aek;CFF Q1;t;f;f;f;t;t;t;;R 260;27%;;;95ae2aaa-72da-4a94-9ab5-7027cde2249a;0;0;0
+CM;7.7;Entrée La Verrerie / Gare;7.77;Sortie La Verrerie / Gare;70;3;1987;2020;Soudée;UST 36;1987;Acier (bêches courtes);1987;Ae;Grandjean - Enney;t;f;f;t;t;t;t;Branchement 1 et 2 (Talonnable) 2008;R 260;0%;f;;5502f8f9-b20f-4e4f-ac69-9fb168374794;0;0;0
+;0;;0;;72;0;0;0;;;0;;0;;;;;;;;;;;;;;;64b043a1-855b-475e-9a15-41f9594c0e7d;0;0;0
+CM;0;;0;;74;1;2019;2052;Soudée;CFF I;2019;Béton;2019;;CFF Q1;;;;;;;;;R 260;%;;;2cca4a0d-eaba-4023-9978-8c6e0391526d;0;0;0
+CM;0;;0;;74;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;67e508d7-fa4a-476c-8c6f-8612bd24b001;0;0;0
+CM;0;;0;;74;1;2019;2052;Soudée;CFF I;2019;Béton;2019;;;;;;;;;;;;;;;497e77d7-fa92-4047-9fc4-76232533482d;0;0;0
+CM;0;;0;;74;1;2019;2052;Soudée;CFF I;2019;;2019;;;f;f;f;f;f;f;f;;;;f;f;acd2e9f3-5e51-4acc-bb17-7ae8cb60b7ce;0;0;0
+CM;0;;0;;74;1;2019;2052;Soudée;CFF I;2019;Béton;2019;;;;;;;;;;;;;;;410b73d5-def2-43e8-bedd-8794cdf65d09;0;0;0
+BR;1.8;Pont RN12;1.86;Pont RN12;75;1;2012;2045;Soudée;CFF IV;2012;Bois;2012;Aek;CFF Q1;t;f;f;t;t;f;f;;R 260;76%;;;732ee215-6603-45e2-9c1d-10becf2aa123;0;0;0
+PC;0;;0;;82;1;2019;2052;Soudée;CFF I;2019;Acier (bêches longues);2014;Aek;CFF Q1;t;t;f;t;t;f;f;Voie 20;R 350 HT;97%;t;t;053baedf-c373-4906-b254-0a8034dfc442;-710;-410;0
+CM;0;;0;;83;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;eea6d62e-ee18-4902-9e12-6e9becc66424;0;0;0
+BR;0;;0;;83;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;b4290cc6-796e-44e9-98a3-c85a6d388367;0;0;0
+BR;0;;0;;83;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;cb7a2f4f-caf8-46d6-9645-258d3dac33f5;0;0;0
+BR;7.965;;8.05;;84;1;2011;2044;Soudée;CFF IV;2011;Bois;2011;Ke;CFF Q1;t;t;f;t;t;f;f;;R 260;73%;;;de68f151-5668-4363-bf5a-aab13c3e3004;0;0;0
+PC;95.426;Remaufens / Au Moulin;95.51;PN Au Moulin;84;1;2016;2049;Soudée;CFF I;2014;Acier (bêches longues);2014;Aek;CFF Q1;t;t;f;t;t;f;f;;R 260;88%;t;f;ac946f5e-a4b7-4412-b738-f11ec50c844e;0;0;0
+FMA;27.385;Montilier - Sugiez;27.471;Entrée Sugiez;85;1;2004;2037;Soudée;CFF IV;2004;Bois;2004;K;CFF Q1;t;f;f;f;t;t;t;;R 260;52%;;;dc4684b8-c019-462d-8060-674bc599cce7;0;0;0
+CM;0;Montbovon;0;Montbovon;86;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;4093b5cd-b8a4-40f6-8046-b420be0c5a04;0;0;0
+FMA;20.642;PN Gare Münchenwiler;20.729;;87;1;2017;2050;Soudée;CFF I;2017;Acier (bêches longues);2017;Aek;CFF Q1;t;t;f;t;t;f;f;Voie 1;R 260;91%;t;f;7af635ce-631a-4351-9ac9-3d01b5eac81e;0;0;0
+FMA;0;G7;0;G7;90;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;29c1dfb9-c31c-4894-a681-8ce03d945690;0;0;0
+FMA;20.642;PN Gare Münchenwiler;20.729;;90;1;2017;2050;Soudée;CFF I;2017;Acier (bêches longues);2017;Aek;CFF Q1;t;t;f;t;t;f;f;Voie 2;R 260;91%;t;f;ee9455cf-0355-4fcd-8bdd-7e22607eb569;0;0;0
+CM;0;Montbovon;0;Montbovon;91;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;Voie 3;R 350 HT;94%;t;;817edad2-7aa8-4b75-a344-88d3762eabfa;0;0;0
+CM;0;;0;;93;1;2019;2052;Soudée;CFF I;2019;Béton;2019;;CFF Q1;;;;;;;;;R 260;%;;;ea7f2bf2-709d-4839-a33e-c60fc2ad4c20;0;0;0
+CM;0;Montbovon;0;Montbovon;93;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;Voie 222;R 350 HT;94%;t;;aaad0092-1327-4ad8-85a0-e833a7308cdb;0;0;0
+CM;0;;0;;97;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;a640f4eb-6aa8-4f46-afe3-2d120f6f1037;0;0;0
+FMA;9.152;Sortie Pensier;9.25;;98;1;2016;2049;Soudée;CFF IV;2016;Acier (bêches longues);2016;Aek;CFF Q1;t;t;f;t;t;f;f;Pensier;R 260;88%;t;f;1d60e92d-c7db-4e2a-bd2c-a539db5f12b8;0;0;0
+CM;0;;0;;99;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;08095d61-1ee6-4d1c-bdc0-668b667946a8;0;0;0
+CM;6.15;Semsales / G;6.25;Sortie Semsales;100;3;2000;2019;Soudée;UST 36;2000;Acier (bêches courtes);2000;Ae;Grandjean - Enney;t;f;f;f;t;t;t;Voie 2;R 260;39%;f;f;ae567a33-d087-4a2d-8851-f07223425b8b;0;0;0
+;0;;0;;102;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;14448cb4-d861-48a1-8f6d-1a8bddfe913b;0;0;0
+FMA;20.086;PN La Pose;20.188;;103;1;2017;2050;Soudée;CFF I;2017;Acier (bêches longues);2017;Aek;CFF Q1;t;t;f;t;t;f;f;;R 260;91%;t;f;04550e0e-b83a-4924-aad5-dd4728bdec19;0;0;0
+CM;0;;0;;107;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;310efc73-0d76-4de4-a68b-a405a4c2b761;0;0;0
+CM;0;;0;;108;1;2020;2053;Soudée;CFF I;2020;Béton;2020;Ws;CFF Q1;t;t;f;f;t;f;f;;R 350 HT;;f;f;d4d959cb-22da-40f4-a328-de69d45d651a;0;-440;-20
+CM;32.392;Albeuve;32.5;Pont de la Marivue;108;3;1974;2025;Soudée;UST 36;1974;Acier (bêches courtes);1974;Ae;Grandjean - Enney;t;f;f;f;t;t;t;Neutralisation 2011;R 260;-39%;;;26bc1d6f-6801-4945-857c-be2a535fc353;0;0;0
+PC;0;;0;;110;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;97%;t;t;11505eb4-63ca-4ee7-8658-edbfd29a386c;-750;-450;-10
+;0;;0;;112;0;0;0;;;0;;0;;;;;;;;;;;;;;;b1704999-d9b1-42cc-92bf-de86ccd52edb;0;0;0
+;0;;0;;112;0;0;0;;;0;;0;;;;;;;;;;;;;;;34f26a84-97e2-4735-90d5-40f0f5f7fb97;0;0;0
+;0;;0;;118;0;0;0;;;0;;0;;;;;;;;;;;;;;;0e410c39-22d6-4f37-859a-74c1afbd9423;0;0;0
+BR;0;;0;;119;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;8af637ea-a7b7-4410-8008-77bb279ab95a;0;0;0
+CM;32.5;Pont de la Marivue;32.62;Halte d'Albeuve;120;1;2007;2040;Soudée;CFF I;2007;Bois;2007;Aek;Grandjean - Enney;t;t;f;t;t;t;t;;R 260;61%;;;ad54d844-219b-484e-bdbd-ad82c5f88d24;0;0;0
+PC;0;;0;;120;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;Ws;CFF Q1;t;t;f;t;t;f;f;Voie 1;R 350 HT;97%;t;t;71fb9370-9b78-41d9-8321-b766e2c6fa4f;-750;-450;-10
+PC;0;;0;;122;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;Ws;CFF Q1;t;t;f;t;t;f;f;Voie 2;R 350 HT;97%;t;t;4ade9fa7-3d39-40e5-872e-773e913ee56a;-750;-450;-10
+;0;;0;;123;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;abca5f14-3308-4c60-949f-712e5b01c6e7;0;0;0
+PC;93.785;PN de Tatroz;93.91;;124;1;2016;2049;Soudée;CFF I;2014;Acier (bêches longues);2014;Aek;CFF Q1;t;t;f;t;t;f;f;;R 260;88%;t;f;58eb88d8-c9e8-4afd-8a67-eaa476496a86;0;0;0
+CM;0;;0;;124;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;96f5628c-9c28-4ea8-84f3-9993e7ddae25;0;0;0
+FMA;0;G7;0;G7;124;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;d6977348-30a6-4afc-99ee-b95ddf6d0a7a;0;0;0
+FMA;0;G7;0;G7;125;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;14bf5a1d-9489-41af-8275-6510ec4eb48b;0;0;0
+FMA;20.496;;20.622;PN Gare Münchenwiler;127;1;2017;2050;Soudée;CFF I;2017;Acier (bêches longues);2017;Aek;CFF Q1;t;t;f;t;t;f;f;Voie 1;R 260;91%;t;f;ff6fa238-dc47-4646-a1df-84e640cf47c1;0;0;0
+CM;10.72;Pont de la Gissetta;10.849;;129;4;1977;2021;Soudée;UST 36;1977;Acier (bêches courtes);1977;Ae;Grandjean - Enney;t;f;f;f;t;t;t;;R 260;-30%;f;f;75750125-e7be-4bdd-83dc-c89296449848;0;0;0
+FMA;20.496;;20.622;PN Gare Münchenwiler;130;1;2017;2050;Soudée;CFF I;2017;Acier (bêches longues);2017;Aek;CFF Q1;t;t;f;t;t;f;f;Voie 2;R 260;91%;t;f;a8de68a3-146d-4a2a-a666-17d6c4603fc4;0;0;0
+;0;;0;;133;0;0;0;;;0;;0;;;;;;;;;;;;;;;f230f0aa-eb71-4981-b3a5-16abe7bfbb2e;0;0;0
+;0;;0;;137;0;0;0;;;0;;0;;;;;;;;;;;;;;;8e4999b3-62ce-442a-b33f-849a775f7cdf;0;0;0
+PC;0;;0;;137;1;2019;2052;Soudée;CFF I;2019;Acier (bêches longues);2014;Aek;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;97%;t;t;a8934871-eef9-48f7-b5d6-260c7ac46e97;-710;-410;-10
+FMA;12.635;;12.775;;140;2;2002;2035;Soudée;CFF IV;2002;Acier (bêches courtes);2002;Aek;CFF Q1;t;f;f;t;t;t;t;;R 260;45%;f;;886feadc-7383-4db5-a92f-d74e79258de1;0;0;0
+FMA;0;;0;;140;1;2022;2055;Soudée;CFF IV;2022;Acier (bêches longues);2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;02b435cf-0f10-4027-bda0-48671fb8210f;0;0;0
+FMA;0;G7;0;G7;143;1;2018;2051;Soudée;CFF IV;2018;;2018;;;t;t;f;t;t;f;f;Voie intérieur dépot;R 350 HT;94%;t;;695abf34-093c-4132-b41e-d944ac44dd93;0;0;0
+FMA;0;G7;0;G7;143;1;2018;2051;Soudée;CFF IV;2018;;2018;;;t;t;f;t;t;f;f;Voie intérieur dépot;R 350 HT;94%;t;;06ed7585-1827-4b0a-b7a2-59fdca5afc80;0;0;0
+FMA;0;G7;0;G7;143;1;2018;2051;Soudée;CFF IV;2018;;2018;;;t;t;f;t;t;f;f;Voie intérieur dépot;R 350 HT;94%;t;;c0701372-755b-4472-b107-4809a9b16b6f;0;0;0
+FMA;0;G7;0;G7;143;1;2018;2051;Soudée;CFF IV;2018;;2018;;;t;t;f;t;t;f;f;Voie intérieur dépot;R 350 HT;94%;t;;814f4188-0bad-43f8-8de2-3d7765360622;0;0;0
+FMA;5.426;Belfaux;5.57;Belfaux;146;1;2018;2051;Soudée;CFF I;2018;Acier (bêches longues);2018;Aek;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;d9a7539a-6133-4f29-b869-60411302eb12;0;0;0
+CM;31.27;Entrée Neirivue;31.42;Sortie Neirivue;150;3;1983;2021;Soudée;UST 36;1983;Acier (bêches courtes);1983;Ae;Grandjean - Enney;t;t;f;f;t;t;t;;R 260;-12%;;;eb5ff1aa-71da-4a53-a6e2-b5784ec02ecb;0;0;0
+BR;0;;0;;150;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;b6ba85ec-8f2c-4fdc-ac24-b605833792ad;0;0;0
+FMA;19.915;;20.066;PN La Pose;150;1;2017;2050;Soudée;CFF I;2017;Acier (bêches longues);2017;Aek;CFF Q1;t;t;f;t;t;f;f;;R 260;91%;t;f;df770dd7-e790-42a5-bdd7-3016a5523fc5;0;0;0
+;0;;0;;152;0;0;0;;;0;;0;;;;;;;;;;;;;;;fcd1cf1d-acf8-40bc-aac4-1c14e922a1f0;0;0;0
+FMA;0;G7;0;G7;162;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;91%;t;;d83d33c4-b080-4270-b969-aaff85276954;0;0;0
+CM;7;Praz Linliaz;7.165;Praz Linliaz;165;1;2011;2044;Soudée;CFF I;2010;Bois;2010;K;CFF Q1;t;f;f;f;t;t;t;Etanchéité de l'auge refaite;R 260;73%;f;f;d730ad0f-be00-4a65-8279-19531a19e50f;0;0;0
+FMA;21.792;Courbe de Morat;21.957;Courbe de Morat;165;1;2017;2050;Soudée;CFF I;2017;Acier (bêches longues);2017;STi 14;CFF Q1;t;t;f;t;t;f;f;Courbe entrée de Morat (R=183);R 260;91%;t;f;a10b3385-cd3b-490f-a5fb-a312e7188509;0;0;0
+;0;;0;;166;0;0;0;;;0;;0;;;;;;;;;;;;;;;0133126c-c5f4-4ae7-b804-f36f483d3cf7;0;0;0
+Bull;0;;0;;167;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;3641493c-5a42-4175-8591-c1e471aadf86;0;0;0
+FMA;9.25;Sortie Pensier;9.418;Sortie courbe gare Pensier;168;1;2015;2041;Soudée;CFF IV;2008;Acier (bêches longues);2008;Aek;CFF Q1;t;t;t;t;t;f;f;;R 260;85%;f;f;7af17b70-3331-41ac-acfb-ebd306ec3de1;0;0;0
+CM;6.08;Entrée de Semsales;6.25;Semsales / G;170;3;1978;2019;Soudée;UST 36;1978;Acier (bêches courtes);1978;Ae;Grandjean - Enney;t;f;f;f;t;t;t;Voie 1;R 260;-27%;f;f;f189fe27-0907-4aaf-9ecb-88a2c3f4fc0a;0;0;0
+CM;0;Montbovon;0;Montbovon;173;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;Voie 211;R 350 HT;94%;t;;62652bd9-80b2-4cf8-b414-802e2fbe8060;0;0;0
+;0;;0;;179;0;0;0;;;0;;0;;;;;;;;;;;;;;;c37863d8-1db5-40f0-a218-0e6d87ffb161;0;0;0
+CM;0;;0;;179;1;2020;2053;Soudée;CFF I;2020;Béton;2020;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;;t;t;19395cc0-3162-4a1b-b4ee-ab32ae9ab17d;-730;-440;-20
+CM;0;;0;;180;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;a454967c-e0d8-44ab-9d3b-abd174291a18;0;0;0
+FMA;21.611;;21.792;;181;1;2017;2050;Soudée;CFF IV;2017;Acier (bêches longues);2017;STi 14;CFF Q1;t;t;f;t;t;f;f;2 files de rail isolées;R 260;91%;t;f;e17b7f92-a574-4c5e-8792-311d1f6aa312;0;0;0
+FMA;0;G7;0;G7;183;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;6797c78e-8f3f-4b2c-aaef-915e3d146ca1;0;0;0
+FMA;0;G7;0;G7;184;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;f7d09049-f828-4b57-8ec8-e34c72f4e64e;0;0;0
+PC;0;;0;;185;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;Ws;CFF Q1;t;t;f;f;t;f;f;Voie 1 sur pont;R 350 HT;97%;f;f;40b80589-4c4a-4c06-b37a-d43d9ece6a07;-750;-450;-10
+CM;14.123;Entrée Vaulruz-Sud;14.31;Sortie Vaulruz-Sud;186;2;2012;2045;Soudée;UST 36;1978;Acier (bêches courtes);1991;Ae;Grandjean - Enney;t;t;t;t;t;t;t;Voie 2;R 260;76%;;;9fc5fce2-fb75-4fbc-8066-4ba8b2d6ef25;0;0;0
+BR;4.87;Avant la courbe Entrée Vaulruz-Nord;5.056;Entrée Vaulruz-Nord;186;1;2014;2047;Soudée;CFF I;2014;Acier (bêches longues);2014;Aek;CFF Q1;t;f;t;t;t;t;f;;R 260;82%;;;b2b566ce-fa2d-400f-969a-89f83c7076f1;0;0;0
+CM;14.123;Entrée Vaulruz-Sud;14.31;Sortie Vaulruz-Sud;187;2;2010;2043;Soudée;UST 36;1975;Acier (bêches courtes);1976;Ae;Grandjean - Enney;t;t;t;t;t;t;t;Voie 1;R 260;70%;f;f;d4b83d90-3210-4f34-9dd5-482c4541ac59;0;0;0
+PC;0;;0;;188;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;Ws;CFF Q1;t;t;f;f;t;f;f;Voie 2 sur pont;R 350 HT;97%;f;;8d86c5b5-7a90-4ffd-97ce-f2f05f2d3b79;-750;-450;-10
+;0;;0;;189;0;0;0;;;0;;0;;;;;;;;;;;;;;;95985623-ea5b-4fc2-a79a-53b1e1389e9f;0;0;0
+BR;0;;0;;189;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;d92195a1-2335-4053-a93b-6a1b7d874091;0;0;0
+CM;35.35;Pont de L'Hongrin;35.54;Pont de L'Hongrin;190;3;1992;2030;Soudée;UST 36;1992;Acier (bêches courtes);1992;Ae;Grandjean - Enney;t;t;f;t;t;f;f;Traverses bois sur 50 m sur le pont;R 260;15%;f;f;44e8b8b0-c7bf-435f-a4bd-333afa8fc841;0;0;0
+FMA;5.57;Descente de Belfaux;5.765;Entrée Gare Belfaux-Village;193;1;2015;2048;Soudée;CFF I;2015;Acier (bêches longues);2015;Aek;CFF Q1;t;t;f;t;t;f;f;;R 260;85%;t;f;74270008-da7c-4d79-ae02-6847923d91c6;0;0;0
+FMA;0;G7;0;G7;194;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;91%;t;;168f28c2-4e0e-4f8e-9d11-b6d0f2da990d;0;0;0
+FMA;6.213;Sortie Belaux-Village;6.408;PN Formangueires;195;1;2015;2048;Soudée;CFF IV;2015;Bois;2015;Ke;CFF Q1;t;t;f;t;t;f;f;;R 260;85%;t;f;c246b1e7-bcca-47ef-902d-2c335d9ac51b;0;0;0
+;0;;0;;196;0;0;0;;;0;;0;;;;;;;;;;;;;;;d859b7f0-cee1-482e-9d3e-521b043b2695;0;0;0
+BB;0;;0;;197;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;f9898e6c-6dab-458b-9b7e-6403a7392017;0;0;0
+;0;;0;;198;0;0;0;;;0;;0;;;;;;;;;;;;;;;3743f811-c30f-41cf-b062-bba03a516281;0;0;0
+PC;0;;0;;200;1;2019;2052;Soudée;CFF I;2019;Acier (bêches longues);2014;Aek;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;97%;t;t;f350fae2-7bd4-421b-9912-830ec3cb8c73;-710;-410;-10
+PC;0;;0;;200;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;Ws;CFF Q1;t;t;f;t;t;f;f;Voie 1;R 350 HT;97%;t;t;322bf085-c1ec-417c-8cd1-b173bb8078df;-690;-450;-10
+CM;0;;0;;204;1;2020;2053;Soudée;CFF I;2020;Béton;2020;Ws;CFF Q1;t;t;f;f;t;f;f;;R 350 HT;;f;f;66905a68-5138-4d95-9a37-e0d7e47a6347;0;-440;-20
+PC;0;;0;;204;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;Ws;CFF Q1;t;t;f;t;t;f;f;Voie 2;R 350 HT;97%;t;t;80f2e622-dd42-4d65-8ec8-de9a101940a9;-690;-450;-10
+PC;95.525;PN Au Moulin;95.73;PN Rouvena;205;1;2016;2049;Soudée;CFF I;2014;Acier (bêches longues);2014;Aek;CFF Q1;t;t;f;t;t;f;f;;R 260;88%;t;f;bd6413c0-875e-4aaf-9410-0db36e3ad719;0;0;0
+CM;0;;0;;220;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;02dd8364-228c-4aff-a6cb-19f9cd785453;0;0;0
+;0;;0;;223;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;ca6f60c7-6840-4e5d-8fcf-092be3c809c2;0;0;0
+;0;;0;;225;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;420dbee2-324f-4a1f-865a-04b76b2ab150;0;0;0
+;0;;0;;227;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;b811eff3-635f-4b12-8037-2409139e22d3;0;0;0
+BB;0;;0;;231;1;2023;2056;Soudée;CFF IV;2023;Béton;2023;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;91c939e6-fa71-42dd-aaba-9a2e29905be2;0;0;0
+FMA;0;G7;0;G7;235;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;91%;t;;aeb0924e-1c10-4b29-b099-ff0a613c0e46;0;0;0
+BB;0;;0;;236;1;2023;2056;Soudée;CFF IV;2023;Béton;2023;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;69080a24-9431-4d5e-9e4d-771033e02bfa;0;0;0
+BR;0;;0;;236;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;473632f3-d544-4718-ba18-26e34b41eb5d;0;0;0
+CM;29.216;Entrée Grandvillard;29.455;Sortie Grandvillard;239;2;1992;2023;Soudée;UST 36;1992;Bois;1992;Aek;Grandjean - Enney;t;t;f;t;t;t;t;;R 260;15%;;;d6ea30d3-99f8-404b-b849-9f58c1d44446;0;0;0
+CM;36.3;Entrée village Montbovon;36.55;Entrée Gare Montbovon;242;1;2006;2040;Soudée;Ri 60;2006;Béton;2006;Ws;;t;t;f;t;t;f;f;Tronçon routier sans ballaste;R 260;58%;f;;52ebe21e-7188-47c8-a105-b27bbf795559;0;0;0
+CM;0;Montbovon;0;Montbovon;246;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;Voie 3;R 350 HT;94%;t;;40a2fafb-a6a2-435e-8e35-d9a8d11db61a;0;0;0
+BR;0;;0;;247;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;c6ae629e-2653-488e-b8f0-4244dcda5132;0;0;0
+;0;;0;;262;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;42e82df6-674f-4234-a1e1-62017fc79f4c;0;0;0
+FMA;27.912;Sortie Sugiez après PN;28.174;Sortie de courbe Sugiez;264;1;2004;2037;Soudée;CFF IV;2004;Acier (bêches courtes);2004;Aek;CFF Q1;t;f;f;t;t;t;t;;R 260;52%;;;972b1c54-4357-45a1-9315-b078611f2a46;0;0;0
+BR;0;;0;;265;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;b1fbd5c2-0721-4182-83bf-7a6469c1e97f;0;0;0
+CM;0;;0;;269;1;2022;2055;Soudée;CFF I;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;16c250f3-6590-4d63-a87f-9cf3c97769ec;0;0;0
+BR;5.056;Entrée Gare Vaulruz-Nord;5.327;Sortie Gare Vaulruz-Nord;271;1;2011;2044;Soudée;CFF IV;2011;Bois;2011;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 2;R 260;73%;f;;9ea86676-28f0-46dd-9f1e-f6cf1a910b97;0;0;0
+BR;5.056;Entrée Gare Vaulruz-Nord;5.327;Sortie Gare Vaulruz-Nord;272;1;2011;2044;Soudée;CFF IV;2011;Bois;2011;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 1;R 260;73%;f;;64df65bb-34d1-4cf1-ad65-0331643e5d6d;0;0;0
+FMA;20.194;Entrée gare Münchenwiler;20.484;;276;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 1;R 260;91%;t;f;acfbcc4b-6edd-41e5-b216-07a04543ace2;0;0;0
+FMA;20.194;Entrée gare Münchenwiler;20.484;;277;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 2;R 260;91%;t;f;61eb0f55-f26c-4454-9c7d-1657ec183aab;0;0;0
+PC;0;;0;;281;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;97%;t;t;b5ca3a27-0dae-441f-93fe-a7aec8c05953;-750;-450;-10
+FMA;16.684;Entrée Cressier;16.965;Sortie Cressier après PN;281;3;1976;2023;Soudée;CFF I;0;;0;;CFF Q1;t;f;f;f;t;t;t;Cressier;R 260;-33%;f;;4d38be01-19b5-4fda-846f-3dcfe0928b08;0;0;0
+FMA;0;G7;0;G7;282;1;2017;2050;Soudée;CFF IV;2017;Bois;2017;Ke;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;91%;t;;fff8c712-c865-4f4b-afb5-9015b28ca340;0;0;0
+PC;95.74;PN Rouvena;96.04;;300;1;2016;2049;Soudée;CFF I;2014;Acier (bêches longues);2014;Aek;CFF Q1;t;t;f;t;t;f;f;;R 260;88%;t;f;e60f3f6d-9d7f-4448-930d-d38d3c9e3370;0;0;0
+CM;0;Montbovon;0;Montbovon;305;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;Voie 2;R 350 HT;94%;t;;f5cca6e6-c8f6-4346-942a-549072cd3a23;0;0;0
+FMA;20.801;Sortie gare Münchenwiler;21.101;;306;1;2017;2050;Soudée;CFF I;2017;Acier (bêches longues);2017;Aek;CFF Q1;t;t;f;t;t;f;f;;R 260;91%;t;f;30c72f9b-11a1-44b0-acf3-3337d5faf235;0;0;0
+PC;94.443;Fin réfection / RCB 150;94.75;PN Vuarrat;307;1;2016;2049;Soudée;CFF I;2014;Acier (bêches longues);2014;Aek;CFF Q1;t;t;f;t;t;f;f;;R 260;88%;t;t;129fed98-a489-4680-8c7c-2d959d5a5dfc;0;0;0
+CM;0;;0;;322;1;2020;2053;Soudée;CFF I;2020;Béton;2020;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;;t;t;2bf24548-7302-40ca-b343-c1e30a29ab52;-730;-440;-20
+;0;;0;;336;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;0c122472-957f-4050-a0de-e66dc55cdf21;0;0;0
+PC;92.92;;93.26;;342;1;2019;2052;Soudée;CFF I;2019;Acier (bêches longues);2014;Aek;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;97%;t;t;424c2efb-ea28-421e-9a3a-4856875af768;-710;-350;-5
+;0;;0;;356;0;0;0;;;0;;0;;;;;;;;;;;;;;;6c746409-e8f2-4b17-a9b3-f339c3282ff9;0;0;0
+CM;0;;0;;359;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;;;;;;;;;R 350 HT;;;;5bf9f374-6a2d-4870-9367-484afa155805;0;0;0
+FMA;27.026;Montilier - Sugiez;27.385;Montilier - Sugiez;359;1;2004;2037;Soudée;CFF IV;2004;Acier (bêches courtes);2004;Aek;CFF Q1;t;f;f;f;t;t;t;;R 260;52%;;;9fbca5d1-9491-402e-a85e-f108735cd7a5;0;0;0
+BR;7.672;Entrée Sâles;8.032;Sortie Sâles;360;1;2011;2044;Soudée;CFF IV;2011;Bois;2011;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 2;R 260;73%;;;0b6e7989-7c9e-4cc8-a3d8-01038ffb29da;0;0;0
+BR;7.672;Entrée Sâles;8.032;Sortie Sâles;360;1;2011;2044;Soudée;CFF IV;2011;Bois;2011;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 1;R 260;73%;;;372a5daf-ada5-4fca-80ea-0529473657b8;0;0;0
+BR;11.471;Entrée Vuisternens-Dt-Romont;11.835;Sorie Vuisternens-Dt-Romont;364;1;2011;2044;Soudée;CFF IV;2011;Bois;2011;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 2;R 260;73%;f;;645d74a8-322c-456b-91d4-c977e88f2e18;0;0;0
+BR;11.471;Entrée Vuisternens-Dt-Romont;11.835;Sorie Vuisternens-Dt-Romont;364;1;2011;2044;Soudée;CFF IV;2011;Bois;2011;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 1;R 260;73%;f;;22f265b6-d6e9-450e-9b5d-463289b5e188;0;0;0
+BR;0;;0;;389;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;1d6b9996-983d-4cd8-bcb5-cce8afcbc6be;0;0;0
+CM;10.3;Pont Gissetta;10.698;Pont Mortivue;392;4;1977;2021;Soudée;UST 36;1977;Acier (bêches courtes);1977;Ae;Grandjean - Enney;t;f;f;f;t;t;t;;R 260;-30%;f;f;cc48786c-a49a-41f0-85ca-91e75e435bd9;0;0;0
+;0;;0;;396;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;1410e666-71cb-4c2b-932b-bfa4636e1662;0;0;0
+FMA;16.965;Sortie Cressier après PN;17.365;Courbe zone industrielle;400;3;1995;2025;Soudée;CFF I;1995;Acier (bêches courtes);1995;Ae;CFF Q1;t;f;f;f;t;t;t;;R 260;24%;f;;dbb38fca-baa4-42ef-b8e4-d585d3d7e32c;0;0;0
+CM;0;Montbovon;0;Montbovon;416;1;2018;2051;Soudée;CFF IV;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;Voie 1;R 350 HT;94%;t;;18d66375-5cc0-471e-aeed-e17de129a314;0;0;0
+FMA;5.796;Entrée Belfaux-Village;6.213;Sortie Belfaux-Village;417;1;2015;2048;Soudée;CFF IV;2015;Bois;2015;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 2;R 260;85%;t;t;a8222c4a-a009-475c-a422-297c022b3e75;0;0;0
+FMA;5.796;Entrée Belfaux-Village;6.213;Sortie Belfaux-Village;417;1;2015;2048;Soudée;CFF IV;2015;Bois;2015;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 1;R 260;85%;t;t;48a2c270-c670-494c-b273-688954021e7a;0;0;0
+CM;4.45;Pont du Dhaz;4.87;Pont du Dhaz;420;1;2014;2047;Soudée;CFF I;2014;Acier (bêches longues);2014;Aek;CFF Q1;t;f;t;f;t;t;f;;R 260;82%;;;57538839-fe08-4169-9c9a-a0e21fec4ba9;0;0;0
+FMA;27.471;Entrée Sugiez;27.887;Sortie Sugiez après PN;423;2;1998;2031;Soudée;CFF I;1998;Bois;1998;K;CFF Q1;t;f;f;f;t;t;t;Sugiez;R 260;33%;;;1ce38c05-42f7-4bbd-9b74-c211b1a02bf5;0;0;0
+FMA;24.894;Montilier / Après PN;25.332;Montilier - Sugiez;438;1;2004;2037;Soudée;CFF IV;2004;Acier (bêches courtes);2004;Aek;CFF Q1;t;f;f;f;t;t;t;;R 260;52%;;;3332ccd1-d3e6-4488-ba0d-e5a67119b448;0;0;0
+FMA;12.038;Entrée Courtepin;12.485;Sortie Courtepin;447;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 1 / 190 m voie au niveau du quai vient montée au mois de mars 2019;R 350 HT;94%;t;f;94e31c7f-10fc-4797-a78d-c30a874bcb32;0;0;0
+FMA;12.038;Entrée Courtepin;12.485;Sortie Courtepin;449;1;2018;2051;Soudée;CFF IV;2018;Bois;2018;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 2;R 350 HT;94%;t;f;adf289ea-5a6e-4dcc-8c53-783bcd515a89;0;0;0
+CM;12.96;Pont d'Amont;13.43;Les Ponts;470;3;1989;2021;Soudée;UST 36;1989;Acier (bêches courtes);1989;Ae;Grandjean - Enney;t;f;f;f;t;t;t;;R 260;6%;f;;7e9af933-06de-4a69-bc6b-e13146a547f6;0;0;0
+CM;29.455;Sortie Grandvillard;31.27;Entrée Neirivue;472;3;1977;2021;Soudée;UST 36;1977;Acier (bêches courtes);1977;Ae;Grandjean - Enney;t;f;f;t;t;t;t;Changement de rail dans certaines courbes et neutralisation;R 260;-30%;;;22b84022-e644-45a1-bc60-0cbac4fffcfa;0;0;0
+FMA;4.055;Givisiez;4.548;Givisiez;482;4;2018;2051;Eclissée;;2018;Béton;2018;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;f;aee1ae73-c4ac-453b-87c7-68fc6bca6354;0;0;0
+CM;32.62;Halte d'Albeuve;33.112;La Tena;492;3;1974;2025;Soudée;UST 36;1974;Acier (bêches courtes);1974;Ae;Grandjean - Enney;t;f;f;f;t;t;t;Changement de rail dans certaines courbes et neutralisation;R 260;-39%;;;f1b3e450-6ff7-4672-9671-6cdc48c2e6c3;0;0;0
+FMA;21.101;;21.611;;511;1;2017;2050;Soudée;CFF IV;2017;Acier (bêches longues);2017;Aek;CFF Q1;t;t;f;t;t;f;f;;R 260;91%;t;f;33fcb784-6b9f-4286-a016-7ec5afcd1cb2;0;0;0
+BB;0;;0;;512;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;ca6d7dc2-6a15-471c-8f49-0c6026e973e3;0;0;0
+PC;93.26;;93.775;PN de Tatroz;516;1;2016;2049;Soudée;CFF I;2014;Acier (bêches longues);2014;Aek;CFF Q1;t;t;f;t;t;f;f;;R 260;88%;t;f;f45e0ecd-c103-4240-93c9-b5cade3fc335;0;0;0
+CM;9.77;Le Crêt / H;10.3;Pont Gissetta;530;4;1983;2021;Soudée;UST 36;0;Acier (bêches courtes);0;Ae;Grandjean - Enney;t;f;f;f;t;t;t;;R 260;-12%;f;f;efdec556-f12c-43be-bc01-d416e7860fc6;0;0;0
+PC;93.91;Tatroz / H;94.443;Fin réfection / RCB 150;534;1;2019;2052;Soudée;CFF I;2019;Acier (bêches longues);2014;Aek;CFF Q1;t;t;f;f;t;f;f;;R 350 HT;97%;t;t;d02f7403-06b3-4a7f-a45b-79cfe854a74f;-710;-350;-5
+CM;7.165;Praz Linliaz;7.7;entrée La Verrerie / Gare;535;3;1978;2011;Soudée;UST 36;1987;Acier (bêches courtes);1987;Ae;Grandjean - Enney;t;f;f;f;t;t;t;;R 260;-27%;f;f;a2d431a5-c81a-4dea-8de4-9db2010d4bf1;0;0;0
+CM;0;;0;;558;1;2020;2053;Soudée;CFF I;2020;Béton;2020;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;;t;t;502242c2-3cef-40fb-b226-f47d9b99ed89;-730;-440;-20
+;0;;0;;568;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;;;;;;;;;;;;;38722434-ec5b-4db5-a848-04c59c40cb7c;0;0;0
+FMA;8.581;Entrée Pensier;9.152;Sortie Pensier;570;1;2016;2049;Soudée;CFF IV;2016;Bois;2016;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 1;R 260;88%;t;f;1c3fb7b3-f77f-47bb-9e6e-3ae986064ce9;0;0;0
+FMA;8.581;Entrée Pensier;9.152;Sortie Pensier;571;1;2016;2049;Soudée;CFF IV;2016;Bois;2016;Ke;CFF Q1;t;t;f;t;t;f;f;Voie 2;R 260;88%;t;f;4759e4aa-1fd5-4263-a855-15241bbd55ff;0;0;0
+BR;0;;0;;580;1;2020;2053;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;745f24f8-209b-479c-b4e2-c3da2500422e;0;0;0
+CM;21;La Tour de Trême / G;21.6;Secteur H 189;600;2;2003;2036;Soudée;CFF I;2003;Acier (bêches courtes);2003;K;Grandjean - Enney;t;t;f;t;t;f;t;Traverses avec selles soudées;R 260;48%;;;7b879673-15ae-4402-b60f-b5e6910e4857;0;0;0
+BB;0;;0;;619;1;2023;2056;Soudée;CFF IV;2023;Béton;2023;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;4b4ec5b8-3a7c-4f35-ae7b-eb01de187a40;0;0;0
+CM;29.455;Sortie Grandvillard;31.27;Neirivue;641;3;1977;2021;Soudée;UST 36;1977;Acier (bêches courtes);1977;Ae;Grandjean - Enney;t;f;f;t;t;t;t;Changement de rail dans certaines courbes et neutralisation;R 260;;f;f;2b9b2bde-56af-4522-938f-221f0336001f;0;0;0
+PC;94.768;PN Vuarrat;95.426;Remaufens / Au Moulin;653;1;2019;2052;Soudée;CFF I;2019;Acier (bêches longues);2014;Aek;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;97%;t;t;28294718-c873-4d13-989b-04b142e75a9a;-710;-410;-10
+FMA;9.418;Sortie courbe gare Pensier;10.08;Après PN la Crausaz;660;1;2008;2041;Soudée;CFF IV;2008;Acier (bêches longues);2008;Aek;CFF Q1;t;f;t;t;t;t;f;;R 260;64%;;;232bacd6-c9ee-4542-aacf-e055aab87ea6;0;0;0
+CM;0;;0;;675;1;2022;2055;Soudée;CFF I;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;df1aafc1-3705-435b-9707-9c77d439f716;0;0;0
+CM;19.6;Sortie de Bulle;21;La Tour de Trême / G;680;1;2008;2041;Soudée;CFF I;2008;Acier (bêches longues);2008;Aek;Grandjean - Enney;t;t;t;f;t;t;t;;R 260;64%;;;3ba680e6-4c51-444f-8f78-62e2081630ed;0;0;0
+CM;13.43;Les Ponts;14.123;Entrée Vaulruz-Sud;693;3;1989;2025;Soudée;UST 36;1989;Acier (bêches courtes);1989;Ae;Grandjean - Enney;t;f;f;t;t;t;t;;R 260;6%;f;f;2d005454-ac3e-46f0-93e4-28b58291a6f6;0;0;0
+CM;16.471;PN Vuadens Rte cantonale;17.179;PI de Planches-Mailles;709;1;2020;2053;Soudée;CFF I;2020;Béton;2020;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;;t;t;75556358-e46b-42f2-9477-2ba90d9df4c2;-730;-440;-20
+CM;6.25;Sortie Semsales;7;Praz Linliaz;750;3;1978;2021;Soudée;UST 36;1978;Acier (bêches courtes);1978;Ae;Grandjean - Enney;t;f;f;f;t;t;t;;R 260;-27%;f;f;333027eb-07fc-4af7-9e8c-d14c7f2aaee5;0;0;0
+CM;35.54;Pont de l'Hongrin;36.3;Entrée village Montbovon;760;4;1976;2025;Soudée;UST 36;1976;Acier (bêches courtes);1976;Ae;Grandjean - Enney;t;f;f;f;t;t;t;;R 260;-33%;f;f;a7a9dee8-89b4-4fdf-b39e-20334e05ec9d;0;0;0
+FMA;4.548;Givisiez;5.426;Belfaux;878;1;2018;2051;Soudée;CFF IV;2018;Acier (bêches longues);2018;Aek;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;94%;t;;be1905de-5a17-4768-8ac1-a00997e0e87b;0;0;0
+BR;0;;0;;897;1;2019;2052;Soudée;CFF IV;2019;Béton;2019;;CFF Q1;f;f;f;f;f;f;f;;R 350 HT;;f;f;cda1dd07-91f0-4f3f-95ff-9f288a5c251d;0;0;0
+CM;31.48;Neirivue;32.392;Albeuve;912;3;1977;2025;Soudée;UST 36;1977;Acier (bêches courtes);1977;Ae;Grandjean - Enney;t;f;f;t;t;t;t;Changement de rail dans certaines courbes et neutralisation;R 260;-30%;;;77e3199a-4e04-4c8f-8882-78ae3ab1507e;0;0;0
+CM;0;;0;;923;1;2020;2053;Soudée;CFF I;2020;Béton;2020;Ws;CFF Q1;t;t;f;t;t;f;f;;R 350 HT;;t;t;14ae9c68-8942-433d-9280-e28c0ebf002e;-730;-440;-20
+CM;11.953;;12.915;Pont d'Amont;962;3;1989;2021;Soudée;UST 36;1989;Acier (bêches courtes);1989;Ae;Grandjean - Enney;t;f;f;f;t;t;t;;R 260;6%;f;;09e7f23e-a003-4c38-8f88-bf0222dfffa1;0;0;0
+CM;34.36;Lessoc / H;35.35;Pont de L'Hongrin;990;3;1976;2025;Soudée;UST 36;1976;Acier (bêches courtes);1976;Ae;Grandjean - Enney;t;f;f;t;t;t;t;Changement de rail dans certaines courbes et neutralisation;R 260;-33%;;;a6d88547-4742-4963-a17c-9331fba0cd71;0;0;0
+FMA;7.5;La Corbaz;8.58;Entrée Pensier;1081;2;2001;2034;Soudée;CFF IV;2001;Acier (bêches courtes);2001;Aek;CFF Q1;t;f;f;t;t;t;t;;R 260;42%;;;bc14f2b6-c50a-45a8-9650-b5d2e6584ea3;0;0;0
+FMA;6.408;PN Formangueires;7.5;La Corbaz;1092;3;1994;2027;Soudée;CFF I;1994;Acier (bêches courtes);1994;Ae;CFF Q1;t;f;f;t;t;t;t;;R 260;21%;f;f;b6b43287-003c-4d06-afc8-a2ed21a6baa5;0;0;0
+CM;10.849;Pont Mortivue;11.953;;1104;3;1986;2021;Soudée;UST 36;1986;Acier (bêches courtes);1986;Ae;Grandjean - Enney;t;f;f;f;t;t;t;;R 260;-3%;f;f;4b975e1a-dffe-430c-9875-b2180302afce;0;0;0
+CM;4.87;Pont du Dhaz;6.08;Entrée de Semsales;1223;3;1979;2020;Soudée;UST 36;1979;Acier (bêches courtes);1979;Ae;Grandjean - Enney;t;f;f;t;t;t;t;Neutralisation partielle en 2012;R 260;-24%;;;4123d144-f4b0-471f-a89c-2b469ab4beaa;0;0;0
+CM;33.112;La Tena;34.36;Lessoc / H;1248;3;1975;2025;Soudée;UST 36;1975;Acier (bêches courtes);1975;Ae;Grandjean - Enney;t;f;f;f;t;t;t;;R 260;-36%;;;4cb0d7b3-849a-4d34-9b7f-da702ecc7989;0;0;0
+FMA;17.365;Courbe zone industrielle;18.635;Avant Pont N°104;1268;2;2004;2037;Soudée;CFF IV;2004;Acier (bêches courtes);2004;Aek;CFF Q1;t;f;f;t;t;t;t;;R 260;52%;f;f;0618d657-8658-4670-82b2-1d60ea1d4575;0;0;0
+FMA;18.635;Avant Pont N°104;19.915;PN la Pose;1281;4;1990;2023;Eclissée;CFF I;1990;Acier (bêches courtes);1990;Ae;CFF Q1;t;f;f;f;t;t;t;;R 260;9%;f;f;9da946ee-b6e7-4842-9d05-d81c2821d6f6;0;0;0
+CM;17.187;PI de Planches-Mailles;18.6;Talon AV 31;1400;2;1990;2023;Soudée;UST 36;1990;Acier (bêches courtes);1990;Ae;Grandjean - Enney;t;f;f;t;t;t;t;;R 260;9%;f;f;37c13223-f1f6-41a9-82f6-6fadc0f89d36;0;0;0
+BB;0;;0;;1404;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;6e94be22-5619-4643-8201-e99fbc3d9090;0;0;0
+BB;0;;0;;1624;1;2022;2055;Soudée;CFF IV;2022;Béton;2022;;CFF Q1;f;f;f;f;f;f;f;;;;f;f;c12d63fb-942f-4f31-b99c-3137e283da6d;0;0;0
+FMA;25.332;Montilier - Sugiez;27.026;Montilier - Sugiez;1694;1;2007;2040;Soudée;CFF IV;2007;Acier (bêches longues);2007;Aek;CFF Q1;t;f;f;f;t;t;t;;R 260;61%;;;ad2f169f-c8db-4606-a261-373ace45376d;0;0;0
+CM;2.77;Prayoud / H;4.45;Pont du Dhaz;1710;3;1979;2020;Soudée;UST 36;0;Acier (bêches courtes);0;Ae;Grandjean - Enney;t;f;f;f;t;t;t;Neutralisation partielle en 2012;R 260;-24%;;;0d4fa9f7-1723-4e14-b238-f6d735916a62;0;0;0
+FMA;10.08;Après PN la Crausaz;12.017;PN Ecole;1937;1;2008;2041;Soudée;CFF IV;2008;Acier (bêches longues);2008;Aek;CFF Q1;t;f;f;t;t;t;t;;R 260;64%;f;;7e0c056b-a38d-47b7-b2fc-5030d9a36be4;0;0;0
+CM;7.77;Sortie la Verrerie;9.77;Le Crêt / H;2000;4;1983;2020;Soudée;UST 36;1983;Acier (bêches courtes);1983;Ae;Grandjean - Enney;t;f;f;f;t;t;t;;R 260;-12%;f;f;8dc45b7f-50e4-48f6-95c2-be16b035214f;0;0;0
+CM;21.6;La Tour-de-Trême H189;23.86;Entrée Gruyères;2005;3;1981;2021;Soudée;UST 36;1981;Acier (bêches courtes);1981;Ae;Grandjean - Enney;t;f;f;t;t;t;t;;R 260;-18%;;;5cf3a3ac-31b2-49d8-9a12-a41761d9689e;0;0;0
+CM;14.31;Sortie Vaulruz-Sud;16.407;Vuadens;2112;2;1991;2024;Soudée;UST 36;1991;Acier (bêches courtes);1991;Ae;Grandjean - Enney;t;f;f;t;t;t;t;;R 260;12%;f;f;edc1a83d-5419-4eee-b50e-63d545842bff;0;0;0
+CM;0.1;Sortie gare de Châtel;2.77;Prayoud / H;2191;3;1979;2020;Soudée;UST 36;1979;Acier (bêches courtes);1979;Ae;Grandjean - Enney;t;f;f;f;t;t;t;;R 260;-24%;f;;56692166-7fa9-4f94-9936-fe4f6c35477f;0;0;0
+BR;5.327;Vaulruz Nord;7.655;PN Sâles;2327;1;2007;2040;Soudée;CFF IV;2007;Acier (bêches longues);2007;Aek;CFF Q1;t;f;t;f;t;t;t;;R 260;61%;f;;6907d2bc-d48e-4eb9-b808-c9d5e19fc19d;0;0;0
+CM;25.832;Estavannens / H;29.216;Entrée de Grandvillard;2467;3;1985;2030;Soudée;UST 36;1985;Acier (bêches courtes);1985;Ae;Grandjean - Enney;t;f;f;f;t;t;t;Changement de rail dans certaines courbes et neutralisation;R 260;-6%;f;f;07e62898-0403-4fad-8ddb-2243c60e990f;0;0;0
+PC;90.4;Sortie Palézieux;92.92;Entrée Bossonnens;2575;1;2010;2043;Soudée;CFF I;2010;Acier (bêches longues);2010;Aek;CFF Q1;t;f;t;f;t;t;t;Traverses sous contrôle;R 260;70%;f;;db7a991c-8469-4782-9bb7-fc21a976f71e;0;0;0
+FMA;22.018;Entrée Morat;24.8;Montilier / Bifurcation;2782;0;0;0;;;0;;0;;;f;f;f;f;f;f;f;Tronçon CFF;R 260;%;;;37430c14-edec-481a-a94d-b0f2b21b057b;0;0;0
+BR;14.68;Mézières;17.49;Entrée Gare Romont;2810;2;2002;2035;Soudée;CFF IV;2002;Acier (bêches courtes);2002;Aek;CFF Q1;t;f;f;t;t;t;t;Bêche de sécuritée dans les rayons minimum;R 260;45%;;;1e7c112f-6ec1-4885-8fcb-c013e372578f;0;0;0
+BR;11.835;Sortie Vuisternens-Dt-Romont;14.68;Mézières;2844;2;2007;2040;Soudée;CFF IV;2007;Acier (bêches longues);2007;Aek;CFF Q1;t;f;t;t;t;t;t;;R 260;61%;f;f;34c74715-377e-4ca0-a7b6-4da7c8194e0f;0;0;0
+BR;1.866;Pont RN12;4.87;Avant la courbe Entrée Vaulruz Nord;3003;1;2014;2047;Soudée;CFF IV;2014;Acier (bêches longues);2014;Aek;CFF Q1;t;f;t;t;t;t;f;;R 260;82%;f;;08b65d3f-ebfa-4fbc-bc9b-366d64a36795;0;0;0
+BR;8.032;Sortie Sâles;11.471;Entrée Vuisternens-Dt-Romont;3422;1;2007;2040;Soudée;CFF IV;2007;Acier (bêches longues);2007;Aek;CFF Q1;t;f;t;t;t;t;t;;R 260;61%;f;;cb759355-25e2-4e1a-aa81-027a64f31f11;0;0;0
+FMA;28.174;Sortie de courbe Sugiez;31.833;Entrée Anet;3659;1;2010;2043;Soudée;CFF IV;2010;Acier (bêches longues);2010;Aek;CFF Q1;t;t;f;t;t;f;f;;R 260;70%;;;7da32540-0164-49d7-affa-465b9ec881a4;0;0;0
+FMA;12.878;;16.684;Entrée Cressier;3804;2;2002;2035;Soudée;CFF IV;2002;Acier (bêches courtes);2002;Aek;CFF Q1;t;f;f;t;t;t;t;;R 260;45%;f;;bf01d0a7-3224-4967-ae81-1e0568c46e75;0;0;0
