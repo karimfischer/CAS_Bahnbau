@@ -157,4 +157,3 @@ for _, row in points_km.iterrows():
 
 # Sauvegarder la carte en HTML et l'afficher
 m.save("map_interactive.html")
-m
