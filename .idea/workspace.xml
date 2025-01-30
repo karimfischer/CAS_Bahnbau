@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="29.01 / 2">
-      <change afterPath="$PROJECT_DIR$/jointure_interval.py" afterDir="false" />
+    <list default="true" id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="30.01 / 1">
+      <change afterPath="$PROJECT_DIR$/decoupe_segment.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis_gis.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis_gis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/segments_avec_km.csv" beforeDir="false" afterPath="$PROJECT_DIR$/segments_avec_km.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Analysis_curve_tpf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analysis_curve_tpf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jointure_interval.py" beforeDir="false" afterPath="$PROJECT_DIR$/jointure_interval.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out3.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,17 +47,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Doctests in arraylike.executor": "Run",
-    "Python.Analysis_curve_tpf.executor": "Run",
-    "Python.analysis_gis.executor": "Run",
-    "Python.jointure_interval.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Doctests in arraylike.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Analysis_curve_tpf.executor&quot;: &quot;Run&quot;,
+    &quot;Python.analysis_gis.executor&quot;: &quot;Run&quot;,
+    &quot;Python.decoupe_segment.executor&quot;: &quot;Run&quot;,
+    &quot;Python.jointure_interval.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Analysis_curve_tpf" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CAS_Bahnbau" />
@@ -158,7 +160,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738182759688</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="30.01 / 1">
+      <option name="closed" value="true" />
+      <created>1738228608356</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1738228608356</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -167,7 +177,8 @@
     <MESSAGE value="28.01" />
     <MESSAGE value="29.01" />
     <MESSAGE value="29.01 / 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="29.01 / 2" />
+    <MESSAGE value="30.01 / 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="30.01 / 1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

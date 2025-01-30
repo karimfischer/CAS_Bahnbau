@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 def read_csv(file_path):
     df = pd.read_csv(file_path,
@@ -34,7 +35,11 @@ def attribuer_parametres(row, df2):
         row['traverse'] = dominant_traverse
         row['acier'] = dominant_steel
         row['profil_rail'] = dominant_rail_profil
-        #row['param'] = list(matches['typ_trav'])  # Liste des paramètres si plusieurs
+        row['param1'] = list(matches['typ_trav'])  # Liste des paramètres si plusieurs
+        row['param2'] =list(matches['qualite_acier'])
+        row['interval_left'] = list(matches['interval'].apply(lambda x: x.left))
+        row['interval_right'] = list(matches['interval'].apply(lambda x: x.right))
+        row['coord1'] = list(matches['interval'])
     else:
         row['param'] = None  # Aucun recouvrement
 

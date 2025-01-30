@@ -164,13 +164,14 @@ def output_riffel(df, gw):
 
 pal_csd_riffel = output_riffel(pal_csd, 0.08)
 
+#pal_csd_riffel = pal_csd_riffel[pal_csd_riffel['reserve_usure_min'] <= 0]
 
 fig, ax = plt.subplots(1, 1, figsize=(12, 6))
-ax.scatter(x=pal_csd_riffel['Skewness_30_300_l'], y= pal_csd_riffel['Kurtosis_30_300_l'],
+ax.scatter(x=pal_csd_riffel['Skewness_30_300_r'], y= pal_csd_riffel['Kurtosis_30_300_r'],
            alpha=0.3, edgecolors='none')
-ax.scatter(x=pal_csd_riffel['Skewness_10_100_l'], y= pal_csd_riffel['Kurtosis_10_100_l'],
+ax.scatter(x=pal_csd_riffel['Skewness_10_100_r'], y= pal_csd_riffel['Kurtosis_10_100_r'],
            alpha=0.3, edgecolors='none')
-ax.scatter(x=pal_csd_riffel['Skewness_300_1000_l'], y= pal_csd_riffel['Kurtosis_300_1000_l'],
+ax.scatter(x=pal_csd_riffel['Skewness_300_1000_r'], y= pal_csd_riffel['Kurtosis_300_1000_r'],
            alpha=0.3, edgecolors='none')
 plt.axhline(y = 1, color = 'k', linestyle = '-', linewidth=0.5)
 plt.axhline(y = -1, color = 'k', linestyle = '-', linewidth=0.5)
