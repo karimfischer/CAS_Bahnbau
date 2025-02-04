@@ -35,11 +35,15 @@ def attribuer_parametres(row, df2):
         row['traverse'] = dominant_traverse
         row['acier'] = dominant_steel
         row['profil_rail'] = dominant_rail_profil
-        row['param1'] = list(matches['typ_trav'])  # Liste des paramètres si plusieurs
-        row['param2'] =list(matches['qualite_acier'])
-        row['interval_left'] = list(matches['interval'].apply(lambda x: x.left))
-        row['interval_right'] = list(matches['interval'].apply(lambda x: x.right))
+        row['trav_list'] = list(matches['typ_trav'])  # Liste des paramètres si plusieurs
+        row['acier_list'] =list(matches['qualite_acier'])
+        row['rail_list'] = list(matches['typ_rail'])
         row['coord1'] = list(matches['interval'])
+        row['left'] = list(matches['interval'].apply(lambda x: x.left))
+
+
+        right = list(matches['interval'].apply(lambda x: x.right))
+
     else:
         row['param'] = None  # Aucun recouvrement
 
