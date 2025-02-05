@@ -11,6 +11,7 @@ import matplotlib.colors as mcolors
 import plotly.tools as tls  # Outil pour conversion Matplotlib -> Plotly
 import plotly.io as pio
 import plotly.graph_objects as go
+import json
 
 file_path = "report2025-01-08_13-28.csv"
 
@@ -70,6 +71,60 @@ csd_mbv = fun_groupe(df,'Chatel-St-Denis - Montbovon',10,600)
 reseau = [pal_csd, csd_mbv]
 reseau = pd.concat(reseau)
 
+def data_25_max(df_line, line):
+    data_25cm_max = df_line[['CAL Riffel 10-100 l', 'CAL Riffel 10-100 r',
+                             'CAL Riffel 30-300 l', 'CAL Riffel 30-300 r',
+                             'ATM Riffel 300-1000 l', 'ATM Riffel 300-1000 r']].max(axis=1)
+
+    # Création des listes pour x et y avec gestion des trous
+    x_values = []
+    y_values = []
+
+    for i in range(len(df_line['von'])):
+        x_values.append(df_line['von'].iloc[i])
+        y_values.append(data_25cm_max.iloc[i])
+
+        # Ajouter un trou si les données ne sont pas contiguës
+        if i < len(df_line['von']) - 1 and df_line['von'].iloc[i + 1] != df_line['von'].iloc[i] + 0.25:
+            x_values.append(None)
+            y_values.append(None)
+
+    # Création du graphe avec un seul scatter
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+        x=x_values,
+        y=y_values,
+        mode='lines',
+        line=dict(width=1, color='black'),  # Réduction de l'épaisseur de la ligne noire
+        showlegend=False
+    ))
+
+    # Ajout de la ligne rouge horizontale à y = 0.08
+    fig.add_trace(go.Scatter(
+        x=[df_line['von'].min(), df_line['von'].max()],
+        y=[0.08, 0.08],
+        mode='lines',
+        line=dict(color='red', width=2),  # Ligne rouge continue
+        name='Limite 0.08'
+    ))
+
+    # Mise en page du graphique
+    fig.update_layout(
+        title="Valeur max. d'usure ondulatoire par pas de 25 cm",
+        xaxis=dict(
+            title="Point kilométrique",
+            range=[df_line['von'].min(), df_line['von'].max()]
+        ),
+        yaxis=dict(
+            title="Profondeur de l'usure ondulatoire max. [mm]",
+            range=[min(data_25cm_max), max(data_25cm_max)]
+        ),
+        template="plotly_white"
+    )
+    # Sauvegarde du graphique en JSON
+    json_filename = f"data_25_cm_{line}.json"
+    pio.write_json(fig, json_filename)
+    return
 
 #- Skewness par courbe:
 # Calcul du skewness par groupe en filtrant les cas problématiques
@@ -169,6 +224,7 @@ def output_riffel(df, gw):
 
 pal_csd_riffel = output_riffel(pal_csd, 0.08)
 
+data_25_max(pal_csd, 'Palezieux - Chatel-St-Denis')
 
 fig, ax = plt.subplots(1, 1, figsize=(12, 6))
 ax.scatter(x=pal_csd_riffel['Skewness_30_300_r'], y= pal_csd_riffel['Kurtosis_30_300_r'],

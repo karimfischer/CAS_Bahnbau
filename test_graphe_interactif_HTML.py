@@ -9,39 +9,59 @@ import plotly.io as pio
 fig1 = pio.read_json("fig1.json")
 
 # Charger le second graphique depuis le fichier fig2.json
-fig2 = pio.read_json("fig1.json")
+fig2 = pio.read_json("data_25_cm_Palezieux - Chatel-St-Denis.json")
 
+# Supprimer les titres des graphiques
+fig1.update_layout(title=None, margin=dict(l=20, r=20, t=20, b=20), xaxis=dict(matches='x'))
+fig2.update_layout(title=None, margin=dict(l=20, r=20, t=20, b=20), xaxis=dict(matches='x'))
 
 # --- Création de l'application Dash ---
 app = dash.Dash(__name__)
 
 init_store_data = {
     "xaxis": fig1.layout.xaxis.range if "range" in fig1.layout.xaxis else None,
-    "yaxis": fig1.layout.yaxis.range if "range" in fig1.layout.yaxis else None
+    "selected_line": "Palézieux - Châtel-Saint-Denis"
 }
 
-# On utilise un dcc.Store pour conserver la plage courante des axes.
-# On initialise avec les plages des figures.
+# On utilise un dcc.Store pour conserver la plage courante de l'axe x et la ligne sélectionnée
 app.layout = html.Div([
     dcc.Store(id="range-store", data=init_store_data),
-    dcc.Graph(id="graph-1", figure=fig1, config={'scrollZoom': True}),
-    dcc.Graph(id="graph-2", figure=fig2, config={'scrollZoom': True})
+    html.Div([
+        html.Label("Sélectionner une ligne ferroviaire:"),
+        dcc.Dropdown(
+            id="line-selector",
+            options=[
+                {"label": "Palézieux - Châtel-Saint-Denis", "value": "Palézieux - Châtel-Saint-Denis"},
+                {"label": "Châtel-Saint-Denis - Montbovon", "value": "Châtel-Saint-Denis - Montbovon"},
+                {"label": "Réseau VM entier", "value": "Réseau VM entier"}
+            ],
+            value="Palézieux - Châtel-Saint-Denis",
+            clearable=False
+        )
+    ], style={'margin-bottom': '20px'}),
+    html.Div([
+        dcc.Graph(id="graph-1", figure=fig1, config={'scrollZoom': True},
+                  style={'height': '45vh', 'margin-bottom': '-10px'}),
+        dcc.Graph(id="graph-2", figure=fig2, config={'scrollZoom': True},
+                  style={'height': '45vh', 'margin-top': '-10px'})
+    ], style={'display': 'flex', 'flex-direction': 'column', 'gap': '0px'}),
 ])
+
 
 # --- Callback 1 : Mettre à jour le store quand on effectue un zoom ou un pan ---
 @app.callback(
     Output("range-store", "data"),
     Input("graph-1", "relayoutData"),
     Input("graph-2", "relayoutData"),
+    Input("line-selector", "value"),
     State("range-store", "data"),
     prevent_initial_call=True
 )
-def update_range(relayout1, relayout2, current_store):
+def update_range(relayout1, relayout2, selected_line, current_store):
     ctx = callback_context
     if not ctx.triggered:
         raise dash.exceptions.PreventUpdate
 
-    # On détermine quel graphique a déclenché le callback
     triggered_prop = ctx.triggered[0]['prop_id'].split('.')[0]
     relayout = relayout1 if triggered_prop == "graph-1" else relayout2
 
@@ -49,7 +69,6 @@ def update_range(relayout1, relayout2, current_store):
     updated = False
 
     if relayout:
-        # Pour l'axe x
         if "xaxis.range" in relayout:
             new_range_x = relayout["xaxis.range"]
         elif "xaxis.range[0]" in relayout and "xaxis.range[1]" in relayout:
@@ -61,22 +80,15 @@ def update_range(relayout1, relayout2, current_store):
             new_store["xaxis"] = new_range_x
             updated = True
 
-        # Pour l'axe y
-        if "yaxis.range" in relayout:
-            new_range_y = relayout["yaxis.range"]
-        elif "yaxis.range[0]" in relayout and "yaxis.range[1]" in relayout:
-            new_range_y = [relayout["yaxis.range[0]"], relayout["yaxis.range[1]"]]
-        else:
-            new_range_y = None
-
-        if new_range_y and new_range_y != current_store.get("yaxis"):
-            new_store["yaxis"] = new_range_y
-            updated = True
+    if selected_line != current_store.get("selected_line"):
+        new_store["selected_line"] = selected_line
+        updated = True
 
     if updated:
         return new_store
     else:
         raise dash.exceptions.PreventUpdate
+
 
 # --- Callback 2 : Mettre à jour les deux graphiques en fonction du store ---
 @app.callback(
@@ -90,15 +102,12 @@ def update_graphs(store_data, fig1_state, fig2_state):
     if not store_data:
         raise dash.exceptions.PreventUpdate
 
-    # Mise à jour de la plage de l'axe x et y dans le Graphique 1
+    # Mise à jour de la plage de l'axe x uniquement
     fig1_state["layout"]["xaxis"]["range"] = store_data["xaxis"]
-    fig1_state["layout"]["yaxis"]["range"] = store_data["yaxis"]
-
-    # Mise à jour de la plage de l'axe x et y dans le Graphique 2
     fig2_state["layout"]["xaxis"]["range"] = store_data["xaxis"]
-    fig2_state["layout"]["yaxis"]["range"] = store_data["yaxis"]
 
     return fig1_state, fig2_state
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)
