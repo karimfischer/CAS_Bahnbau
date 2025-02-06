@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="4.02">
+    <list default="true" id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="5.02">
+      <change afterPath="$PROJECT_DIR$/test_traverse.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Analysis_curve_tpf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analysis_curve_tpf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_25_cm_Palezieux - Chatel-St-Denis.json" beforeDir="false" afterPath="$PROJECT_DIR$/data_25_cm_Palezieux - Chatel-St-Denis.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fig1.json" beforeDir="false" afterPath="$PROJECT_DIR$/fig1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out2.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test_graphe_interactif_HTML.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_graphe_interactif_HTML.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,19 +49,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Doctests in arraylike.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Analysis_curve_tpf.executor&quot;: &quot;Run&quot;,
-    &quot;Python.analysis_gis.executor&quot;: &quot;Run&quot;,
-    &quot;Python.decoupe_segment.executor&quot;: &quot;Run&quot;,
-    &quot;Python.jointure_interval.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test_graphe_interactif_HTML.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Doctests in arraylike.executor": "Run",
+    "Python.Analysis_curve_tpf.executor": "Run",
+    "Python.analysis_gis.executor": "Run",
+    "Python.decoupe_segment.executor": "Run",
+    "Python.jointure_interval.executor": "Run",
+    "Python.test_graphe_interactif_HTML.executor": "Run",
+    "Python.test_traverse.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Analysis_curve_tpf" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CAS_Bahnbau" />
@@ -183,7 +188,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738702493852</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="5.02">
+      <option name="closed" value="true" />
+      <created>1738789160292</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1738789160292</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -195,7 +208,8 @@
     <MESSAGE value="30.01 / 1" />
     <MESSAGE value="30.01 / 2" />
     <MESSAGE value="4.02" />
-    <option name="LAST_COMMIT_MESSAGE" value="4.02" />
+    <MESSAGE value="5.02" />
+    <option name="LAST_COMMIT_MESSAGE" value="5.02" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

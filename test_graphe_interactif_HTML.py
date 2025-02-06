@@ -11,9 +11,8 @@ fig1 = pio.read_json("fig1.json")
 # Charger le second graphique depuis le fichier fig2.json
 fig2 = pio.read_json("data_25_cm_Palezieux - Chatel-St-Denis.json")
 
-# Supprimer les titres des graphiques
-fig1.update_layout(title=None, margin=dict(l=20, r=20, t=20, b=20), xaxis=dict(matches='x'))
-fig2.update_layout(title=None, margin=dict(l=20, r=20, t=20, b=20), xaxis=dict(matches='x'))
+fig1.update_layout(title=None, margin=dict(l=10, r=20, t=20, b=20), xaxis=dict(matches='x'))
+fig2.update_layout(title=None, margin=dict(l=10, r=20, t=20, b=20), xaxis=dict(matches='x'))
 
 # --- Création de l'application Dash ---
 app = dash.Dash(__name__)

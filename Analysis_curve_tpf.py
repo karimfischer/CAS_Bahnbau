@@ -23,7 +23,19 @@ df = pd.read_csv(file_path,
     encoding = 'latin-1'
 )
 
+# Fonction pour transformer les nombres rationnels des rayons
+def transformer_rationnels(x):
+    if isinstance(x, (int, float)) and x != 0:
+        # Vérifie si le nombre est rationnel sous forme décimale périodique
+        if -1 < x < 1 and not np.isinf(1/x):
+            return round(abs(1 / x))
+    return x  # Garde les autres nombres inchangés
+
+df['Nom_Infrastructure_Horizontal geometry'] =\
+    df['Nom_Infrastructure_Horizontal geometry'].apply(transformer_rationnels)
+
 def fun_groupe(df,ligne,r_min, r_max):
+
     df_filtre = df[(df['Nom_Infrastructure_Horizontal geometry'] >= r_min) &
     (df['Nom_Infrastructure_Horizontal geometry']<=r_max) &
     (df['Linie']==ligne)]
@@ -72,30 +84,47 @@ reseau = [pal_csd, csd_mbv]
 reseau = pd.concat(reseau)
 
 def data_25_max(df_line, line):
-    data_25cm_max = df_line[['CAL Riffel 10-100 l', 'CAL Riffel 10-100 r',
-                             'CAL Riffel 30-300 l', 'CAL Riffel 30-300 r',
-                             'ATM Riffel 300-1000 l', 'ATM Riffel 300-1000 r']].max(axis=1)
+    data_25cm_max_l = df_line[['CAL Riffel 10-100 l',
+                             'CAL Riffel 30-300 l',
+                             'ATM Riffel 300-1000 l'
+                             ]].max(axis=1)
+
+    data_25cm_max_r = df_line[['CAL Riffel 10-100 r',
+                             'CAL Riffel 30-300 r',
+                             'ATM Riffel 300-1000 r'
+                             ]].max(axis=1)
 
     # Création des listes pour x et y avec gestion des trous
     x_values = []
-    y_values = []
+    y_values_l = []
+    y_values_r = []
 
     for i in range(len(df_line['von'])):
         x_values.append(df_line['von'].iloc[i])
-        y_values.append(data_25cm_max.iloc[i])
+        y_values_l.append(data_25cm_max_l.iloc[i])
+        y_values_r.append(data_25cm_max_r.iloc[i])
 
         # Ajouter un trou si les données ne sont pas contiguës
         if i < len(df_line['von']) - 1 and df_line['von'].iloc[i + 1] != df_line['von'].iloc[i] + 0.25:
             x_values.append(None)
-            y_values.append(None)
+            y_values_l.append(None)
+            y_values_r.append(None)
 
     # Création du graphe avec un seul scatter
     fig = go.Figure()
     fig.add_trace(go.Scatter(
         x=x_values,
-        y=y_values,
+        y=y_values_l,
         mode='lines',
-        line=dict(width=1, color='black'),  # Réduction de l'épaisseur de la ligne noire
+        line=dict(width=0.75, color='palevioletred'),  # Réduction de l'épaisseur de la ligne
+        showlegend=False
+    ))
+
+    fig.add_trace(go.Scatter(
+        x=x_values,
+        y=y_values_r,
+        mode='lines',
+        line=dict(width=0.75, color='teal'),  # Réduction de l'épaisseur de la ligne
         showlegend=False
     ))
 
@@ -104,8 +133,8 @@ def data_25_max(df_line, line):
         x=[df_line['von'].min(), df_line['von'].max()],
         y=[0.08, 0.08],
         mode='lines',
-        line=dict(color='red', width=2),  # Ligne rouge continue
-        name='Limite 0.08'
+        line=dict(color='black', width=2),  # Ligne rouge continue
+        name='Limite 0.08 mm'
     ))
 
     # Mise en page du graphique
@@ -117,7 +146,8 @@ def data_25_max(df_line, line):
         ),
         yaxis=dict(
             title="Profondeur de l'usure ondulatoire max. [mm]",
-            range=[min(data_25cm_max), max(data_25cm_max)]
+            range=[min(min(data_25cm_max_l),min(data_25cm_max_r)),
+                   max(max(data_25cm_max_l),max(data_25cm_max_r))]
         ),
         template="plotly_white"
     )
@@ -252,15 +282,15 @@ pos_courbe_moyenne = [(g + h) / 2 for g, h in zip(pal_csd_riffel['km_debut'],
 ax1.vlines(pos_courbe_moyenne, pal_csd_riffel["reserve_usure_l"],
            pal_csd_riffel["reserve_usure_r"], linewidth=0.7, colors='k', linestyles='-')
 ax1.hlines(pal_csd_riffel["reserve_usure_l"],
-           pal_csd_riffel['km_debut'], pal_csd_riffel['km_fin'], color='sienna', linewidth=3)
+           pal_csd_riffel['km_debut'], pal_csd_riffel['km_fin'], color='palevioletred', linewidth=3)
 ax1.hlines(pal_csd_riffel["reserve_usure_r"], pal_csd_riffel['km_debut'],
-           pal_csd_riffel['km_fin'], colors='chocolate', linewidth=3)
+           pal_csd_riffel['km_fin'], colors='teal', linewidth=3)
 pal_csd_riffel.apply(lambda row: ax1.text(row['km_debut'],
                                           row['reserve_usure_r'], row['groupe']), axis=1)
 plt.grid(axis='y', linestyle='-', alpha=0.7, linewidth=0.5)
 plt.axhline(y = 0.0, color = 'k', linestyle = '-')
 
-# Conversion en Plotly
+# Conversion en Plotly pour le graphe des réserves d'usure:
 # 🔹 Normalisation des couleurs
 # 🔹 Création du graphique avec Plotly
 fig = go.Figure()
@@ -271,9 +301,20 @@ for i, row in pal_csd_riffel.iterrows():
         x=[row['km_debut'], row['km_fin']],
         y=[row['reserve_usure_l'], row['reserve_usure_l']],
         mode="lines",
-        line=dict(color='sienna', width=3),
-        name=f"Ligne L {row['groupe']}"
+        line=dict(color='palevioletred', width=3),
+        name=f"Ligne L {row['groupe']}",
+        showlegend=False
     ))
+
+    fig.add_trace(go.Scatter(
+        x=[row['km_debut'], row['km_fin']],
+        y=[row['reserve_usure_r'], row['reserve_usure_r']],
+        mode="lines",
+        line=dict(color='teal', width=3),
+        name=f"Ligne R {row['groupe']}",
+        showlegend=False
+    ))
+
     fig.add_trace(go.Scatter(
         x=[(row['km_debut'] + row['km_fin']) / 2, (row['km_debut'] + row['km_fin']) / 2],
         y=[row['reserve_usure_l'], row['reserve_usure_r']],
@@ -282,31 +323,28 @@ for i, row in pal_csd_riffel.iterrows():
         name=f"VLine {row['groupe']}",
         showlegend=False
     ))
-    fig.add_trace(go.Scatter(
-        x=[row['km_debut'], row['km_fin']],
-        y=[row['reserve_usure_r'], row['reserve_usure_r']],
-        mode="lines",
-        line=dict(color='chocolate', width=3),
-        name=f"Ligne R {row['groupe']}"
-    ))
 
     # Ajout des annotations (text)
-    fig.add_trace(go.Scatter(
-        x=[row['km_debut']],
-        y=[row['reserve_usure_r']],
-        mode="text",
-        text=[row['groupe']],
-        textposition="bottom right",
-        showlegend=False
-    ))
+    fig.add_annotation(
+        x=(row['km_debut']+row["km_fin"])/2,  # Position X normale
+        y=1.05,  # 1.05 pour être légèrement au-dessus du graphe
+        xref="x",  # Référence par rapport à l'axe X (valeurs normales)
+        yref="paper",  # Référence de l'axe Y par rapport au graph (0 = bas, 1 = haut)
+        text=row['groupe'],  # Texte affiché
+        showarrow=False,  # Pas de flèche
+        font=dict(size=12),  # Taille de la police
+        align="center",
+        textangle=-90
+    )
 
 # Ajout d'une ligne horizontale à y=0 (équivalent de `plt.axhline(y=0, ...)`)
 fig.add_trace(go.Scatter(
     x=[pal_csd_riffel['km_debut'].min(), pal_csd_riffel['km_fin'].max()],
     y=[0, 0],
     mode="lines",
-    line=dict(color='black', width=1),
-    name="Base Line"
+    line=dict(color='black', width=2),
+    name="Base Line",
+    showlegend=False
 ))
 
 # Configuration du layout
@@ -314,7 +352,7 @@ fig.update_layout(
     title="Graphique avec Plotly (équivalent Matplotlib)",
     xaxis_title="Kilométrage linéaire (km)",
     yaxis_title="Réserve d'usure",
-    xaxis=dict(showgrid=True, range=[90000,96000]),
+    xaxis=dict(showgrid=True, range=[90000,97000]),
     yaxis=dict(showgrid=True, range=[-0.1,0.1]),
     template="plotly_white",
 )
@@ -326,7 +364,7 @@ pio.write_json(fig, "fig1.json")
 
 pal_csd_riffel.to_csv('out2.csv')
 
-# Réserve d'usure
+# Réserve d'usure plt
 colors = [cmap(norm(v)) for v in pal_csd_riffel['reserve_usure_min']]
 pal_csd_riffel['un']=1
 fig2, ax1 = plt.subplots(1, 1, figsize=(30, 3))
@@ -392,7 +430,7 @@ plt.gca().invert_yaxis()  # Pour afficher la première courbe en haut
 plt.grid(axis='x', linestyle='--', alpha=0.7)
 plt.tight_layout()
 
-plt.show()
+#plt.show()
 
 
 
