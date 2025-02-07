@@ -7,10 +7,9 @@ import contextily as ctx
 import folium
 
 # Charger les fichiers shapefile
-segments = gpd.read_file("20250128-etat-voie.geojson")  # Contient des MultiLineString
+segments = gpd.read_file("20250128-etat-voie_VM.geojson")  # Contient des MultiLineString
 points_km = gpd.read_file("points_km.geojson")  # Contient les points
 points_km["km_extrait"] = points_km['name'].str.split('-').str[3]
-print(type(points_km))
 
 # Vérifier le système de projection et s'assurer qu'ils sont compatibles
 if segments.crs != points_km.crs:

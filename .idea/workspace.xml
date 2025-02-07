@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="5.02">
-      <change afterPath="$PROJECT_DIR$/test_traverse.py" afterDir="false" />
+    <list default="true" id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="6.02">
+      <change afterPath="$PROJECT_DIR$/test_superstructure.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analysis_curve_tpf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analysis_curve_tpf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_25_cm_Palezieux - Chatel-St-Denis.json" beforeDir="false" afterPath="$PROJECT_DIR$/data_25_cm_Palezieux - Chatel-St-Denis.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.~lock.out3.csv#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.~lock.segments_avec_km.csv#" beforeDir="false" afterPath="$PROJECT_DIR$/.~lock.segments_avec_km.csv#" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis_gis.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis_gis.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fig1.json" beforeDir="false" afterPath="$PROJECT_DIR$/fig1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_graphe_interactif_HTML.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_graphe_interactif_HTML.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/map_interactive.html" beforeDir="false" afterPath="$PROJECT_DIR$/map_interactive.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/segments_avec_km.csv" beforeDir="false" afterPath="$PROJECT_DIR$/segments_avec_km.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/segments_avec_km.dbf" beforeDir="false" afterPath="$PROJECT_DIR$/segments_avec_km.dbf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/segments_avec_km.shp" beforeDir="false" afterPath="$PROJECT_DIR$/segments_avec_km.shp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/segments_avec_km.shx" beforeDir="false" afterPath="$PROJECT_DIR$/segments_avec_km.shx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +61,7 @@
     "Python.decoupe_segment.executor": "Run",
     "Python.jointure_interval.executor": "Run",
     "Python.test_graphe_interactif_HTML.executor": "Run",
+    "Python.test_superstructure.executor": "Run",
     "Python.test_traverse.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -196,7 +201,15 @@
       <option name="project" value="LOCAL" />
       <updated>1738789160292</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="6.02">
+      <option name="closed" value="true" />
+      <created>1738874633860</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1738874633860</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -209,7 +222,8 @@
     <MESSAGE value="30.01 / 2" />
     <MESSAGE value="4.02" />
     <MESSAGE value="5.02" />
-    <option name="LAST_COMMIT_MESSAGE" value="5.02" />
+    <MESSAGE value="6.02" />
+    <option name="LAST_COMMIT_MESSAGE" value="6.02" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
