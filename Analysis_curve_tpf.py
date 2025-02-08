@@ -83,7 +83,7 @@ csd_mbv = fun_groupe(df,'Chatel-St-Denis - Montbovon',10,600)
 reseau = [pal_csd, csd_mbv]
 reseau = pd.concat(reseau)
 
-def data_25_max(df_line, line):
+def data_25_max(df_line):
     data_25cm_max_l = df_line[['CAL Riffel 10-100 l',
                              'CAL Riffel 30-300 l',
                              'ATM Riffel 300-1000 l'
@@ -130,7 +130,7 @@ def data_25_max(df_line, line):
 
     # Ajout de la ligne rouge horizontale à y = 0.08
     fig.add_trace(go.Scatter(
-        x=[df_line['von'].min(), df_line['von'].max()],
+        x=[df_line['von'].min()-2000, df_line['von'].max()+2000],
         y=[0.08, 0.08],
         mode='lines',
         line=dict(color='black', width=2),  # Ligne rouge continue
@@ -152,9 +152,87 @@ def data_25_max(df_line, line):
         template="plotly_white"
     )
     # Sauvegarde du graphique en JSON
+    line = df_line['Linie'].iloc[0]
+    line = line = line.replace(" ", "_").replace("é", "e").replace("-", "_").replace("â","a")
     json_filename = f"data_25_cm_{line}.json"
     pio.write_json(fig, json_filename)
     return
+
+def reserve_usure_par_courbe(line_riffel):
+    # Conversion en Plotly pour le graphe des réserves d'usure:
+    # 🔹 Normalisation des couleurs
+    # 🔹 Création du graphique avec Plotly
+    fig = go.Figure()
+
+    # Ajout des lignes verticales (vlines)
+    for i, row in line_riffel.iterrows():
+        fig.add_trace(go.Scatter(
+            x=[row['km_debut'], row['km_fin']],
+            y=[row['reserve_usure_l'], row['reserve_usure_l']],
+            mode="lines",
+            line=dict(color='palevioletred', width=3),
+            name=f"Ligne L {row['groupe']}",
+            showlegend=False
+        ))
+
+        fig.add_trace(go.Scatter(
+            x=[row['km_debut'], row['km_fin']],
+            y=[row['reserve_usure_r'], row['reserve_usure_r']],
+            mode="lines",
+            line=dict(color='teal', width=3),
+            name=f"Ligne R {row['groupe']}",
+            showlegend=False
+        ))
+
+        fig.add_trace(go.Scatter(
+            x=[(row['km_debut'] + row['km_fin']) / 2, (row['km_debut'] + row['km_fin']) / 2],
+            y=[row['reserve_usure_l'], row['reserve_usure_r']],
+            mode="lines",
+            line=dict(color="black", width=1),
+            name=f"VLine {row['groupe']}",
+            showlegend=False
+        ))
+
+        # Ajout des annotations (text)
+        fig.add_annotation(
+            x=(row['km_debut'] + row["km_fin"]) / 2,  # Position X normale
+            y=1.05,  # 1.05 pour être légèrement au-dessus du graphe
+            xref="x",  # Référence par rapport à l'axe X (valeurs normales)
+            yref="paper",  # Référence de l'axe Y par rapport au graph (0 = bas, 1 = haut)
+            text=row['groupe'],  # Texte affiché
+            showarrow=False,  # Pas de flèche
+            font=dict(size=9),  # Taille de la police
+            align="center",
+            textangle=-45
+        )
+
+    # Ajout d'une ligne horizontale à y=0 (équivalent de `plt.axhline(y=0, ...)`)
+    fig.add_trace(go.Scatter(
+        x=[line_riffel['km_debut'].min() - 2000, line_riffel['km_fin'].max() + 2000],
+        y=[0, 0],
+        mode="lines",
+        line=dict(color='black', width=2),
+        name="Base Line",
+        showlegend=False
+    ))
+
+    # Configuration du layout
+    fig.update_layout(
+        title="Réserve d'usure",
+        xaxis_title="Kilométrage linéaire (km)",
+        yaxis_title="Réserve d'usure",
+        xaxis=dict(showgrid=True, range=[line_riffel['km_debut']-10, line_riffel['km_fin']+10]),
+        yaxis=dict(showgrid=True, range=[-0.1, 0.1]),
+        template="plotly_white",
+    )
+
+    # Sauvegarde du graphique en JSON
+    line = line_riffel['Linie'].iloc[0]
+    line = line.replace(" ", "_").replace("é", "e").replace("-", "_").replace("â","a")
+    json_filename = f"reserve_usure_{line}.json"
+    pio.write_json(fig, json_filename)
+    return
+
 
 #- Skewness par courbe:
 # Calcul du skewness par groupe en filtrant les cas problématiques
@@ -208,7 +286,8 @@ def output_riffel(df, gw):
     groupe = df.groupby('groupe')['groupe'].max()
     km_fin = df.groupby('groupe')['km_fin'].max()
     rayon = df.groupby('groupe')['rayon_courbe'].max()
-    stat_par_courbe = {'groupe': groupe,
+    linie = df.groupby('groupe')['Linie'].first()
+    stat_par_courbe = {'Linie': linie, 'groupe': groupe,
                        'Median_10_100_l': median_10_100_l,
                        'Mean_10_100_l': mean_10_100_l,
                        'Skewness_10_100_l': skewness_par_courbe_10_100_l,
@@ -252,9 +331,12 @@ def output_riffel(df, gw):
     stat_curve['reserve_usure_min'] = stat_curve[['reserve_usure_l', 'reserve_usure_r']].min(axis=1)
     return stat_curve
 
+data_25_max(pal_csd)
+data_25_max(csd_mbv)
 pal_csd_riffel = output_riffel(pal_csd, 0.08)
-
-data_25_max(pal_csd, 'Palezieux - Chatel-St-Denis')
+csd_mbv_riffel = output_riffel(csd_mbv, 0.08)
+reserve_usure_par_courbe(pal_csd_riffel)
+reserve_usure_par_courbe(csd_mbv_riffel)
 
 fig, ax = plt.subplots(1, 1, figsize=(12, 6))
 ax.scatter(x=pal_csd_riffel['Skewness_30_300_r'], y= pal_csd_riffel['Kurtosis_30_300_r'],
@@ -289,78 +371,6 @@ pal_csd_riffel.apply(lambda row: ax1.text(row['km_debut'],
                                           row['reserve_usure_r'], row['groupe']), axis=1)
 plt.grid(axis='y', linestyle='-', alpha=0.7, linewidth=0.5)
 plt.axhline(y = 0.0, color = 'k', linestyle = '-')
-
-# Conversion en Plotly pour le graphe des réserves d'usure:
-# 🔹 Normalisation des couleurs
-# 🔹 Création du graphique avec Plotly
-fig = go.Figure()
-
-# Ajout des lignes verticales (vlines)
-for i, row in pal_csd_riffel.iterrows():
-    fig.add_trace(go.Scatter(
-        x=[row['km_debut'], row['km_fin']],
-        y=[row['reserve_usure_l'], row['reserve_usure_l']],
-        mode="lines",
-        line=dict(color='palevioletred', width=3),
-        name=f"Ligne L {row['groupe']}",
-        showlegend=False
-    ))
-
-    fig.add_trace(go.Scatter(
-        x=[row['km_debut'], row['km_fin']],
-        y=[row['reserve_usure_r'], row['reserve_usure_r']],
-        mode="lines",
-        line=dict(color='teal', width=3),
-        name=f"Ligne R {row['groupe']}",
-        showlegend=False
-    ))
-
-    fig.add_trace(go.Scatter(
-        x=[(row['km_debut'] + row['km_fin']) / 2, (row['km_debut'] + row['km_fin']) / 2],
-        y=[row['reserve_usure_l'], row['reserve_usure_r']],
-        mode="lines",
-        line=dict(color="black", width=1),
-        name=f"VLine {row['groupe']}",
-        showlegend=False
-    ))
-
-    # Ajout des annotations (text)
-    fig.add_annotation(
-        x=(row['km_debut']+row["km_fin"])/2,  # Position X normale
-        y=1.05,  # 1.05 pour être légèrement au-dessus du graphe
-        xref="x",  # Référence par rapport à l'axe X (valeurs normales)
-        yref="paper",  # Référence de l'axe Y par rapport au graph (0 = bas, 1 = haut)
-        text=row['groupe'],  # Texte affiché
-        showarrow=False,  # Pas de flèche
-        font=dict(size=12),  # Taille de la police
-        align="center",
-        textangle=-90
-    )
-
-# Ajout d'une ligne horizontale à y=0 (équivalent de `plt.axhline(y=0, ...)`)
-fig.add_trace(go.Scatter(
-    x=[pal_csd_riffel['km_debut'].min(), pal_csd_riffel['km_fin'].max()],
-    y=[0, 0],
-    mode="lines",
-    line=dict(color='black', width=2),
-    name="Base Line",
-    showlegend=False
-))
-
-# Configuration du layout
-fig.update_layout(
-    title="Graphique avec Plotly (équivalent Matplotlib)",
-    xaxis_title="Kilométrage linéaire (km)",
-    yaxis_title="Réserve d'usure",
-    xaxis=dict(showgrid=True, range=[90000,97000]),
-    yaxis=dict(showgrid=True, range=[-0.1,0.1]),
-    template="plotly_white",
-)
-
-# ✅ Afficher la figure dans un fichier JSON pour Dash
-pio.write_json(fig, "fig1.json")
-
-
 
 pal_csd_riffel.to_csv('out2.csv')
 

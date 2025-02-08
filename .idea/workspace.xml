@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="7.02" />
+    <list default="true" id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="7.02 (2)">
+      <change afterPath="$PROJECT_DIR$/attribution_StdE.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphe_interactif_2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphe_interactif_3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test_superstructure_2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Analysis_curve_tpf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analysis_curve_tpf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_25_cm_Palezieux - Chatel-St-Denis.json" beforeDir="false" afterPath="$PROJECT_DIR$/data_25_cm_Palezieux - Chatel-St-Denis.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fig1.json" beforeDir="false" afterPath="$PROJECT_DIR$/fig1.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_superstructure.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_superstructure.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,21 +52,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python tests.Doctests in arraylike.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Analysis_curve_tpf.executor&quot;: &quot;Run&quot;,
-    &quot;Python.analysis_gis.executor&quot;: &quot;Run&quot;,
-    &quot;Python.decoupe_segment.executor&quot;: &quot;Run&quot;,
-    &quot;Python.jointure_interval.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test_graphe_interactif_HTML.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test_superstructure.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test_traverse.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python tests.Doctests in arraylike.executor": "Run",
+    "Python.Analysis_curve_tpf.executor": "Run",
+    "Python.analysis_gis.executor": "Run",
+    "Python.attribution_StdE.executor": "Run",
+    "Python.decoupe_segment.executor": "Run",
+    "Python.graphe_interactif_2.executor": "Run",
+    "Python.graphe_interactif_3.executor": "Run",
+    "Python.jointure_interval.executor": "Run",
+    "Python.superstructure_et_rayon_dash.executor": "Run",
+    "Python.test_graphe_interactif_HTML.executor": "Run",
+    "Python.test_superstructure.executor": "Run",
+    "Python.test_superstructure_2.executor": "Run",
+    "Python.test_traverse.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Analysis_curve_tpf" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="CAS_Bahnbau" />
@@ -96,7 +112,6 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="" />
-      <changelist id="" name="New changelist" comment="" />
       <created>1737752043028</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -214,7 +229,23 @@
       <option name="project" value="LOCAL" />
       <updated>1738965304345</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="7.02">
+      <option name="closed" value="true" />
+      <created>1738965557736</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1738965557736</updated>
+    </task>
+    <task id="LOCAL-00016" summary="7.02 (2)">
+      <option name="closed" value="true" />
+      <created>1738965604060</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1738965604060</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -229,7 +260,8 @@
     <MESSAGE value="5.02" />
     <MESSAGE value="6.02" />
     <MESSAGE value="7.02" />
-    <option name="LAST_COMMIT_MESSAGE" value="7.02" />
+    <MESSAGE value="7.02 (2)" />
+    <option name="LAST_COMMIT_MESSAGE" value="7.02 (2)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

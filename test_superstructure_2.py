@@ -3,20 +3,22 @@ import dash_core_components as dcc
 import dash_html_components as html
 import pandas as pd
 import plotly.graph_objects as go
+import json
 
-# 🔹 Chargement du fichier CSV
-df = pd.read_csv("segments_avec_km.csv")
+# Chargement du fichier CSV
+input_file = "segments_avec_km.csv"
+df = pd.read_csv(input_file)
 
-# 🔹 Vérification et correction des inversions km_start/km_end
+# Vérification et correction des inversions km_start/km_end
 df[["km_start", "km_end"]] = df.apply(
     lambda row: (row["km_end"], row["km_start"]) if row["km_start"] > row["km_end"] else (row["km_start"], row["km_end"]),
     axis=1, result_type="expand"
 )
 
-# 🔹 Supprimer les tronçons > 20 km
-df = df[(df["km_end"] - df["km_start"]) <= 20]
+# Supprimer les tronçons > 20 km
+df = df[(df["km_end"] - df["km_start"] ) <= 20]
 
-# 🔹 Remplacement des noms des rails pour la légende
+# Remplacement des noms des rails pour la légende
 df["typ_rail"] = df["typ_rail"].replace({
     "CFF I": "46 E1",
     "CFF IV": "54 E2",
@@ -24,46 +26,47 @@ df["typ_rail"] = df["typ_rail"].replace({
     "UST 36": "UST 36"
 })
 
-# 🔹 Nouvelle palette de couleurs améliorée pour le contraste
+# Nouvelle palette de couleurs améliorée pour le contraste
 category_settings = {
     "Traverse": {
         "offset": 0,
         "color_map": {
-            "Béton": "#000000",  # Noir intense
-            "Bois": "#A0522D",  # Marron clair
-            "Acier (bêches courtes)": "#FF0000",  # Rouge vif
-            "Acier (bêches longues)": "#C71585",  # Magenta foncé
+            "Béton": "#000000",
+            "Bois": "#A0522D",
+            "Acier (bêches courtes)": "#FF0000",
+            "Acier (bêches longues)": "#C71585",
         }
     },
     "Rail": {
-        "offset": -0.5,
+        "offset": -2,
         "color_map": {
-            "46 E1": "#007FFF",  # Bleu ciel intense
-            "54 E2": "#228B22",  # Vert forêt
-            "Ri 60": "#800080",  # Violet foncé
-            "UST 36": "#D2691E",  # Orange brûlé
+            "46 E1": "#007FFF",
+            "54 E2": "#228B22",
+            "Ri 60": "#800080",
+            "UST 36": "#D2691E",
         }
     },
     "Acier": {
-        "offset": -1,
+        "offset": -4,
         "color_map": {
-            "R 260": "#00CED1",  # Cyan électrique
-            "R 350 HT": "#8B0000",  # Rouge bordeaux
+            "R 260": "#00CED1",
+            "R 350 HT": "#8B0000",
         }
     }
 }
 
-# 🔹 Création du graphique
+# Trier les données par km_start
+df_sorted = df.sort_values(by=["km_start", "km_end"])
+
+# Création du graphique avec cadre noir, lignes pointillées et légende sous la figure
 fig = go.Figure()
 legend_shown = set()
 category_mapping = {"typ_trav": "Traverse", "typ_rail": "Rail", "qualite_acier": "Acier"}
 
-# 🔹 Ajout des segments avec gestion des superpositions
 for col, category in category_mapping.items():
     settings = category_settings[category]
     df_sorted = df.sort_values(by=["km_start"])
-
-    active_segments = []  # Liste des segments placés
+    active_segments = []
 
     for _, row in df_sorted.iterrows():
         km_start, km_end = row["km_start"], row["km_end"]
@@ -75,18 +78,15 @@ for col, category in category_mapping.items():
         y_base = settings["offset"]
         y_pos = y_base
 
-        # 🔹 Gérer les superpositions en décalant légèrement les tronçons
         while any(km_start < end and km_end > start and pos == y_pos for start, end, pos in active_segments):
-            y_pos -= 0.1  # Décalage pour afficher tous les tronçons
+            y_pos -= 0.1
 
         active_segments.append((km_start, km_end, y_pos))
 
-        # 🔹 Gérer la légende pour éviter les doublons
         show_legend = category_value not in legend_shown
         if show_legend:
             legend_shown.add(category_value)
 
-        # 🔹 Ajout du segment au graphique
         fig.add_trace(go.Scatter(
             x=[km_start, km_end],
             y=[y_pos, y_pos],
@@ -96,8 +96,9 @@ for col, category in category_mapping.items():
             showlegend=show_legend
         ))
 
-# 🔹 Ajout des lignes pointillées pour séparer les catégories
-separators = [-0.25, -0.75]
+# Ajout des lignes pointillées pour séparer les catégories et rendre les titres toujours visibles
+separators = [-1, -3]
+category_titles = {"Type de traverse": 0.5, "Type de rail": -1.5, "Nuance d'acier": -3.5}
 for sep in separators:
     fig.add_trace(go.Scatter(
         x=[df["km_start"].min(), df["km_end"].max()],
@@ -107,29 +108,21 @@ for sep in separators:
         showlegend=False
     ))
 
-# 🔹 Ajout des titres des catégories (plus petits)
-category_titles = {
-    "Type de traverse": 0.15,
-    "Profil du rail": -0.55,
-    "Nuance d'acier": -1.05
-}
-
 for title, y_pos in category_titles.items():
     fig.add_annotation(
-        x=0,
+        x=0.5,
         y=y_pos,
         text=title,
         showarrow=False,
         xref="paper",
         yref="y",
-        xanchor="left",
-        font=dict(size=10, color="gray", family="Arial")
+        xanchor="center",
+        font=dict(size=10, color="black", family="Arial"),
+        bgcolor="white"
     )
 
-# 🔹 Mise en page avec la légende sous le graphique
+# Mise en page du graphique restaurée avec cadre noir et légende plus proche
 fig.update_layout(
-    title=None,
-    template="plotly_white",
     xaxis=dict(
         title="Kilométrage (km)",
         side="top",
@@ -140,37 +133,42 @@ fig.update_layout(
         showline=True,
         linewidth=1,
         linecolor="black",
-        tickmode="auto",
         ticks="outside",
         ticklen=8
     ),
     yaxis=dict(
         showticklabels=False,
         zeroline=False,
-        showgrid=False
+        showgrid=False,
+        showline=True,
+        linewidth=1,
+        linecolor="black"
     ),
-    showlegend=True,
+    height=360,
+    margin=dict(l=50, r=50, t=20, b=80),
+    plot_bgcolor="white",
+    paper_bgcolor="white",
     legend=dict(
         orientation="h",
         yanchor="bottom",
-        y=-0.5,
+        y=-0.2,
         xanchor="center",
-        x=0.5,
-        title="Légende"
-    ),
-    margin=dict(l=10, r=50, t=20, b=120),  # Ajustement pour laisser la place à la légende
-    plot_bgcolor="white",
-    paper_bgcolor="white"
+        x=0.5
+    )
 )
 
-# 🔹 Initialisation de l'application Dash
-app = dash.Dash(__name__)
+# Enregistrement de la figure en JSON
+output_json = "superstructure.json"
+with open(output_json, "w") as f:
+    json.dump(fig.to_plotly_json(), f)
+print(f"Graphique enregistré en JSON : {output_json}")
 
+# Initialisation de l'application Dash
+app = dash.Dash(__name__)
 app.layout = html.Div([
-    dcc.Graph(id="graph-main", figure=fig, config={'scrollZoom': True},
-              style={'height': '50vh', 'width': '100%', 'display': 'flex', 'justify-content': 'left'})
+    dcc.Graph(id="graph-main", figure=fig, config={'scrollZoom': True})
 ])
 
-# 🔹 Lancement de l'application
+# Lancement de l'application
 if __name__ == '__main__':
     app.run_server(debug=True)
