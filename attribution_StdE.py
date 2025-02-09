@@ -138,7 +138,15 @@ frequence_mapping = {
 }
 
 # Ajouter la colonne de fréquence en fonction de l'élément standard
-df["frequence"] = df["element_standard"].map(frequence_mapping).fillna(99999)
+df["frequence"] = df["element_standard"].map(frequence_mapping).fillna(0.15)
+
+# Réserve usure:
+#df["reserve_usure_min"] = df.merge(df1[['groupe','reserve_usure_min']],
+                                 #  on="groupe", how='left')
+#df1 = df1.reset_index()
+df = df.merge(df1[['reserve_usure_min']], on='groupe', how='left')
+df["annee"] = df['reserve_usure_min']/(0.08*df["frequence"])
+df["annee"] = df["annee"].clip(lower=0)
 
 # Enregistrer le fichier mis à jour
 output_file = "segments_superieurs_avec_element_standard.csv"
