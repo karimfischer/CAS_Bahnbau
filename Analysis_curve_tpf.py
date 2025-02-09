@@ -130,7 +130,7 @@ def data_25_max(df_line):
 
     # Ajout de la ligne rouge horizontale à y = 0.08
     fig.add_trace(go.Scatter(
-        x=[df_line['von'].min()-2000, df_line['von'].max()+2000],
+        x=[df_line['von'].min(), df_line['von'].max()],
         y=[0.08, 0.08],
         mode='lines',
         line=dict(color='black', width=2),  # Ligne rouge continue
@@ -208,7 +208,7 @@ def reserve_usure_par_courbe(line_riffel):
 
     # Ajout d'une ligne horizontale à y=0 (équivalent de `plt.axhline(y=0, ...)`)
     fig.add_trace(go.Scatter(
-        x=[line_riffel['km_debut'].min() - 2000, line_riffel['km_fin'].max() + 2000],
+        x=[line_riffel['km_debut'].min(), line_riffel['km_fin'].max()],
         y=[0, 0],
         mode="lines",
         line=dict(color='black', width=2),
@@ -221,7 +221,7 @@ def reserve_usure_par_courbe(line_riffel):
         title="Réserve d'usure",
         xaxis_title="Kilométrage linéaire (km)",
         yaxis_title="Réserve d'usure",
-        xaxis=dict(showgrid=True, range=[line_riffel['km_debut']-10, line_riffel['km_fin']+10]),
+        xaxis=dict(showgrid=True, range=[line_riffel['km_debut'].min(), line_riffel['km_fin'].max()]),
         yaxis=dict(showgrid=True, range=[-0.1, 0.1]),
         template="plotly_white",
     )

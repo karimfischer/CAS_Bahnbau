@@ -5,8 +5,15 @@ from dash.dependencies import Input, Output, State
 import dash.exceptions
 
 # Charger les graphiques
-fig1 = pio.read_json("reserve_usure_Palezieux - Chatel-St-Denis.json")
-fig2 = pio.read_json("data_25_cm_Palezieux - Chatel-St-Denis.json")
+
+fig1 = pio.read_json("reserve_usure_Palezieux___Chatel_St_Denis.json")
+fig2 = pio.read_json("data_25_cm_Palezieux___Chatel_St_Denis.json")
+
+# Charger le premier graphique depuis le fichier fig1.json
+#fig1 = pio.read_json("fig1.json")
+
+# Charger le second graphique depuis le fichier fig2.json
+#fig2 = pio.read_json("data_25_cm_Palezieux - Chatel-St-Denis.json")
 
 # Taille ajustée
 FIGURE_WIDTH = "75vw"  # Environ 75% de la largeur de la page
@@ -51,7 +58,7 @@ app = dash.Dash(__name__)
 
 init_store_data = {
     "xaxis": fig1.layout.xaxis.range if "range" in fig1.layout.xaxis else None,
-    "selected_line": "Palézieux - Châtel-Saint-Denis"
+    "selected_line": "Palézieux - Châtel-St-Denis"
 }
 
 app.layout = html.Div([
@@ -62,10 +69,10 @@ app.layout = html.Div([
         dcc.Dropdown(
             id="line-selector",
             options=[
-                {"label": "Palézieux - Châtel-Saint-Denis", "value": "Palézieux - Châtel-Saint-Denis"},
-                {"label": "Châtel-Saint-Denis - Montbovon", "value": "Châtel-Saint-Denis - Montbovon"}
+                {"label": "Palézieux - Châtel-St-Denis", "value": "Palézieux - Châtel-St-Denis"},
+                {"label": "Châtel-St-Denis - Montbovon", "value": "Châtel-St-Denis - Montbovon"}
             ],
-            value="Palézieux - Châtel-Saint-Denis",
+            value="Palézieux - Châtel-St-Denis",
             clearable=False
         )
     ], style={'margin-bottom': '15px'}),

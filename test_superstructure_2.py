@@ -1,9 +1,49 @@
 import dash
-import dash_core_components as dcc
-import dash_html_components as html
-import pandas as pd
+from dash import dcc
+from dash import html
 import plotly.graph_objects as go
 import json
+import pandas as pd
+
+
+def enregistrer_troncons(df_sorted, category_settings, category_mapping, output_file="segments_superieurs.csv"):
+    troncons_enregistres = []
+    troncons_uniques = set()
+
+    for col, category in category_mapping.items():
+        settings = category_settings[category]
+        active_segments = []
+
+        for _, row in df_sorted.iterrows():
+            km_start, km_end = row["km_start"], row["km_end"]
+            category_value = row[col]
+
+            if pd.isna(km_start) or pd.isna(km_end):
+                continue
+
+            y_base = settings["offset"]
+            y_pos = y_base
+
+            while any(km_start < end and km_end > start and pos == y_pos for start, end, pos in active_segments):
+                y_pos -= 0.1
+
+            active_segments.append((km_start, km_end, y_pos))
+
+            if y_pos == y_base:  # Vérifier si le tronçon est en haut de la catégorie
+                troncon_tuple = (km_start, km_end, row["typ_trav"], row["typ_rail"], row["qualite_acier"])
+                if troncon_tuple not in troncons_uniques:
+                    troncons_uniques.add(troncon_tuple)
+                    troncons_enregistres.append({
+                        "km_start": km_start,
+                        "km_end": km_end,
+                        "typ_trav": row["typ_trav"],
+                        "typ_rail": row["typ_rail"],
+                        "qualite_acier": row["qualite_acier"]
+                    })
+
+    df_troncons = pd.DataFrame(troncons_enregistres)
+    df_troncons.to_csv(output_file, index=False)
+    print(f"Tronçons enregistrés dans {output_file}")
 
 # Chargement du fichier CSV
 input_file = "segments_avec_km.csv"
@@ -162,6 +202,8 @@ output_json = "superstructure.json"
 with open(output_json, "w") as f:
     json.dump(fig.to_plotly_json(), f)
 print(f"Graphique enregistré en JSON : {output_json}")
+
+enregistrer_troncons(df_sorted, category_settings, category_mapping)
 
 # Initialisation de l'application Dash
 app = dash.Dash(__name__)
