@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="9.02">
+    <list default="true" id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="9.02 (2)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Analysis_curve_tpf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analysis_curve_tpf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/attribution_StdE.py" beforeDir="false" afterPath="$PROJECT_DIR$/attribution_StdE.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/segments_superieurs_avec_element_standard.csv" beforeDir="false" afterPath="$PROJECT_DIR$/segments_superieurs_avec_element_standard.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1739113027667</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="9.02 (2)">
+      <option name="closed" value="true" />
+      <created>1739132980537</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1739132980537</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -276,6 +284,7 @@
     <MESSAGE value="7.02 (2)" />
     <MESSAGE value="8.02" />
     <MESSAGE value="9.02" />
-    <option name="LAST_COMMIT_MESSAGE" value="9.02" />
+    <MESSAGE value="9.02 (2)" />
+    <option name="LAST_COMMIT_MESSAGE" value="9.02 (2)" />
   </component>
 </project>

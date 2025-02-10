@@ -12,6 +12,8 @@ import plotly.tools as tls  # Outil pour conversion Matplotlib -> Plotly
 import plotly.io as pio
 import plotly.graph_objects as go
 import json
+import unicodedata
+import re
 
 file_path = "report2025-01-08_13-28.csv"
 
@@ -158,7 +160,7 @@ def data_25_max(df_line):
     pio.write_json(fig, json_filename)
     return
 
-def reserve_usure_par_courbe(line_riffel):
+def reserve_usure_par_courbe_plot(line_riffel):
     # Conversion en Plotly pour le graphe des réserves d'usure:
     # 🔹 Normalisation des couleurs
     # 🔹 Création du graphique avec Plotly
@@ -329,14 +331,27 @@ def output_riffel(df, gw):
     stat_curve['reserve_usure_l'] = [gw - x for x in stat_curve['max_l']]
     stat_curve['reserve_usure_r'] = [gw - x for x in stat_curve['max_r']]
     stat_curve['reserve_usure_min'] = stat_curve[['reserve_usure_l', 'reserve_usure_r']].min(axis=1)
+
+    # Exemple de variable Linie
+    Linie_retenue = stat_curve["Linie"].iloc[0]
+    # Normaliser en ASCII et supprimer les accents
+    Linie_cleaned = (unicodedata.normalize("NFKD", Linie_retenue).
+                     encode("ascii", "ignore").decode("ascii"))
+    # Remplacer espaces et tirets par des underscores
+    Linie_cleaned = re.sub(r"[\s\-]+", "_", Linie_cleaned)
+    # Construire le nom du fichier
+    filename = f"ANALYSIS_RIFFEL_{Linie_cleaned}.csv"
+    # Sauvegarde du DataFrame
+    stat_curve.to_csv(filename, index=False)
+
     return stat_curve
 
 data_25_max(pal_csd)
 data_25_max(csd_mbv)
 pal_csd_riffel = output_riffel(pal_csd, 0.08)
 csd_mbv_riffel = output_riffel(csd_mbv, 0.08)
-reserve_usure_par_courbe(pal_csd_riffel)
-reserve_usure_par_courbe(csd_mbv_riffel)
+reserve_usure_par_courbe_plot(pal_csd_riffel)
+reserve_usure_par_courbe_plot(csd_mbv_riffel)
 
 fig, ax = plt.subplots(1, 1, figsize=(12, 6))
 ax.scatter(x=pal_csd_riffel['Skewness_30_300_r'], y= pal_csd_riffel['Kurtosis_30_300_r'],
