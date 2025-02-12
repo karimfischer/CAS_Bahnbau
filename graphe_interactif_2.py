@@ -141,6 +141,9 @@ def update_range(relayout1, relayout2, selected_line, current_store):
     State("graph-1", "figure"),
     State("graph-2", "figure")
 )
+
+
+
 def update_graphs(store_data, fig1_state, fig2_state):
     if not store_data:
         raise dash.exceptions.PreventUpdate
@@ -153,4 +156,3 @@ def update_graphs(store_data, fig1_state, fig2_state):
 
 if __name__ == '__main__':
     app.run_server(debug=True)
-

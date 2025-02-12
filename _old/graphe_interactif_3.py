@@ -15,11 +15,11 @@ PAGE_STYLE = {"font-family": "Arial, sans-serif"}
 # Fonction pour charger les figures
 def load_figures(line):
     if line == "Palézieux - Châtel-St-Denis":
-        fig1 = pio.read_json("reserve_usure_Palezieux___Chatel_St_Denis.json")
-        fig2 = pio.read_json("data_25_cm_Palezieux___Chatel_St_Denis.json")
+        fig1 = pio.read_json("../reserve_usure_Palezieux___Chatel_St_Denis.json")
+        fig2 = pio.read_json("../data_25_cm_Palezieux___Chatel_St_Denis.json")
     else:
-        fig1 = pio.read_json("reserve_usure_Chatel_St_Denis___Montbovon.json")
-        fig2 = pio.read_json("data_25_cm_Chatel_St_Denis___Montbovon.json")
+        fig1 = pio.read_json("../reserve_usure_Chatel_St_Denis___Montbovon.json")
+        fig2 = pio.read_json("../data_25_cm_Chatel_St_Denis___Montbovon.json")
     return fig1, fig2
 
 # Fonction pour formater les figures

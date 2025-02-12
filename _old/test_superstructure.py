@@ -5,7 +5,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 # 🔹 Chargement du fichier CSV
-df = pd.read_csv("segments_avec_km.csv")
+df = pd.read_csv("../segments_avec_km.csv")
 
 # 🔹 Vérification et correction des inversions km_start/km_end
 df[["km_start", "km_end"]] = df.apply(

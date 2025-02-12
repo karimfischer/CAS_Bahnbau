@@ -5,7 +5,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 # 🔹 Chargement du fichier CSV
-df = pd.read_csv("segments_avec_km.csv")  # Remplace avec ton fichier
+df = pd.read_csv("../segments_avec_km.csv")  # Remplace avec ton fichier
 
 # 🔹 Assurer que les types de traverses sont bien catégorisés
 df["typ_trav"] = df["typ_trav"].astype(str).fillna("Inconnu")  # Remplit les valeurs manquantes
