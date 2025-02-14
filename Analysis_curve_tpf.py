@@ -16,6 +16,8 @@ import unicodedata
 import re
 
 file_path = "report2025-01-08_13-28.csv"
+r_min_choix = 10
+r_max_choix = 600
 
 # Options avancées pour charger un fichier efficacement
 df = pd.read_csv(file_path,
@@ -80,8 +82,11 @@ def boxplot_wavelength(df):
     sns.boxplot(x='groupe', y='ATM Riffel 300-1000 r', data=df, showfliers=False)
     plt.ylim(0, 0.3)
 
-pal_csd = fun_groupe(df,'Palezieux - Chatel-St-Denis',10,600)
-csd_mbv = fun_groupe(df,'Chatel-St-Denis - Montbovon',10,600)
+pal_csd = fun_groupe(df,'Palezieux - Chatel-St-Denis',r_min_choix,r_max_choix)
+pal_csd_tot = fun_groupe(df,'Palezieux - Chatel-St-Denis',0,60000)
+csd_mbv = fun_groupe(df,'Chatel-St-Denis - Montbovon',r_min_choix,r_max_choix)
+csd_mbv_tot = fun_groupe(df,'Chatel-St-Denis - Montbovon',0,60000)
+
 reseau = [pal_csd, csd_mbv]
 reseau = pd.concat(reseau)
 
@@ -346,8 +351,8 @@ def output_riffel(df, gw):
 
     return stat_curve
 
-data_25_max(pal_csd)
-data_25_max(csd_mbv)
+data_25_max(pal_csd_tot)
+data_25_max(csd_mbv_tot)
 pal_csd_riffel = output_riffel(pal_csd, 0.08)
 csd_mbv_riffel = output_riffel(csd_mbv, 0.08)
 reserve_usure_par_courbe_plot(pal_csd_riffel)
