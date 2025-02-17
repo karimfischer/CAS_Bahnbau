@@ -332,6 +332,10 @@ def output_riffel(df, gw):
     stat_curve['reserve_usure_r'] = [gw - x for x in stat_curve['max_r']]
     stat_curve['reserve_usure_min'] = stat_curve[['reserve_usure_l', 'reserve_usure_r']].min(axis=1)
 
+    stat_curve = stat_curve.replace('',np.nan)
+
+    stat_curve.dropna(subset=['Median_10_100_l'], inplace=True)
+
     # Exemple de variable Linie
     Linie_retenue = stat_curve["Linie"].iloc[0]
     # Normaliser en ASCII et supprimer les accents
