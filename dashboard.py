@@ -154,8 +154,6 @@ def update_zoom_on_click(active_cell, table_data, current_store):
     # Met à jour la plage de zoom avec `km_start` et `km_end`
     new_store = current_store.copy()
     new_store["xaxis"] = [km_start*1000, km_end*1000]
-    print(new_store["xaxis"])
-
 
     return new_store
 
@@ -342,10 +340,12 @@ def update_histogram(active_cell, table_data):
         )
 
     # ✅ Création de l'histogramme avec style blanc
-    fig = px.histogram(df, x=col_selected, y="longueur", histfunc="sum", title=f"Histogramme de {col_selected}")
+    fig = px.histogram(df, x=col_selected, y="longueur", histfunc="sum")
     fig.update_layout(
-        plot_bgcolor="white",
+        height=300,
+        plot_bgcolor="white",  # Fond blanc
         paper_bgcolor="white",
+        font=dict(family="Arial", size=10, color="#333"),
         xaxis=dict(showgrid=True, gridcolor="black"),
         yaxis=dict(showgrid=True, gridcolor="black"),
         bargap=0.1

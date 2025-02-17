@@ -83,9 +83,9 @@ def boxplot_wavelength(df):
     plt.ylim(0, 0.3)
 
 pal_csd = fun_groupe(df,'Palezieux - Chatel-St-Denis',r_min_choix,r_max_choix)
-pal_csd_tot = fun_groupe(df,'Palezieux - Chatel-St-Denis',0,60000)
+pal_csd_tot = fun_groupe(df,'Palezieux - Chatel-St-Denis',10,600)
 csd_mbv = fun_groupe(df,'Chatel-St-Denis - Montbovon',r_min_choix,r_max_choix)
-csd_mbv_tot = fun_groupe(df,'Chatel-St-Denis - Montbovon',0,60000)
+csd_mbv_tot = fun_groupe(df,'Chatel-St-Denis - Montbovon',10,600)
 
 reseau = [pal_csd, csd_mbv]
 reseau = pd.concat(reseau)
@@ -93,12 +93,12 @@ reseau = pd.concat(reseau)
 def data_25_max(df_line):
     data_25cm_max_l = df_line[['CAL Riffel 10-100 l',
                              'CAL Riffel 30-300 l',
-                             'ATM Riffel 300-1000 l'
+                             #'ATM Riffel 300-1000 l'
                              ]].max(axis=1)
 
     data_25cm_max_r = df_line[['CAL Riffel 10-100 r',
                              'CAL Riffel 30-300 r',
-                             'ATM Riffel 300-1000 r'
+                             #'ATM Riffel 300-1000 r'
                              ]].max(axis=1)
 
     # Création des listes pour x et y avec gestion des trous
@@ -336,6 +336,9 @@ def output_riffel(df, gw):
     stat_curve['reserve_usure_l'] = [gw - x for x in stat_curve['max_l']]
     stat_curve['reserve_usure_r'] = [gw - x for x in stat_curve['max_r']]
     stat_curve['reserve_usure_min'] = stat_curve[['reserve_usure_l', 'reserve_usure_r']].min(axis=1)
+
+    stat_curve = stat_curve.replace('',np.nan)
+    stat_curve.dropna(subset=['Median_10_100_l'], inplace=True)
 
     # Exemple de variable Linie
     Linie_retenue = stat_curve["Linie"].iloc[0]
