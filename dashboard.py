@@ -95,14 +95,14 @@ app.layout = html.Div([
                 id="data-table",
                 fixed_rows={'headers': True},
                 style_table={"width": "100%", "overflowX": "auto", "overflowY": "auto", "maxHeight": "400px"},
-                style_cell={"minWidth": "150px", "textAlign": "left"},
+                style_cell={"minWidth": "150px", 'padding': '5px', 'textAlign': 'left', 'fontSize':12, 'font-family':'sans-serif'},
                 style_header={
-                "backgroundColor": "white",
+                "backgroundColor": "whitesmoke", "color": "black", 'fontWeight': 'bold', 'padding': '10px'
                 },
                 sort_action="native",
                 column_selectable="single",
                 style_data_conditional=[
-                    {"if": {"filter_query": "{annee} <= 0"}, "backgroundColor": "#C0392B", "color": "white"},
+                    {"if": {"filter_query": "{annee} <= 0"}, "backgroundColor": "mistyrose", "color": "firebrick"},
                     {"if": {"filter_query": "{annee} > 0 && {annee} < 1"}, "backgroundColor": "#F39C12",
                      "color": "black"},
                     {"if": {"filter_query": "{annee} >= 1"}, "backgroundColor": "#2ECC71", "color": "black"},
@@ -113,7 +113,7 @@ app.layout = html.Div([
 
         html.Div(
             dcc.Graph(id="histogram", style={'height': "30vh", 'width': "100%"}),
-            style={'width': '50%', 'padding': '10px'}
+            style={'width': '48%', 'padding': '10px'}
         )
     ], style={'display': 'flex', 'justify-content': 'space-between'}),
     # ✅ Flexbox pour aligner la table et l'histogramme sur une ligne
@@ -286,8 +286,6 @@ def update_table(selected_line):
     return columns, df.to_dict("records")
 
 # Histogramme
-
-
 # --- Callback pour afficher l'histogramme ---
 @app.callback(
     Output("histogram", "figure"),
@@ -340,7 +338,7 @@ def update_histogram(active_cell, table_data):
         )
 
     # ✅ Création de l'histogramme avec style blanc
-    fig = px.histogram(df, x=col_selected, y="longueur", histfunc="sum")
+    fig = px.histogram(df, x=col_selected, y="longueur", histfunc="sum", color_discrete_sequence=['silver'])
     fig.update_layout(
         height=300,
         plot_bgcolor="white",  # Fond blanc
