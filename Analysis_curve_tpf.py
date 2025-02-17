@@ -83,9 +83,9 @@ def boxplot_wavelength(df):
     plt.ylim(0, 0.3)
 
 pal_csd = fun_groupe(df,'Palezieux - Chatel-St-Denis',r_min_choix,r_max_choix)
-pal_csd_tot = fun_groupe(df,'Palezieux - Chatel-St-Denis',10,600)
+pal_csd_tot = fun_groupe(df,'Palezieux - Chatel-St-Denis',0,60000)
 csd_mbv = fun_groupe(df,'Chatel-St-Denis - Montbovon',r_min_choix,r_max_choix)
-csd_mbv_tot = fun_groupe(df,'Chatel-St-Denis - Montbovon',10,600)
+csd_mbv_tot = fun_groupe(df,'Chatel-St-Denis - Montbovon',0,60000)
 
 reseau = [pal_csd, csd_mbv]
 reseau = pd.concat(reseau)
