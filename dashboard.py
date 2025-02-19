@@ -5,6 +5,7 @@ import copy
 import dash
 import plotly.express as px
 from dash.dependencies import Input, Output, State
+import dash_bootstrap_components as dbc
 import pandas as pd
 
 
@@ -15,7 +16,10 @@ Y_AXIS_DOMAIN = [0.1, 0.9]  # Alignement parfait des axes Y
 TABLE_WIDTH = FIGURE_WIDTH
 
 PAGE_STYLE = {
-    "font-family": "Arial, sans-serif"
+    "margin-right": "2rem",
+    "padding-left": "17rem",
+    "display":"inline-block",
+    "width": "80%",
 }
 
 # Fonction pour formater les figures
@@ -38,10 +42,26 @@ def format_figure(fig, xlabel_format=True):
         ),
         plot_bgcolor='white',
         paper_bgcolor='white',
-        showlegend=True,
+        showlegend=False,
         legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5)
     )
     return fig
+
+def create_card(title, content):
+    card = dbc.Card(
+        dbc.CardBody(
+            [
+                html.H4(title, className="card-title"),
+                html.Br(),
+                html.Br(),
+                html.H2(content, className="card-subtitle"),
+                html.Br(),
+                html.Br(),
+                ]
+        ),
+        color="info", inverse=True
+    )
+    return(card)
 
 # --- Création de l'application Dash ---
 app = dash.Dash(__name__)
@@ -52,37 +72,21 @@ init_store_data = {
     "selected_line": "Palézieux - Châtel-St-Denis"
 }
 
-app.layout = html.Div([
+main_layout = html.Div([
 
     dcc.Store(id="range-store", data=init_store_data),
 
     html.Div([
-        html.Label("Sélectionner une ligne ferroviaire:", style={"font-size": "14px"}),
-        dcc.Dropdown(
-            id="line-selector",
-            options=[
-                {"label": "Palézieux - Châtel-St-Denis", "value": "Palézieux - Châtel-St-Denis"},
-                {"label": "Châtel-St-Denis - Montbovon", "value": "Châtel-St-Denis - Montbovon"}
-            ],
-            value="Palézieux - Châtel-St-Denis",
-            clearable=False
-        )
-    ], style={'margin-bottom': '15px'}),
-
-    html.Div([
-        html.Div("Réserve d'usure [mm]", style={'width': '10vw', 'textAlign': 'right', 'fontSize': '12px',
-                                                'paddingRight': '10px', 'paddingTop': '5px'}),
+        html.Div("Réserve d'usure [mm]"),
         dcc.Graph(id="graph-1", config={'scrollZoom': True},
                   style={'height': FIGURE_HEIGHT, 'width': FIGURE_WIDTH})
-    ], style={'display': 'flex', 'align-items': 'flex-start'}),
+    ]),
 
     html.Div([
-        html.Div("Profondeur max. usure ondulatoire [mm]",
-                 style={'width': '10vw', 'textAlign': 'right', 'fontSize': '12px',
-                        'paddingRight': '10px', 'paddingTop': '5px'}),
+        html.Div("Profondeur max. usure ondulatoire [mm]"),
         dcc.Graph(id="graph-2", config={'scrollZoom': True},
                   style={'height': FIGURE_HEIGHT, 'width': FIGURE_WIDTH})
-    ], style={'display': 'flex', 'align-items': 'flex-start'}),
+    ]),
 
     html.Hr(),
 
@@ -97,7 +101,7 @@ app.layout = html.Div([
                 style_table={"width": "100%", "overflowX": "auto", "overflowY": "auto", "maxHeight": "400px"},
                 style_cell={"minWidth": "150px", 'padding': '5px', 'textAlign': 'left', 'fontSize':12, 'font-family':'sans-serif'},
                 style_header={
-                "backgroundColor": "whitesmoke", "color": "black", 'fontWeight': 'bold', 'padding': '10px'
+                "backgroundColor": "#DADADA", "color": "black", 'fontWeight': 'bold', 'padding': '10px'
                 },
                 sort_action="native",
                 column_selectable="single",
@@ -119,6 +123,58 @@ app.layout = html.Div([
     # ✅ Flexbox pour aligner la table et l'histogramme sur une ligne
 
 ], style=PAGE_STYLE)
+
+SIDEBAR_STYLE = {
+    "position": "fixed",
+    "top": 0,
+    "left": 0,
+    "bottom": 0,
+    "width": "15rem",
+    "padding": "2rem 1rem",
+    "background-color": "#DADADA",
+    "display":"inline-block",
+    "color": "black"
+}
+
+sidebar = html.Div(children = [
+            html.H2("Meulage VM", className="display-4"),
+            html.Hr(),
+            html.P(
+                "Outil d'aide à la décision pour définir les tronçons à meuler sur le réseau TPF à voie métrique", className="lead"
+            ),
+            html.H4("Sélectionner une ligne ferroviaire"),
+            dcc.Dropdown(
+                id="line-selector",
+                options=[
+                    {"label": "Palézieux - Châtel-St-Denis", "value": "Palézieux - Châtel-St-Denis"},
+                    {"label": "Châtel-St-Denis - Montbovon", "value": "Châtel-St-Denis - Montbovon"}
+                ],
+                value="Palézieux - Châtel-St-Denis",
+                clearable=False
+            ),
+            html.H3("Model"
+            ),
+            html.P(
+                "This project uses a Random Forest Classifier to predict heart failure based on 12 independent variables.", className="lead"
+            ),
+
+            html.H3("Code"
+            ),
+            html.P(
+                "The complete code for this project is available on github.", className="lead"
+            ),
+
+
+        ], style=SIDEBAR_STYLE
+    )
+
+
+app.layout = html.Div(children = [
+    sidebar,
+    html.Div([
+        main_layout
+     ])
+], style={'backgroundColor':'white', "font-family": "Arial, sans-serif"})
 
 # --- Callback pour appliquer le zoom lors d'un clic sur `km_start` ---
 @app.callback(
@@ -338,12 +394,12 @@ def update_histogram(active_cell, table_data):
         )
 
     # ✅ Création de l'histogramme avec style blanc
-    fig = px.histogram(df, x=col_selected, y="longueur", histfunc="sum", color_discrete_sequence=['silver'])
+    fig = px.histogram(df, x=col_selected, y="longueur", histfunc="sum", color_discrete_sequence=['#1f2022'])
     fig.update_layout(
-        height=300,
+        height=200,
         plot_bgcolor="white",  # Fond blanc
         paper_bgcolor="white",
-        font=dict(family="Arial", size=10, color="#333"),
+        font=dict(family="Arial", size=10, color="black"),
         xaxis=dict(showgrid=True, gridcolor="black"),
         yaxis=dict(showgrid=True, gridcolor="black"),
         bargap=0.1
