@@ -33,14 +33,16 @@ def format_figure(fig, xlabel_format=True):
             showline=True, linewidth=1, linecolor="black", mirror=True,
             title=None,
             tickformat=",d" if xlabel_format else None,
-            color="black"
+            color="black",
+            zeroline=False
         ),
         yaxis=dict(
             showgrid=True, gridcolor='black', gridwidth=0.5,
             showline=True, linewidth=1, linecolor="black", mirror=True,
-            domain=Y_AXIS_DOMAIN,
+            fixedrange=False,
             title=None,
-            color="black"
+            color="black",
+            zeroline=False
         ),
         plot_bgcolor='white',
         paper_bgcolor='white',
@@ -48,22 +50,6 @@ def format_figure(fig, xlabel_format=True):
         legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5)
     )
     return fig
-
-def create_card(title, content):
-    card = dbc.Card(
-        dbc.CardBody(
-            [
-                html.H4(title, className="card-title"),
-                html.Br(),
-                html.Br(),
-                html.H2(content, className="card-subtitle"),
-                html.Br(),
-                html.Br(),
-                ]
-        ),
-        color="info", inverse=True
-    )
-    return(card)
 
 # --- Création de l'application Dash ---
 app = dash.Dash(__name__)
@@ -134,8 +120,8 @@ main_layout = html.Div([
             dash_table.DataTable(
                 id="table-meulage",
                 fixed_rows={'headers': True},
-                style_table={"width": "90%", "overflowX": "auto", "overflowY": "auto", "maxHeight": "190px"},
-                style_cell={"minWidth": "150px", 'padding': '5px', 'textAlign': 'left', 'fontSize':12, 'font-family':'sans-serif'},
+                style_table={"width": "50%", "overflowX": "auto", "overflowY": "auto", "maxHeight": "190px"},
+                style_cell={"minWidth": "50px", 'padding': '5px', 'textAlign': 'left', 'fontSize':12, 'font-family':'sans-serif'},
                 style_header={
                 "backgroundColor": "#DADADA", "color": "black", 'fontWeight': 'bold', 'padding': '10px'
                 },
@@ -275,8 +261,10 @@ def update_range(relayout1, relayout2, selected_line, current_store):
     if relayout:
         if "xaxis.range" in relayout:
             new_range_x = relayout["xaxis.range"]
+
         elif "xaxis.range[0]" in relayout and "xaxis.range[1]" in relayout:
             new_range_x = [relayout["xaxis.range[0]"], relayout["xaxis.range[1]"]]
+
         else:
             new_range_x = None
 
@@ -475,9 +463,91 @@ def recomm_meulage(line_selector, budget_input):
         print(f"Erreur de chargement du fichier CSV: {e}")
         raise dash.exceptions.PreventUpdate
 
-    df = df.iloc[:, [0,1,10,11]]
-    columns = [{"name": col, "id": col, "type": "numeric"} for col in df.columns]
-    return columns, df.to_dict("records")
+    km_start_lim = 0
+    budget_max = budget_input # CHF
+
+    # Étape 1 : Filtrer les tronçons nécessitant un meulage (annee ≤ 1)
+    df_meulage = df[(df["annee"] <= 1) & (df["km_start"] >= km_start_lim)].copy()
+
+    # Ajouter une colonne de longueur du tronçon à meuler en km
+    df_meulage["Longueur"] = df_meulage["km_end"] - df_meulage["km_start"]
+
+    # Trier par priorité de meulage (annee la plus négative en premier)
+    # df_meulage = df_meulage.sort_values(by="annee", ascending=True).reset_index(drop=True)
+    df_meulage = df_meulage.sort_values(by="km_start", ascending=True).reset_index(drop=True)
+
+    # Paramètres
+
+    cout_par_metre = 10  # CHF/m
+    metres_max_km = (budget_max / cout_par_metre) / 1000  # Convertir en km
+    seuil_fusion = 0.19  # Distance max entre tronçons pour fusionner (en km)
+
+    # Étape 2 : Fusion des tronçons proches en maintenant la priorité sur "annee" min
+    troncons_fusionnes = []
+    troncon_actuel = df_meulage.iloc[0].copy()
+    id_troncons_selectionnes = []
+
+    for i in range(1, len(df_meulage)):
+        km_start, km_end, annee, longueur = df_meulage.loc[i, ["km_start", "km_end", "annee", "Longueur"]]
+
+        # Vérifier si le tronçon est proche du précédent
+        if km_start - troncon_actuel["km_end"] <= seuil_fusion and troncon_actuel["Longueur"] <= 0.85:
+            troncon_actuel["km_end"] = max(troncon_actuel["km_end"], km_end)  # Étendre la fin du tronçon
+            troncon_actuel["Longueur"] = troncon_actuel["km_end"] - troncon_actuel["km_start"]  # Recalculer la longueur
+            troncon_actuel["annee"] = min(troncon_actuel["annee"], annee)  # Prendre la pire année (plus négative)
+
+        else:
+            # Ajouter le tronçon consolidé à la liste et commencer un nouveau
+
+            troncons_fusionnes.append(troncon_actuel)
+            troncon_actuel = df_meulage.iloc[i].copy()
+
+    # Ajouter le dernier tronçon
+    troncons_fusionnes.append(troncon_actuel)
+
+    # Transformer en DataFrame
+    df_fusionne = pd.DataFrame(troncons_fusionnes)
+
+    # Étape 3 : Sélectionner les tronçons en priorisant l'année min
+    df_fusionne = df_fusionne.sort_values(by="annee", ascending=True).reset_index(drop=True)
+    metres_selectionnes_km = 0
+    selection_finale = []
+
+    for i in range(len(df_fusionne)):
+        if metres_selectionnes_km + df_fusionne.loc[i, "Longueur"] <= metres_max_km:
+            selection_finale.append(df_fusionne.loc[i])
+            metres_selectionnes_km += df_fusionne.loc[i, "Longueur"]
+            id_troncons_selectionnes.append(i)
+
+        else:
+            break  # Stopper la sélection si on atteint la limite
+
+    if metres_selectionnes_km < metres_max_km:
+        troncons_non_select = ~df_meulage.index.isin(id_troncons_selectionnes)
+        index_non_selec = [i for i, val in enumerate(troncons_non_select) if val]
+        non_select = df_meulage.iloc[index_non_selec]
+        non_select_reste_km = non_select[non_select["Longueur"] <= (metres_max_km - metres_selectionnes_km)]
+        dernier_troncon_indx = non_select_reste_km["Longueur"].idxmax()
+        selection_finale.append(non_select.loc[dernier_troncon_indx])
+        metres_selectionnes_km += non_select.loc[dernier_troncon_indx, "Longueur"]
+        print("Il vous reste une réserve de:",
+              ((metres_max_km - metres_selectionnes_km) * 1000).round(0), "m.")
+
+    # Transformer en DataFrame final
+    df_selection_corrige = pd.DataFrame(selection_finale)
+    df_selection_corrige["Longueur"] = (df_selection_corrige["Longueur"] * 1000).round(0)
+
+    # Affichage des résultats
+    print("km totaux selon budget:", metres_max_km)
+    print("km totaux du programme:", df_selection_corrige["Longueur"].sum().round(3) / 1000, "km")
+    df_selection_corrige["km_start"] = df_selection_corrige["km_start"].round(3)
+    df_selection_corrige["km_end"] = df_selection_corrige["km_end"].round(3)
+    df_selection_corrige["annee"] = df_selection_corrige["annee"].round(1)
+
+    df_selection_corrige = df_selection_corrige.iloc[:, [0, 1, 10, 14]]
+    columns = [{"name": col, "id": col, "type": "numeric"} for col in df_selection_corrige.columns]
+
+    return columns, df_selection_corrige.sort_values("km_start").to_dict("records")
 
 
 if __name__ == '__main__':
