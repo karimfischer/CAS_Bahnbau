@@ -17,7 +17,7 @@ TABLE_WIDTH = FIGURE_WIDTH
 
 PAGE_STYLE = {
     "margin-right": "2rem",
-    "padding-left": "17rem",
+    "padding-left": "18rem",
     "display":"inline-block",
     "width": "80%",
 }
@@ -33,12 +33,14 @@ def format_figure(fig, xlabel_format=True):
             showline=True, linewidth=1, linecolor="black", mirror=True,
             title=None,
             tickformat=",d" if xlabel_format else None,
+            color="black"
         ),
         yaxis=dict(
             showgrid=True, gridcolor='black', gridwidth=0.5,
             showline=True, linewidth=1, linecolor="black", mirror=True,
             domain=Y_AXIS_DOMAIN,
-            title=None
+            title=None,
+            color="black"
         ),
         plot_bgcolor='white',
         paper_bgcolor='white',
@@ -77,28 +79,31 @@ main_layout = html.Div([
     dcc.Store(id="range-store", data=init_store_data),
 
     html.Div([
-        html.Div("Réserve d'usure [mm]"),
+        html.H3("Graphiques d'analyse linéaire",style={'background-color':"#DADADA", 'padding': '2px'}),
+        html.Div("Réserve d'usure [mm]", style={"color": "black", "font-weight": "bold", "padding-bottom": "10px"}),
+        html.Div("Graphique d'analyse représentant la réserve d'usure médiane, pour chaque courbe considérée, pour le rail droite (vert) et le rail gauche (rose). "
+                 "La limite d'usure est calculée par rapport à la valeur limite définie à 0.08 mm de profondeur. "
+                 "La valeur présentée est toujours la valeur maximale en considérant les deux plages de fréquences (10 à 100 mm et 30 à 300 mm).",
+                 style={"padding-bottom": "15px", "width": "90%"}),
         dcc.Graph(id="graph-1", config={'scrollZoom': True},
                   style={'height': FIGURE_HEIGHT, 'width': FIGURE_WIDTH})
     ]),
 
     html.Div([
-        html.Div("Profondeur max. usure ondulatoire [mm]"),
+        html.Div("Profondeur max. usure ondulatoire [mm]", style={"color": "black", "font-weight": "bold"}),
         dcc.Graph(id="graph-2", config={'scrollZoom': True},
                   style={'height': FIGURE_HEIGHT, 'width': FIGURE_WIDTH})
     ]),
 
-    html.Hr(),
 
-    html.H4("Données tabulaires et histogramme de la colonne selectionnée"),
+    html.H3("Données tabulaires et histogramme de la colonne selectionnée", style={'background-color':"#DADADA", 'padding': '2px'}),
 
-    # ✅ Conteneur flex pour afficher la table et l'histogramme sur une seule ligne
     html.Div([
         html.Div(
             dash_table.DataTable(
                 id="data-table",
                 fixed_rows={'headers': True},
-                style_table={"width": "100%", "overflowX": "auto", "overflowY": "auto", "maxHeight": "400px"},
+                style_table={"width": "90%", "overflowX": "auto", "overflowY": "auto", "maxHeight": "190px"},
                 style_cell={"minWidth": "150px", 'padding': '5px', 'textAlign': 'left', 'fontSize':12, 'font-family':'sans-serif'},
                 style_header={
                 "backgroundColor": "#DADADA", "color": "black", 'fontWeight': 'bold', 'padding': '10px'
@@ -107,20 +112,39 @@ main_layout = html.Div([
                 column_selectable="single",
                 style_data_conditional=[
                     {"if": {"filter_query": "{annee} <= 0"}, "backgroundColor": "mistyrose", "color": "firebrick"},
-                    {"if": {"filter_query": "{annee} > 0 && {annee} < 1"}, "backgroundColor": "#F39C12",
-                     "color": "black"},
-                    {"if": {"filter_query": "{annee} >= 1"}, "backgroundColor": "#2ECC71", "color": "black"},
+                    {"if": {"filter_query": "{annee} > 0 && {annee} < 1"}, "backgroundColor": "papayawhip",
+                     "color": "darkorange"},
+                    {"if": {"filter_query": "{annee} >= 1"}, "backgroundColor": "honeydew", "color": "darkolivegreen"},
                 ]
             ),
-            style={'width': '50%', 'padding': '10px'}
+            style={'width': '100%', 'padding': '10px'}
         ),
 
         html.Div(
-            dcc.Graph(id="histogram", style={'height': "30vh", 'width': "100%"}),
-            style={'width': '48%', 'padding': '10px'}
+            dcc.Graph(id="histogram", style={ 'width': "100%"}),
+            style={'width': '48%', 'padding-top': '20px'}
         )
-    ], style={'display': 'flex', 'justify-content': 'space-between'}),
+    ], style={'display': 'flex', 'justify-content': 'space-between', 'flex-direction': 'column'}),
     # ✅ Flexbox pour aligner la table et l'histogramme sur une ligne
+
+    html.H3("Recommandation automatique des tronçons à meuler",
+            style={'background-color': "#DADADA", 'padding': '2px'}),
+
+    html.Div(
+            dash_table.DataTable(
+                id="table-meulage",
+                fixed_rows={'headers': True},
+                style_table={"width": "90%", "overflowX": "auto", "overflowY": "auto", "maxHeight": "190px"},
+                style_cell={"minWidth": "150px", 'padding': '5px', 'textAlign': 'left', 'fontSize':12, 'font-family':'sans-serif'},
+                style_header={
+                "backgroundColor": "#DADADA", "color": "black", 'fontWeight': 'bold', 'padding': '10px'
+                },
+                sort_action="native",
+                column_selectable="single",
+
+            ),
+            style={'width': '100%', 'padding': '10px'}
+    ),
 
 ], style=PAGE_STYLE)
 
@@ -138,11 +162,10 @@ SIDEBAR_STYLE = {
 
 sidebar = html.Div(children = [
             html.H2("Meulage VM", className="display-4"),
-            html.Hr(),
             html.P(
-                "Outil d'aide à la décision pour définir les tronçons à meuler sur le réseau TPF à voie métrique", className="lead"
+                "Outil d'aide à la décision pour définir les tronçons à meuler sur le réseau TPF à voie métrique.", className="lead"
             ),
-            html.H4("Sélectionner une ligne ferroviaire"),
+            html.Div("Sélectionner une ligne ferroviaire", style={'padding-top': '15px', 'padding-bottom': '5px', "font-weight": "bold", "font-size": "10pt"}),
             dcc.Dropdown(
                 id="line-selector",
                 options=[
@@ -150,8 +173,21 @@ sidebar = html.Div(children = [
                     {"label": "Châtel-St-Denis - Montbovon", "value": "Châtel-St-Denis - Montbovon"}
                 ],
                 value="Palézieux - Châtel-St-Denis",
+                style={'width': '100%', 'padding': '0px', 'font-family': 'sans-serif', 'font-size': '10pt', 'border': '0px', 'border-radius': '5px'},
                 clearable=False
             ),
+            html.Div("Budget pour la ligne [CHF/an]", style={'padding-top': '15px', 'padding-bottom': '5px', "font-weight": "bold", "font-size": "10pt"}),
+            dcc.Input(
+                id="budget-input",
+                value=50000,
+                type="number",
+                min=0,
+                max=1000000,
+                step=500,
+                style={'width': '92%', 'padding': '9px', 'font-family': 'sans-serif', 'font-size': '10pt','border': '0px', 'border-radius': '5px'},
+                    ),
+
+
             html.H3("Model"
             ),
             html.P(
@@ -174,7 +210,10 @@ app.layout = html.Div(children = [
     html.Div([
         main_layout
      ])
-], style={'backgroundColor':'white', "font-family": "Arial, sans-serif"})
+], style={'backgroundColor':'white', "font-family": "Arial, sans-serif",
+    "top": 0,
+    "left": 0,
+    "bottom": 0})
 
 # --- Callback pour appliquer le zoom lors d'un clic sur `km_start` ---
 @app.callback(
@@ -352,11 +391,15 @@ def update_histogram(active_cell, table_data):
     # ✅ Vérifie si `table_data` est vide
     if not table_data or len(table_data) == 0:
         df_empty = pd.DataFrame({"x": [], "y": []})
-        return px.histogram(df_empty, x="x", y="y", title="Aucune donnée disponible").update_layout(
-            plot_bgcolor="white",
+        return px.histogram(df_empty, x="x", y="y").update_layout(
+            height=200,
+            plot_bgcolor="white",  # Fond blanc
             paper_bgcolor="white",
+            font=dict(family="Arial", size=12, color="black"),
             xaxis=dict(showgrid=True, gridcolor="black"),
-            yaxis=dict(showgrid=True, gridcolor="black")
+            yaxis=dict(showgrid=True, gridcolor="black"),
+            bargap=0.1,
+            margin=dict(l=0, r=0, b=0, t=0, pad=0)
         )
 
     # ✅ Vérifie si `active_cell` est bien défini
@@ -394,18 +437,48 @@ def update_histogram(active_cell, table_data):
         )
 
     # ✅ Création de l'histogramme avec style blanc
-    fig = px.histogram(df, x=col_selected, y="longueur", histfunc="sum", color_discrete_sequence=['#1f2022'])
+    fig = px.histogram(df, x=col_selected, y="longueur", histfunc="sum", color_discrete_sequence=["#DADADA"])
     fig.update_layout(
         height=200,
         plot_bgcolor="white",  # Fond blanc
         paper_bgcolor="white",
-        font=dict(family="Arial", size=10, color="black"),
+        font=dict(family="Arial", size=12, color="black"),
         xaxis=dict(showgrid=True, gridcolor="black"),
         yaxis=dict(showgrid=True, gridcolor="black"),
-        bargap=0.1
+        bargap=0.1,
+        margin=dict(l=0, r=0, b=0, t=0, pad=0)
     )
 
     return fig
+
+# Recommandation pour le meulage
+@app.callback(
+Output("table-meulage", "columns"),
+    Output("table-meulage", "data"),
+    Input("line-selector", "value"),
+    Input("budget-input", "value")
+)
+def recomm_meulage(line_selector, budget_input):
+    file_map = {
+        "Palézieux - Châtel-St-Denis": "StdE_Palezieux_Chatel_St_Denis.csv",
+        "Châtel-St-Denis - Montbovon": "StdE_Chatel_St_Denis_Montbovon.csv",
+    }
+
+    if line_selector not in file_map:
+        raise dash.exceptions.PreventUpdate
+
+    file_path = file_map[line_selector]
+
+    try:
+        df = pd.read_csv(file_path)
+    except Exception as e:
+        print(f"Erreur de chargement du fichier CSV: {e}")
+        raise dash.exceptions.PreventUpdate
+
+    df = df.iloc[:, [0,1,10,11]]
+    columns = [{"name": col, "id": col, "type": "numeric"} for col in df.columns]
+    return columns, df.to_dict("records")
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)
