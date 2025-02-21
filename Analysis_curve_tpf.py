@@ -135,7 +135,7 @@ def data_25_max(df_line):
         showlegend=False
     ))
 
-    # Ajout de la ligne rouge horizontale à y = 0.08
+    # Ajout de la ligne horizontale à y = 0.08
     fig.add_trace(go.Scatter(
         x=[df_line['von'].min(), df_line['von'].max()],
         y=[0.08, 0.08],

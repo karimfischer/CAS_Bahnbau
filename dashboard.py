@@ -19,20 +19,20 @@ PAGE_STYLE = {
     "margin-right": "2rem",
     "padding-left": "18rem",
     "display":"inline-block",
-    "width": "80%",
+
 }
 
 # Fonction pour formater les figures
-def format_figure(fig, xlabel_format=True):
+def format_figure(fig):
     fig.update_layout(
         title=None,
-        margin=dict(l=50, r=30, t=10, b=30),
+        margin=dict(l=5, r=20, t=5, b=5),
+        font=dict(size=10),
+        yaxis_range=[-0.1, 0.5],
         xaxis=dict(
             matches='x',
             showgrid=True, gridcolor='black', gridwidth=0.5,
             showline=True, linewidth=1, linecolor="black", mirror=True,
-            title=None,
-            tickformat=",d" if xlabel_format else None,
             color="black",
             zeroline=False
         ),
@@ -40,14 +40,14 @@ def format_figure(fig, xlabel_format=True):
             showgrid=True, gridcolor='black', gridwidth=0.5,
             showline=True, linewidth=1, linecolor="black", mirror=True,
             fixedrange=False,
-            title=None,
             color="black",
             zeroline=False
+
         ),
         plot_bgcolor='white',
         paper_bgcolor='white',
         showlegend=False,
-        legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5)
+        #legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5)
     )
     return fig
 
@@ -70,7 +70,7 @@ main_layout = html.Div([
         html.Div("Graphique d'analyse représentant la réserve d'usure médiane, pour chaque courbe considérée, pour le rail droite (vert) et le rail gauche (rose). "
                  "La limite d'usure est calculée par rapport à la valeur limite définie à 0.08 mm de profondeur. "
                  "La valeur présentée est toujours la valeur maximale en considérant les deux plages de fréquences (10 à 100 mm et 30 à 300 mm).",
-                 style={"padding-bottom": "15px", "width": "90%"}),
+                 style={"padding-bottom": "15px", 'fontSize':12}),
         dcc.Graph(id="graph-1", config={'scrollZoom': True},
                   style={'height': FIGURE_HEIGHT, 'width': FIGURE_WIDTH})
     ]),
@@ -82,19 +82,24 @@ main_layout = html.Div([
     ]),
 
 
-    html.H3("Données tabulaires et histogramme de la colonne selectionnée", style={'background-color':"#DADADA", 'padding': '2px'}),
+    html.H3("Données tabulaires et histogramme de la colonne sélectionnée", style={'background-color':"#DADADA", 'padding': '2px'}),
 
     html.Div([
         html.Div(
             dash_table.DataTable(
                 id="data-table",
                 fixed_rows={'headers': True},
-                style_table={"width": "90%", "overflowX": "auto", "overflowY": "auto", "maxHeight": "190px"},
-                style_cell={"minWidth": "150px", 'padding': '5px', 'textAlign': 'left', 'fontSize':12, 'font-family':'sans-serif'},
+                style_table={"width": "96%", "overflowX": "auto", "overflowY": "auto", "maxHeight": "200px"},
+                style_cell={'padding': '1px', 'textAlign': 'left', 'fontSize':10,
+                            'font-family':'sans-serif', 'minWidth': '60px'},
                 style_header={
-                "backgroundColor": "#DADADA", "color": "black", 'fontWeight': 'bold', 'padding': '10px'
+                "backgroundColor": "#DADADA", "color": "black", 'fontWeight': 'bold',
+                    'padding': '2px', 'whiteSpace':'normal', 'fontSize': 10,
                 },
+
+                #filter_action="native",
                 sort_action="native",
+                sort_mode="multi",
                 column_selectable="single",
                 style_data_conditional=[
                     {"if": {"filter_query": "{annee} <= 0"}, "backgroundColor": "mistyrose", "color": "firebrick"},
@@ -121,9 +126,10 @@ main_layout = html.Div([
                 id="table-meulage",
                 fixed_rows={'headers': True},
                 style_table={"width": "50%", "overflowX": "auto", "overflowY": "auto", "maxHeight": "190px"},
-                style_cell={"minWidth": "50px", 'padding': '5px', 'textAlign': 'left', 'fontSize':12, 'font-family':'sans-serif'},
+                style_cell={'padding': '5px', 'textAlign': 'left', 'fontSize':10, 'font-family':'sans-serif'},
                 style_header={
-                "backgroundColor": "#DADADA", "color": "black", 'fontWeight': 'bold', 'padding': '10px'
+                "backgroundColor": "#DADADA", "color": "black",
+                    'fontWeight': 'bold', 'padding': '5px',
                 },
                 sort_action="native",
                 column_selectable="single",
@@ -362,9 +368,21 @@ def update_table(selected_line):
     df["annee"] = df["annee"].round(1)
     df["longueur"] = (df["longueur"]*1000).round(3)
 
-    df = df.iloc[:, :-1]
+    df = df.iloc[:, [0,1,2,3,4,5,6,7,8,9,10,12]]
 
     columns = [{"name": col, "id": col, "type": "numeric"} for col in df.columns]
+    columns[0]["name"] = "km début"
+    columns[1]["name"] = "km fin"
+    columns[2]["name"] = "Traverse"
+    columns[3]["name"] = "Rail"
+    columns[4]["name"] = "Acier"
+    columns[5]["name"] = "Rayon [m]"
+    columns[6]["name"] = "N° courbe"
+    columns[7]["name"] = "Elément standard"
+    columns[8]["name"] = "Fréquence [1/an]"
+    columns[9]["name"] = "Réserve usure min [mm]"
+    columns[10]["name"] = "Année [an]"
+    columns[11]["name"] = "Longueur [m]"
 
     return columns, df.to_dict("records")
 
@@ -425,7 +443,18 @@ def update_histogram(active_cell, table_data):
         )
 
     # ✅ Création de l'histogramme avec style blanc
-    fig = px.histogram(df, x=col_selected, y="longueur", histfunc="sum", color_discrete_sequence=["#DADADA"])
+    fig = px.histogram(df, x=col_selected, y="longueur", histfunc="sum",
+                        text_auto='.2s', labels={
+            "km_start":"Point km du début de tronçon",
+            "km_end":"Point km de fin de tronçon",
+            "typ_rail":"Profil de rail",
+            "typ_trav":"Type de traverse",
+            "qualite_acier": "Nuance d'acier", "rayon":"Rayon", "groupe":"ID de la courbe",
+            "element_standard":"Elément standard", "frequence":"Fréquence théorique du meulage [1/an]",
+            "reserve_usure_min":"Réserve min. d'usure [mm]", "annee":"Temps jusqu'au prochain meulage [an]",
+            "longueur":"Longueur du tronçon [m]"
+
+    })
     fig.update_layout(
         height=200,
         plot_bgcolor="white",  # Fond blanc
@@ -434,8 +463,11 @@ def update_histogram(active_cell, table_data):
         xaxis=dict(showgrid=True, gridcolor="black"),
         yaxis=dict(showgrid=True, gridcolor="black"),
         bargap=0.1,
-        margin=dict(l=0, r=0, b=0, t=0, pad=0)
+        margin=dict(l=0, r=0, b=0, t=0, pad=0),
+        yaxis_title="Longueur cumulée (m)"
     )
+    fig.update_traces(textfont_size=11, textangle=0, marker_color='#DADADA', marker_line_color='black',
+                  marker_line_width=1.5, opacity=0.9, textfont_color="black")
 
     return fig
 
@@ -530,16 +562,16 @@ def recomm_meulage(line_selector, budget_input):
         dernier_troncon_indx = non_select_reste_km["Longueur"].idxmax()
         selection_finale.append(non_select.loc[dernier_troncon_indx])
         metres_selectionnes_km += non_select.loc[dernier_troncon_indx, "Longueur"]
-        print("Il vous reste une réserve de:",
-              ((metres_max_km - metres_selectionnes_km) * 1000).round(0), "m.")
+        #print("Il vous reste une réserve de:",
+            #  ((metres_max_km - metres_selectionnes_km) * 1000).round(0), "m.")
 
     # Transformer en DataFrame final
     df_selection_corrige = pd.DataFrame(selection_finale)
     df_selection_corrige["Longueur"] = (df_selection_corrige["Longueur"] * 1000).round(0)
 
     # Affichage des résultats
-    print("km totaux selon budget:", metres_max_km)
-    print("km totaux du programme:", df_selection_corrige["Longueur"].sum().round(3) / 1000, "km")
+    #print("km totaux selon budget:", metres_max_km)
+    #print("km totaux du programme:", df_selection_corrige["Longueur"].sum().round(3) / 1000, "km")
     df_selection_corrige["km_start"] = df_selection_corrige["km_start"].round(3)
     df_selection_corrige["km_end"] = df_selection_corrige["km_end"].round(3)
     df_selection_corrige["annee"] = df_selection_corrige["annee"].round(1)
