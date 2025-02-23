@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="20.02 (1)">
+    <list default="true" id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="21.02 (1)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ANALYSIS_RIFFEL_Chatel_St_Denis_Montbovon.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ANALYSIS_RIFFEL_Chatel_St_Denis_Montbovon.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ANALYSIS_RIFFEL_Palezieux_Chatel_St_Denis.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ANALYSIS_RIFFEL_Palezieux_Chatel_St_Denis.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Analysis_curve_tpf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analysis_curve_tpf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reserve_usure_Chatel_St_Denis___Montbovon.json" beforeDir="false" afterPath="$PROJECT_DIR$/reserve_usure_Chatel_St_Denis___Montbovon.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reserve_usure_Palezieux___Chatel_St_Denis.json" beforeDir="false" afterPath="$PROJECT_DIR$/reserve_usure_Palezieux___Chatel_St_Denis.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -341,7 +347,15 @@
       <option name="project" value="LOCAL" />
       <updated>1740083252902</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="21.02 (1)">
+      <option name="closed" value="true" />
+      <created>1740169263415</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1740169263415</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -379,7 +393,8 @@
     <MESSAGE value="17.02 (2)" />
     <MESSAGE value="17.02 (3)" />
     <MESSAGE value="20.02 (1)" />
-    <option name="LAST_COMMIT_MESSAGE" value="20.02 (1)" />
+    <MESSAGE value="21.02 (1)" />
+    <option name="LAST_COMMIT_MESSAGE" value="21.02 (1)" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CAS_Bahnbau$detemination_troncon_a_meuler.coverage" NAME="detemination_troncon_a_meuler Coverage Results" MODIFIED="1740045555397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

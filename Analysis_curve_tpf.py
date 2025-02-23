@@ -16,7 +16,7 @@ import unicodedata
 import re
 
 file_path = "report2025-01-08_13-28.csv"
-r_min_choix = 10
+r_min_choix = 0
 r_max_choix = 600
 
 # Options avancées pour charger un fichier efficacement
@@ -43,6 +43,7 @@ def fun_groupe(df,ligne,r_min, r_max):
     df_filtre = df[(df['Nom_Infrastructure_Horizontal geometry'] >= r_min) &
     (df['Nom_Infrastructure_Horizontal geometry']<=r_max) &
     (df['Linie']==ligne)]
+
     df_filtre['groupe'] = (df_filtre['Nom_Infrastructure_Horizontal geometry'] != df_filtre['Nom_Infrastructure_Horizontal geometry'].shift()).cumsum()
     df_filtre['CAL Riffel 10-100 l'] =df_filtre['ATM Riffel 10-30 l']+df_filtre['ATM Riffel 30-100 l']
     df_filtre['CAL Riffel 30-300 l'] =df_filtre['ATM Riffel 30-100 l']+df_filtre['ATM Riffel 100-300 l']
@@ -171,6 +172,7 @@ def reserve_usure_par_courbe_plot(line_riffel):
     # 🔹 Création du graphique avec Plotly
     fig = go.Figure()
 
+
     # Ajout des lignes verticales (vlines)
     for i, row in line_riffel.iterrows():
         fig.add_trace(go.Scatter(
@@ -226,7 +228,7 @@ def reserve_usure_par_courbe_plot(line_riffel):
     # Configuration du layout
     fig.update_layout(
         title="Réserve d'usure",
-        xaxis_title="Kilométrage linéaire (km)",
+        xaxis_title="Position [km]",
         yaxis_title="Réserve d'usure",
         xaxis=dict(showgrid=True, range=[line_riffel['km_debut'].min(), line_riffel['km_fin'].max()]),
         yaxis=dict(showgrid=True, range=[-0.1, 0.1]),
@@ -339,6 +341,7 @@ def output_riffel(df, gw):
 
     stat_curve = stat_curve.replace('',np.nan)
     stat_curve.dropna(subset=['Median_10_100_l'], inplace=True)
+    stat_curve.drop(stat_curve[stat_curve["length"]>6000].index, inplace=True) #Supprimer longs tronçons artificiels
 
     # Exemple de variable Linie
     Linie_retenue = stat_curve["Linie"].iloc[0]

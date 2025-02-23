@@ -97,10 +97,10 @@ main_layout = html.Div([
                     'padding': '2px', 'whiteSpace':'normal', 'fontSize': 10,
                 },
 
-                #filter_action="native",
                 sort_action="native",
-                sort_mode="multi",
+                sort_mode="single",
                 column_selectable="single",
+                selected_columns=["annee"],
                 style_data_conditional=[
                     {"if": {"filter_query": "{annee} <= 0"}, "backgroundColor": "mistyrose", "color": "firebrick"},
                     {"if": {"filter_query": "{annee} > 0 && {annee} < 1"}, "backgroundColor": "papayawhip",
@@ -108,6 +108,7 @@ main_layout = html.Div([
                     {"if": {"filter_query": "{annee} >= 1"}, "backgroundColor": "honeydew", "color": "darkolivegreen"},
                 ]
             ),
+
             style={'width': '100%', 'padding': '10px'}
         ),
 
@@ -175,7 +176,7 @@ sidebar = html.Div(children = [
                 type="number",
                 min=0,
                 max=1000000,
-                step=500,
+                step=100,
                 style={'width': '92%', 'padding': '9px', 'font-family': 'sans-serif', 'font-size': '10pt','border': '0px', 'border-radius': '5px'},
                     ),
 
@@ -211,7 +212,7 @@ app.layout = html.Div(children = [
 @app.callback(
     Output("range-store", "data",allow_duplicate=True),
     Input("data-table", "active_cell"),
-    State("data-table", "data"),
+    State("data-table", "derived_virtual_data"),
     State("range-store", "data"),
     prevent_initial_call=True
 )
@@ -355,11 +356,13 @@ def update_table(selected_line):
 
     try:
         df = pd.read_csv(file_path)
+
     except Exception as e:
         print(f"Erreur de chargement du fichier CSV: {e}")
         raise dash.exceptions.PreventUpdate
 
     df = df.sort_values(by="annee", ascending=True)
+
 
     df["km_start"] = df["km_start"].round(3)
     df["km_end"] = df["km_end"].round(3)
@@ -370,7 +373,7 @@ def update_table(selected_line):
 
     df = df.iloc[:, [0,1,2,3,4,5,6,7,8,9,10,12]]
 
-    columns = [{"name": col, "id": col, "type": "numeric"} for col in df.columns]
+    columns = [{"name": col, "id": col,  "deletable": True, "selectable": True} for col in df.columns]
     columns[0]["name"] = "km début"
     columns[1]["name"] = "km fin"
     columns[2]["name"] = "Traverse"
@@ -386,75 +389,35 @@ def update_table(selected_line):
 
     return columns, df.to_dict("records")
 
+
 # Histogramme
 # --- Callback pour afficher l'histogramme ---
 @app.callback(
     Output("histogram", "figure"),
-    Input("data-table", "active_cell"),
-    State("data-table", "data"),
+    Input("data-table", "selected_columns"),
+    Input("data-table", "data"),
 )
-def update_histogram(active_cell, table_data):
-    # ✅ Vérifie si `table_data` est vide
-    if not table_data or len(table_data) == 0:
-        df_empty = pd.DataFrame({"x": [], "y": []})
-        return px.histogram(df_empty, x="x", y="y").update_layout(
-            height=200,
-            plot_bgcolor="white",  # Fond blanc
-            paper_bgcolor="white",
-            font=dict(family="Arial", size=12, color="black"),
-            xaxis=dict(showgrid=True, gridcolor="black"),
-            yaxis=dict(showgrid=True, gridcolor="black"),
-            bargap=0.1,
-            margin=dict(l=0, r=0, b=0, t=0, pad=0)
-        )
-
-    # ✅ Vérifie si `active_cell` est bien défini
-    if not active_cell or "column_id" not in active_cell or active_cell["column_id"] is None:
-        df_empty = pd.DataFrame({"x": [], "y": []})
-        return px.histogram(df_empty, x="x", y="y", title="Sélectionnez une colonne").update_layout(
-            plot_bgcolor="white",
-            paper_bgcolor="white",
-            xaxis=dict(showgrid=True, gridcolor="black"),
-            yaxis=dict(showgrid=True, gridcolor="black")
-        )
-
-    col_selected = active_cell["column_id"]
-
-    # ✅ Vérifie que `col_selected` existe bien dans les données
-    if col_selected not in table_data[0]:
-        df_empty = pd.DataFrame({"x": [], "y": []})
-        return px.histogram(df_empty, x="x", y="y", title=f"Histogramme de {col_selected} (Colonne non trouvée)").update_layout(
-            plot_bgcolor="white",
-            paper_bgcolor="white",
-            xaxis=dict(showgrid=True, gridcolor="black"),
-            yaxis=dict(showgrid=True, gridcolor="black")
-        )
-
+def update_histogram(col_selected, table_data):
     df = pd.DataFrame(table_data)
 
-    # ✅ Vérifie que la colonne "longueur" existe
-    if "longueur" not in df.columns:
-        df_empty = pd.DataFrame({"x": [], "y": []})
-        return px.histogram(df_empty, x="x", y="y", title=f"Histogramme de {col_selected} (Longueur non disponible)").update_layout(
-            plot_bgcolor="white",
-            paper_bgcolor="white",
-            xaxis=dict(showgrid=True, gridcolor="black"),
-            yaxis=dict(showgrid=True, gridcolor="black")
-        )
-
     # ✅ Création de l'histogramme avec style blanc
+    base_labels = {
+        "km_start": "Point km du début de tronçon",
+        "km_end": "Point km de fin de tronçon",
+        "typ_rail": "Profil de rail",
+        "typ_trav": "Type de traverse",
+        "qualite_acier": "Nuance d'acier",
+        "rayon": "Rayon",
+        "groupe": "ID de la courbe",
+        "element_standard": "Elément standard",
+        "frequence": "Fréquence théorique du meulage [1/an]",
+        "reserve_usure_min": "Réserve min. d'usure [mm]",
+        "annee": "Temps jusqu'au prochain meulage [an]",
+        "longueur": "Longueur du tronçon [m]"
+    }
     fig = px.histogram(df, x=col_selected, y="longueur", histfunc="sum",
-                        text_auto='.2s', labels={
-            "km_start":"Point km du début de tronçon",
-            "km_end":"Point km de fin de tronçon",
-            "typ_rail":"Profil de rail",
-            "typ_trav":"Type de traverse",
-            "qualite_acier": "Nuance d'acier", "rayon":"Rayon", "groupe":"ID de la courbe",
-            "element_standard":"Elément standard", "frequence":"Fréquence théorique du meulage [1/an]",
-            "reserve_usure_min":"Réserve min. d'usure [mm]", "annee":"Temps jusqu'au prochain meulage [an]",
-            "longueur":"Longueur du tronçon [m]"
-
-    })
+                        text_auto='.2s',
+                       labels={"value":base_labels.get(col_selected[0],col_selected[0])})
     fig.update_layout(
         height=200,
         plot_bgcolor="white",  # Fond blanc
@@ -464,7 +427,8 @@ def update_histogram(active_cell, table_data):
         yaxis=dict(showgrid=True, gridcolor="black"),
         bargap=0.1,
         margin=dict(l=0, r=0, b=0, t=0, pad=0),
-        yaxis_title="Longueur cumulée (m)"
+        yaxis_title="Longueur cumulée (m)",
+       showlegend=False
     )
     fig.update_traces(textfont_size=11, textangle=0, marker_color='#DADADA', marker_line_color='black',
                   marker_line_width=1.5, opacity=0.9, textfont_color="black")
