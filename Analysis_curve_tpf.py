@@ -138,7 +138,7 @@ def data_25_max(df_line):
 
     # Ajout de la ligne horizontale à y = 0.08
     fig.add_trace(go.Scatter(
-        x=[df_line['von'].min(), df_line['von'].max()],
+        x=[df_line['von'].min(), df_line['bis'].max()],
         y=[0.08, 0.08],
         mode='lines',
         line=dict(color='black', width=2),  # Ligne rouge continue
@@ -149,11 +149,11 @@ def data_25_max(df_line):
     fig.update_layout(
         title="Valeur max. d'usure ondulatoire par pas de 25 cm",
         xaxis=dict(
-            title="Point kilométrique",
-            range=[df_line['von'].min(), df_line['von'].max()]
+            title="Position [km]",
+            range=[df_line['von'].min(), df_line['bis'].max()]
         ),
         yaxis=dict(
-            title="Profondeur de l'usure ondulatoire max. [mm]",
+            title="Prof. max. [mm]",
             range=[min(min(data_25cm_max_l),min(data_25cm_max_r)),
                    max(max(data_25cm_max_l),max(data_25cm_max_r))]
         ),
@@ -229,7 +229,7 @@ def reserve_usure_par_courbe_plot(line_riffel):
     fig.update_layout(
         title="Réserve d'usure",
         xaxis_title="Position [km]",
-        yaxis_title="Réserve d'usure",
+        yaxis_title="Réserve d'usure [mm]",
         xaxis=dict(showgrid=True, range=[line_riffel['km_debut'].min(), line_riffel['km_fin'].max()]),
         yaxis=dict(showgrid=True, range=[-0.1, 0.1]),
         template="plotly_white",
