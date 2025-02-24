@@ -69,10 +69,10 @@ init_store_data = {
 # Ajout des cartes en haut du layout
 info_cards = html.Div([
     html.Div([
-        html.Div("A meuler cette année (2025)", style={"font-size": "12px", "color": "firebrick", "text-align": "center"}),
+        html.Div("Valeur limite dépassée", style={"font-size": "12px", "color": "firebrick", "text-align": "center"}),
         html.Div([
             html.Span(id="km-this-year", style={"font-size": "28px", "font-weight": "bold", "color": "firebrick"}),
-            html.Span(" km", style={"font-size": "14px", "color": "firebrick", "margin-left": "3px"})
+            html.Span(id="percent1", style={"font-size": "14px", "color": "firebrick", "margin-left": "3px"})
 
         ])
     ], style={
@@ -88,10 +88,10 @@ info_cards = html.Div([
     }),
 
     html.Div([
-        html.Div("A meuler l'année prochaine (2026)", style={"font-size": "12px", "color": "darkorange"}),
+        html.Div("Valeur limite bientôt dépassée (< 1 an)", style={"font-size": "12px", "color": "darkorange"}),
         html.Div([
             html.Span(id="km-next-year", style={"font-size": "28px", "font-weight": "bold", "color": "darkorange"}),
-            html.Span(" km", style={"font-size": "14px", "color": "darkorange", "margin-left": "3px"})
+            html.Span(id="percent2", style={"font-size": "14px", "color": "darkorange", "margin-left": "3px"})
         ])
     ], style={
         "background-color": "papayawhip",
@@ -110,7 +110,7 @@ info_cards = html.Div([
         html.Div([
             html.Span(id="km-no-grinding",
                       style={"font-size": "28px", "font-weight": "bold", "color": "darkolivegreen"}),
-            html.Span(" km", style={"font-size": "14px", "color": "darkolivegreen", "margin-left": "3px"})
+            html.Span(id="percent3", style={"font-size": "14px", "color": "darkolivegreen", "margin-left": "3px"})
         ])
     ], style={
         "background-color": "honeydew",
@@ -625,7 +625,10 @@ def recomm_meulage(line_selector, budget_input):
 @app.callback(
     [Output("km-this-year", "children"),
      Output("km-next-year", "children"),
-     Output("km-no-grinding", "children")],
+     Output("km-no-grinding", "children"),
+     Output("percent1", "children"),
+     Output("percent2", "children"),
+     Output("percent3", "children")],
     [Input("data-table", "data")]
 )
 def update_info_cards(table_data):
@@ -634,8 +637,13 @@ def update_info_cards(table_data):
     km_this_year = df[df["annee"] <= 0]["longueur"].sum() / 1000  # en km
     km_next_year = df[(df["annee"] > 0) & (df["annee"] < 1)]["longueur"].sum() / 1000
     km_no_grinding = df[df["annee"] >= 1]["longueur"].sum() / 1000
+    percent1 = (km_this_year/(km_this_year+km_next_year+km_no_grinding)*100)
+    percent2 = (km_next_year / (km_this_year + km_next_year + km_no_grinding) * 100)
+    percent3 = (km_no_grinding / (km_this_year + km_next_year + km_no_grinding) * 100)
 
-    return f"{km_this_year:.2f}", f"{km_next_year:.2f}", f"{km_no_grinding:.2f}"
+    return f"{km_this_year:.2f}", f"{km_next_year:.2f}", f"{km_no_grinding:.2f}", f"km ({percent1:.0f}%)", f"km ({percent2:.0f}%)", f"km ({percent3:.0f}%)"
+
+
 
 
 if __name__ == '__main__':
