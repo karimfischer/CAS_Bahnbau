@@ -124,7 +124,7 @@ def data_25_max(df_line):
         x=x_values,
         y=y_values_l,
         mode='lines',
-        line=dict(width=0.75, color='palevioletred'),  # Réduction de l'épaisseur de la ligne
+        line=dict(width=0.75, color='#414451'),  # Réduction de l'épaisseur de la ligne
         showlegend=False
     ))
 
@@ -132,16 +132,16 @@ def data_25_max(df_line):
         x=x_values,
         y=y_values_r,
         mode='lines',
-        line=dict(width=0.75, color='teal'),  # Réduction de l'épaisseur de la ligne
+        line=dict(width=0.75, color='#a5acaf'),  # Réduction de l'épaisseur de la ligne
         showlegend=False
     ))
 
     # Ajout de la ligne horizontale à y = 0.08
     fig.add_trace(go.Scatter(
-        x=[df_line['von'].min(), df_line['bis'].max()],
+        x=[df_line['von'].min()-500, df_line['bis'].max()+500],
         y=[0.08, 0.08],
         mode='lines',
-        line=dict(color='black', width=2),  # Ligne rouge continue
+        line=dict(color='firebrick', width=2),  # Ligne rouge continue
         name='Limite 0.08 mm'
     ))
 
@@ -155,23 +155,20 @@ def data_25_max(df_line):
         yaxis=dict(
             title="Prof. max. [mm]",
             range=[min(min(data_25cm_max_l),min(data_25cm_max_r)),
-                   max(max(data_25cm_max_l),max(data_25cm_max_r))]
+                   max(np.percentile(data_25cm_max_l, 90),np.percentile(data_25cm_max_r, 90))]
         ),
         template="plotly_white"
     )
     # Sauvegarde du graphique en JSON
     line = df_line['Linie'].iloc[0]
-    line = line = line.replace(" ", "_").replace("é", "e").replace("-", "_").replace("â","a")
+    line = line.replace(" ", "_").replace("é", "e").replace("-", "_").replace("â","a")
     json_filename = f"data_25_cm_{line}.json"
     pio.write_json(fig, json_filename)
     return
 
 def reserve_usure_par_courbe_plot(line_riffel):
-    # Conversion en Plotly pour le graphe des réserves d'usure:
-    # 🔹 Normalisation des couleurs
-    # 🔹 Création du graphique avec Plotly
+    # Création du graphique avec Plotly
     fig = go.Figure()
-
 
     # Ajout des lignes verticales (vlines)
     for i, row in line_riffel.iterrows():
@@ -179,8 +176,8 @@ def reserve_usure_par_courbe_plot(line_riffel):
             x=[row['km_debut'], row['km_fin']],
             y=[row['reserve_usure_l'], row['reserve_usure_l']],
             mode="lines",
-            line=dict(color='palevioletred', width=3),
-            name=f"Ligne L {row['groupe']}",
+            line=dict(color='#414451', width=3),
+            name=f"Rail G: {row['groupe']}",
             showlegend=False
         ))
 
@@ -188,8 +185,8 @@ def reserve_usure_par_courbe_plot(line_riffel):
             x=[row['km_debut'], row['km_fin']],
             y=[row['reserve_usure_r'], row['reserve_usure_r']],
             mode="lines",
-            line=dict(color='teal', width=3),
-            name=f"Ligne R {row['groupe']}",
+            line=dict(color='#a5acaf', width=3),
+            name=f"Rail D: {row['groupe']}",
             showlegend=False
         ))
 
@@ -198,41 +195,50 @@ def reserve_usure_par_courbe_plot(line_riffel):
             y=[row['reserve_usure_l'], row['reserve_usure_r']],
             mode="lines",
             line=dict(color="black", width=1),
-            name=f"VLine {row['groupe']}",
+            name=f"ID tronçon: {row['groupe']}",
             showlegend=False
         ))
 
         # Ajout des annotations (text)
-        fig.add_annotation(
-            x=(row['km_debut'] + row["km_fin"]) / 2,  # Position X normale
-            y=1.05,  # 1.05 pour être légèrement au-dessus du graphe
-            xref="x",  # Référence par rapport à l'axe X (valeurs normales)
-            yref="paper",  # Référence de l'axe Y par rapport au graph (0 = bas, 1 = haut)
-            text=row['groupe'],  # Texte affiché
-            showarrow=False,  # Pas de flèche
-            font=dict(size=9),  # Taille de la police
-            align="center",
-            textangle=-45
-        )
+        #fig.add_annotation(
+         #   x=(row['km_debut'] + row["km_fin"]) / 2,
+         #   y=1.0,
+         #   xref="x",
+         #   yref="paper",
+         #   text=row['groupe'],
+         #   showarrow=False,
+         #   font=dict(size=9),
+         #   align="center",
+         #   textangle=-67
+        #)
 
-    # Ajout d'une ligne horizontale à y=0 (équivalent de `plt.axhline(y=0, ...)`)
+    # Ajout d'une ligne horizontale à y=0
     fig.add_trace(go.Scatter(
-        x=[line_riffel['km_debut'].min(), line_riffel['km_fin'].max()],
+        x=[line_riffel['km_debut'].min()-500, line_riffel['km_fin'].max()+500],
         y=[0, 0],
         mode="lines",
-        line=dict(color='black', width=2),
+        line=dict(color='firebrick', width=2),
         name="Base Line",
         showlegend=False
     ))
 
-    # Configuration du layout
+    # Configuration du layout avec grille plus claire
     fig.update_layout(
         title="Réserve d'usure",
         xaxis_title="Position [km]",
         yaxis_title="Réserve d'usure [mm]",
-        xaxis=dict(showgrid=True, range=[line_riffel['km_debut'].min(), line_riffel['km_fin'].max()]),
-        yaxis=dict(showgrid=True, range=[-0.1, 0.1]),
-        template="plotly_white",
+        xaxis=dict(
+            showgrid=True,
+            gridcolor="lightgray",  # Couleur de la grille
+            gridwidth=0.5,  # Épaisseur de la grille
+            range=[line_riffel['km_debut'].min(), line_riffel['km_fin'].max()]
+        ),
+        yaxis=dict(
+            showgrid=True,  # Activation de la grille Y
+            gridcolor="lightgray",  # Couleur de la grille
+            gridwidth=0.5  # Épaisseur de la grille
+        ),
+
     )
 
     # Sauvegarde du graphique en JSON
@@ -240,7 +246,7 @@ def reserve_usure_par_courbe_plot(line_riffel):
     line = line.replace(" ", "_").replace("é", "e").replace("-", "_").replace("â","a")
     json_filename = f"reserve_usure_{line}.json"
     pio.write_json(fig, json_filename)
-    return
+
 
 
 #- Skewness par courbe:
@@ -467,6 +473,7 @@ plt.grid(axis='x', linestyle='--', alpha=0.7)
 plt.tight_layout()
 
 #plt.show()
+
 
 
 

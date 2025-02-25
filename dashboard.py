@@ -11,7 +11,6 @@ import pandas as pd
 # Taille des figures et style de la page
 FIGURE_WIDTH = "75vw"  # Largeur des graphiques
 FIGURE_HEIGHT = "30vh"  # Hauteur des graphiques
-Y_AXIS_DOMAIN = [0.1, 0.9]  # Alignement parfait des axes Y
 TABLE_WIDTH = FIGURE_WIDTH
 
 PAGE_STYLE = {
@@ -30,24 +29,25 @@ def format_figure(fig, sel_line):
 
     fig.update_layout(
         title=None,
-        margin=dict(l=5, r=20, t=5, b=5),
-        font=dict(size=10),
+        margin=dict(l=70, r=20, t=5, b=5),
+        font=dict(size=12),
         #yaxis_range=[-0.1, 0.5],
         xaxis=dict(
             matches='x',
-            showgrid=True, gridcolor='black', gridwidth=0.5,
+            showgrid=True, gridwidth=0.5,
             showline=True, linewidth=1, linecolor="black", mirror=True,
             color="black",
             zeroline=False,
             range = range
         ),
         yaxis=dict(
-            showgrid=True, gridcolor='black', gridwidth=0.5,
+            showgrid=True, gridwidth=0.5,
             showline=True, linewidth=1, linecolor="black", mirror=True,
-            fixedrange=False,
+            #fixedrange=False,
             color="black",
-            zeroline=False
-
+            zeroline=False,
+            autorangeoptions_clipmax=0.5,
+            automargin=True
         ),
         plot_bgcolor='white',
         paper_bgcolor='white',
@@ -72,6 +72,8 @@ info_cards = html.Div([
         html.Div("Valeur limite dépassée", style={"font-size": "12px", "color": "firebrick", "text-align": "center"}),
         html.Div([
             html.Span(id="km-this-year", style={"font-size": "28px", "font-weight": "bold", "color": "firebrick"}),
+            html.Span("km", style={"font-size": "14px", "color": "firebrick", "margin-left": "3px", "font-weight": "bold"}),
+            html.Span("❘", style={"font-size": "14px", "color": "firebrick", "margin-left": "3px"}),
             html.Span(id="percent1", style={"font-size": "14px", "color": "firebrick", "margin-left": "3px"})
 
         ])
@@ -91,6 +93,9 @@ info_cards = html.Div([
         html.Div("Valeur limite bientôt dépassée (< 1 an)", style={"font-size": "12px", "color": "darkorange"}),
         html.Div([
             html.Span(id="km-next-year", style={"font-size": "28px", "font-weight": "bold", "color": "darkorange"}),
+            html.Span("km",
+                      style={"font-size": "14px", "color": "darkorange", "margin-left": "3px", "font-weight": "bold"}),
+            html.Span("❘", style={"font-size": "14px", "color": "darkorange", "margin-left": "3px"}),
             html.Span(id="percent2", style={"font-size": "14px", "color": "darkorange", "margin-left": "3px"})
         ])
     ], style={
@@ -110,6 +115,9 @@ info_cards = html.Div([
         html.Div([
             html.Span(id="km-no-grinding",
                       style={"font-size": "28px", "font-weight": "bold", "color": "darkolivegreen"}),
+            html.Span("km",
+                      style={"font-size": "14px", "color": "darkolivegreen", "margin-left": "3px", "font-weight": "bold"}),
+            html.Span("❘", style={"font-size": "14px", "color": "darkolivegreen", "margin-left": "3px"}),
             html.Span(id="percent3", style={"font-size": "14px", "color": "darkolivegreen", "margin-left": "3px"})
         ])
     ], style={
@@ -168,13 +176,14 @@ main_layout = html.Div([
             dcc.Graph(id="histogram", style={'width': "100%"}),
             style={'width': '48%', 'padding-top': '20px'}
         )
-    ], style={'display': 'flex', 'justify-content': 'space-between', 'flex-direction': 'column'}),
+    ], style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column'}),
 
     html.Div([
         html.H3("Graphiques d'analyse linéaire",style={'background-color':"#DADADA", 'padding': '2px'}),
         html.Div("Réserve d'usure [mm]", style={"color": "black", "font-weight": "bold", "padding-bottom": "10px"}),
-        html.Div("Graphique d'analyse représentant la réserve d'usure médiane, pour chaque courbe considérée, pour le rail droite (vert) et le rail gauche (rose). "
-                 "La limite d'usure est calculée par rapport à la valeur limite définie à 0.08 mm de profondeur. "
+        html.Div("Graphique d'analyse représentant la réserve d'usure médiane, pour chaque courbe considérée, pour le rail droite (gris clair) et le rail gauche (gris foncé). "
+                 "La réserve d'usure médiane est calculée par rapport à la valeur limite définie à 0.08 mm de profondeur: une valeur négative signifie que la valeur limite est dépassée pour le tronçon concerné et que des travaux de meulage sont donc nécessaires. "
+                 " Un tronçon est défini dès lors qu'un changement de rayon de courbure intervient sur la ligne."
                  "La valeur présentée est toujours la valeur maximale en considérant les deux plages de fréquences (10 à 100 mm et 30 à 300 mm).",
                  style={"padding-bottom": "15px", 'fontSize':12}),
         dcc.Graph(id="graph-1", config={'scrollZoom': True},
@@ -495,12 +504,16 @@ def update_histogram(col_selected, table_data):
         plot_bgcolor="white",  # Fond blanc
         paper_bgcolor="white",
         font=dict(family="Arial", size=12, color="black"),
-        xaxis=dict(showgrid=True, gridcolor="black"),
-        yaxis=dict(showgrid=True, gridcolor="black"),
+        xaxis=dict(showgrid=True, gridcolor="lightgray"),
+        yaxis=dict(showgrid=True, gridcolor="lightgray"),
         bargap=0.1,
+        barcornerradius=5,
         margin=dict(l=0, r=0, b=0, t=0, pad=0),
-        yaxis_title="Longueur cumulée (m)",
-       showlegend=False
+        yaxis_title="Longueur cumulée [m]",
+        showlegend=False,
+
+
+
     )
     fig.update_traces(textfont_size=11, textangle=0, marker_color='#DADADA', marker_line_color='black',
                   marker_line_width=1.5, opacity=0.9, textfont_color="black")
@@ -641,7 +654,7 @@ def update_info_cards(table_data):
     percent2 = (km_next_year / (km_this_year + km_next_year + km_no_grinding) * 100)
     percent3 = (km_no_grinding / (km_this_year + km_next_year + km_no_grinding) * 100)
 
-    return f"{km_this_year:.2f}", f"{km_next_year:.2f}", f"{km_no_grinding:.2f}", f"km ({percent1:.0f}%)", f"km ({percent2:.0f}%)", f"km ({percent3:.0f}%)"
+    return f"{km_this_year:.2f}", f"{km_next_year:.2f}", f"{km_no_grinding:.2f}", f"{percent1:.0f}%", f"{percent2:.0f}%", f"{percent3:.0f}%"
 
 
 
