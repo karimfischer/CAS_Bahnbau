@@ -47,12 +47,12 @@ def attribution_StdE_troncon(df1, segments_superieurs, gw):
 
     # Fonction pour attribuer l'élément standard chiffré
     def attribuer_element_standard(row):
-        A = 3  # Toujours 1
+        A = 3  # Toujours 3
         B = 1  # Toujours 1
 
         # Déterminer C en fonction du rayon (colonne "rayon")
         if pd.isna(row["rayon"]):
-            C = "F"  # Si valeur manquante, mettre F
+            C = "C"  # Si valeur manquante, mettre C
         elif row["rayon"] > 600:
             C = 1
         elif 300 < row["rayon"] <= 600:
@@ -72,7 +72,7 @@ def attribution_StdE_troncon(df1, segments_superieurs, gw):
         elif "Acier" in str(row["typ_trav"]):
             D = 4
         else:
-            D = "F"  # Si valeur inconnue
+            D = "D"  # Si valeur inconnue
 
         # Déterminer E en fonction du type de rail (colonne "typ_rail")
         if "46 E1" in str(row["typ_rail"]):

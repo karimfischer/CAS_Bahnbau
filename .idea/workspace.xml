@@ -11,12 +11,10 @@
       <change beforePath="$PROJECT_DIR$/ANALYSIS_RIFFEL_Chatel_St_Denis_Montbovon.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ANALYSIS_RIFFEL_Chatel_St_Denis_Montbovon.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ANALYSIS_RIFFEL_Palezieux_Chatel_St_Denis.csv" beforeDir="false" afterPath="$PROJECT_DIR$/ANALYSIS_RIFFEL_Palezieux_Chatel_St_Denis.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Analysis_curve_tpf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analysis_curve_tpf.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_25_cm_Chatel_St_Denis___Montbovon.json" beforeDir="false" afterPath="$PROJECT_DIR$/data_25_cm_Chatel_St_Denis___Montbovon.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_25_cm_Palezieux___Chatel_St_Denis.json" beforeDir="false" afterPath="$PROJECT_DIR$/data_25_cm_Palezieux___Chatel_St_Denis.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/StdE_Chatel_St_Denis_Montbovon.csv" beforeDir="false" afterPath="$PROJECT_DIR$/StdE_Chatel_St_Denis_Montbovon.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/attribution_StdE.py" beforeDir="false" afterPath="$PROJECT_DIR$/attribution_StdE.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/out2.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/reserve_usure_Chatel_St_Denis___Montbovon.json" beforeDir="false" afterPath="$PROJECT_DIR$/reserve_usure_Chatel_St_Denis___Montbovon.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/reserve_usure_Palezieux - Chatel-St-Denis.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/reserve_usure_Palezieux___Chatel_St_Denis.json" beforeDir="false" afterPath="$PROJECT_DIR$/reserve_usure_Palezieux___Chatel_St_Denis.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,34 +54,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python tests.Doctests in arraylike.executor": "Run",
-    "Python.Analysis_curve_tpf.executor": "Run",
-    "Python.analysis_gis.executor": "Run",
-    "Python.attribution_StdE.executor": "Run",
-    "Python.dashboard.executor": "Run",
-    "Python.dashboard_2.executor": "Run",
-    "Python.decoupe_segment.executor": "Run",
-    "Python.detemination_troncon_a_meuler.executor": "Run",
-    "Python.graphe_interactif.executor": "Run",
-    "Python.graphe_interactif_2.executor": "Run",
-    "Python.graphe_interactif_3.executor": "Run",
-    "Python.jointure_interval.executor": "Run",
-    "Python.superstructure_et_rayon_dash.executor": "Run",
-    "Python.test_graphe_interactif_HTML.executor": "Run",
-    "Python.test_superstructure.executor": "Run",
-    "Python.test_superstructure_2.executor": "Run",
-    "Python.test_traverse.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python tests.Doctests in arraylike.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Analysis_curve_tpf.executor&quot;: &quot;Run&quot;,
+    &quot;Python.analysis_gis.executor&quot;: &quot;Run&quot;,
+    &quot;Python.attribution_StdE.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dashboard.executor&quot;: &quot;Run&quot;,
+    &quot;Python.dashboard_2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.decoupe_segment.executor&quot;: &quot;Run&quot;,
+    &quot;Python.detemination_troncon_a_meuler.executor&quot;: &quot;Run&quot;,
+    &quot;Python.graphe_interactif.executor&quot;: &quot;Run&quot;,
+    &quot;Python.graphe_interactif_2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.graphe_interactif_3.executor&quot;: &quot;Run&quot;,
+    &quot;Python.jointure_interval.executor&quot;: &quot;Run&quot;,
+    &quot;Python.superstructure_et_rayon_dash.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_graphe_interactif_HTML.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_superstructure.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_superstructure_2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.test_traverse.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="Push.Settings">
     <option name="SHOW_DETAILS_PANEL" value="false" />
   </component>

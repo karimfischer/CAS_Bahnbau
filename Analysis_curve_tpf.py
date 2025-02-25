@@ -166,11 +166,15 @@ def data_25_max(df_line):
     pio.write_json(fig, json_filename)
     return
 
+import plotly.graph_objects as go
+import plotly.io as pio
+
+
 def reserve_usure_par_courbe_plot(line_riffel):
     # Création du graphique avec Plotly
     fig = go.Figure()
 
-    # Ajout des lignes verticales (vlines)
+    # Ajout des lignes verticales (vlines) et des courbes d'usure
     for i, row in line_riffel.iterrows():
         fig.add_trace(go.Scatter(
             x=[row['km_debut'], row['km_fin']],
@@ -199,18 +203,21 @@ def reserve_usure_par_courbe_plot(line_riffel):
             showlegend=False
         ))
 
-        # Ajout des annotations (text)
-        #fig.add_annotation(
-         #   x=(row['km_debut'] + row["km_fin"]) / 2,
-         #   y=1.0,
-         #   xref="x",
-         #   yref="paper",
-         #   text=row['groupe'],
-         #   showarrow=False,
-         #   font=dict(size=9),
-         #   align="center",
-         #   textangle=-67
-        #)
+    # Ajout des bandes rouges pour les tronçons avec réserve d'usure négative
+    for i, row in line_riffel.iterrows():
+        if row['reserve_usure_l'] < 0 or row['reserve_usure_r'] < 0:
+            fig.add_trace(go.Scatter(
+                x=[row['km_debut'], row['km_fin'], row['km_fin'], row['km_debut']],
+                y=[min(min(line_riffel['reserve_usure_l']),min(line_riffel['reserve_usure_r'])),
+                   min(min(line_riffel['reserve_usure_l']),min(line_riffel['reserve_usure_r'])),
+                   max(max(line_riffel['reserve_usure_l']),max(line_riffel['reserve_usure_r'])),
+                   max(max(line_riffel['reserve_usure_l']),max(line_riffel['reserve_usure_r']))],  # Bande 
+                fill='toself',
+                fillcolor='rgba(255, 0, 0, 0.1)',  # Rouge semi-transparent
+                line=dict(color='rgba(255, 0, 0, 0)'),
+                name="Tronçon critique",
+                showlegend=False
+            ))
 
     # Ajout d'une ligne horizontale à y=0
     fig.add_trace(go.Scatter(
@@ -238,7 +245,6 @@ def reserve_usure_par_courbe_plot(line_riffel):
             gridcolor="lightgray",  # Couleur de la grille
             gridwidth=0.5  # Épaisseur de la grille
         ),
-
     )
 
     # Sauvegarde du graphique en JSON
@@ -347,7 +353,7 @@ def output_riffel(df, gw):
 
     stat_curve = stat_curve.replace('',np.nan)
     stat_curve.dropna(subset=['Median_10_100_l'], inplace=True)
-    stat_curve.drop(stat_curve[stat_curve["length"]>6000].index, inplace=True) #Supprimer longs tronçons artificiels
+    stat_curve.drop(stat_curve[stat_curve["length"]>1000].index, inplace=True) #Supprimer longs tronçons artificiels
 
     # Exemple de variable Linie
     Linie_retenue = stat_curve["Linie"].iloc[0]
