@@ -7,16 +7,22 @@ import plotly.express as px
 from dash.dependencies import Input, Output, State
 import pandas as pd
 
-
+# Color concept
+color_background_div = "#3a3a41"
 # Taille des figures et style de la page
 FIGURE_WIDTH = "75vw"  # Largeur des graphiques
 FIGURE_HEIGHT = "30vh"  # Hauteur des graphiques
 TABLE_WIDTH = FIGURE_WIDTH
 
 PAGE_STYLE = {
-    "margin-right": "2rem",
-    "padding-left": "18rem",
+    "top": 0,
+    "left": "0",
+    "bottom": 0,
+    "padding-left":"17rem",
+    "background-color": "#28282d",
+    "margin-right": "0rem",
     "display":"inline-block",
+    "font-family": "Verdana",
 
 }
 
@@ -35,22 +41,23 @@ def format_figure(fig, sel_line):
         xaxis=dict(
             matches='x',
             showgrid=True, gridwidth=0.5,
-            showline=True, linewidth=1, linecolor="black", mirror=True,
-            color="black",
+            showline=True, linewidth=1, linecolor="white", mirror=True,
+            color="white",
             zeroline=False,
             range = range
         ),
         yaxis=dict(
             showgrid=True, gridwidth=0.5,
-            showline=True, linewidth=1, linecolor="black", mirror=True,
+            showline=True, linewidth=1, linecolor="white", mirror=True,
             #fixedrange=False,
-            color="black",
+            color="white",
             zeroline=False,
             autorangeoptions_clipmax=0.5,
+            autorangeoptions_clipmin=-0.1,
             automargin=True
         ),
-        plot_bgcolor='white',
-        paper_bgcolor='white',
+        plot_bgcolor=color_background_div,
+        paper_bgcolor=color_background_div,
         showlegend=False,
         #legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5)
     )
@@ -82,11 +89,11 @@ info_cards = html.Div([
         "color": "white",
         "padding": "15px",
         "border-radius": "8px",  # Coins légèrement arrondis
-        "width": "25%",
+        "width": "250px",
         "text-align": "center",
-        "box-shadow": "1px 1px 4px rgba(0, 0, 0, 0.2)",  # Ombre discrète
         "border-left": "10px solid firebrick",  # Trait coloré
-        "margin": "5px"  # Espacement réduit
+        "margin": "5px",
+        "box-shadow": "1px 1px 5px mistyrose"
     }),
 
     html.Div([
@@ -103,15 +110,15 @@ info_cards = html.Div([
         "color": "white",
         "padding": "15px",
         "border-radius": "8px",
-        "width": "25%",
+        "width": "250px",
         "text-align": "center",
-        "box-shadow": "1px 1px 4px rgba(0, 0, 0, 0.2)",
         "border-left": "10px solid darkorange",
-        "margin": "5px"
+        "margin": "5px",
+        "box-shadow": "1px 1px 5px papayawhip"
     }),
 
     html.Div([
-        html.Div("Sans besoin de meulage", style={"font-size": "12px", "color": "darkolivegreen"}),
+        html.Div("Sans besoin de meulage immédiat", style={"font-size": "12px", "color": "darkolivegreen"}),
         html.Div([
             html.Span(id="km-no-grinding",
                       style={"font-size": "28px", "font-weight": "bold", "color": "darkolivegreen"}),
@@ -125,102 +132,13 @@ info_cards = html.Div([
         "color": "white",
         "padding": "15px",
         "border-radius": "8px",
-        "width": "25%",
+        "width": "250px",
         "text-align": "center",
-        "box-shadow": "1px 1px 4px rgba(0, 0, 0, 0.2)",
         "border-left": "10px solid darkolivegreen",
-        "margin": "5px"
+        "margin": "5px",
+        "box-shadow": "1px 1px 5px honeydew"
     })
 ], style={"display": "flex", "justify-content": "center", "gap": "5px", "margin-bottom": "5px"})
-
-
-main_layout = html.Div([
-
-
-
-    dcc.Store(id="range-store", data=init_store_data),
-    html.H3("Besoin en meulage sur la ligne",
-            style={'background-color': "#DADADA", 'padding': '2px'}),
-
-    info_cards,
-
-    html.Div([
-        html.Div(
-            dash_table.DataTable(
-                id="data-table",
-                fixed_rows={'headers': True},
-                style_table={"width": "96%", "overflowX": "auto", "overflowY": "auto", "maxHeight": "200px"},
-                style_cell={'padding': '1px', 'textAlign': 'left', 'fontSize': 10,
-                            'font-family': 'sans-serif', 'minWidth': '60px'},
-                style_header={
-                    "backgroundColor": "#DADADA", "color": "black", 'fontWeight': 'bold',
-                    'padding': '2px', 'whiteSpace': 'normal', 'fontSize': 10,
-                },
-
-                sort_action="native",
-                sort_mode="single",
-                column_selectable="single",
-                selected_columns=["annee"],
-                style_data_conditional=[
-                    {"if": {"filter_query": "{annee} <= 0"}, "backgroundColor": "mistyrose", "color": "firebrick"},
-                    {"if": {"filter_query": "{annee} > 0 && {annee} < 1"}, "backgroundColor": "papayawhip",
-                     "color": "darkorange"},
-                    {"if": {"filter_query": "{annee} >= 1"}, "backgroundColor": "honeydew", "color": "darkolivegreen"},
-                ]
-            ),
-
-            style={'width': '100%', 'padding': '10px'}
-        ),
-
-        html.Div(
-            dcc.Graph(id="histogram", style={'width': "100%"}),
-            style={'width': '48%', 'padding-top': '20px'}
-        )
-    ], style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column'}),
-
-    html.Div([
-        html.H3("Graphiques d'analyse linéaire",style={'background-color':"#DADADA", 'padding': '2px'}),
-        html.Div("Réserve d'usure [mm]", style={"color": "black", "font-weight": "bold", "padding-bottom": "10px"}),
-        html.Div("Graphique d'analyse représentant la réserve d'usure médiane, pour chaque courbe considérée, pour le rail droite (gris clair) et le rail gauche (gris foncé). "
-                 "La réserve d'usure médiane est calculée par rapport à la valeur limite définie à 0.08 mm de profondeur: une valeur négative signifie que la valeur limite est dépassée pour le tronçon concerné et que des travaux de meulage sont donc nécessaires. "
-                 " Un tronçon est défini dès lors qu'un changement de rayon de courbure intervient sur la ligne."
-                 "La valeur présentée est toujours la valeur maximale en considérant les deux plages de fréquences (10 à 100 mm et 30 à 300 mm).",
-                 style={"padding-bottom": "15px", 'fontSize':12}),
-        dcc.Graph(id="graph-1", config={'scrollZoom': True},
-                  style={'height': FIGURE_HEIGHT, 'width': FIGURE_WIDTH})
-    ]),
-
-    html.Div([
-        html.Div("Profondeur max. usure ondulatoire [mm]", style={"color": "black", "font-weight": "bold"}),
-        dcc.Graph(id="graph-2", config={'scrollZoom': True},
-                  style={'height': FIGURE_HEIGHT, 'width': FIGURE_WIDTH})
-    ]),
-
-
-
-
-
-    html.H3("Recommandation automatique des tronçons à meuler",
-            style={'background-color': "#DADADA", 'padding': '2px'}),
-
-    html.Div(
-            dash_table.DataTable(
-                id="table-meulage",
-                fixed_rows={'headers': True},
-                style_table={"width": "50%", "overflowX": "auto", "overflowY": "auto", "maxHeight": "190px"},
-                style_cell={'padding': '5px', 'textAlign': 'left', 'fontSize':10, 'font-family':'sans-serif'},
-                style_header={
-                "backgroundColor": "#DADADA", "color": "black",
-                    'fontWeight': 'bold', 'padding': '5px',
-                },
-                sort_action="native",
-                column_selectable="single",
-
-            ),
-            style={'width': '90%', 'padding': '10px'}
-    ),
-
-], style=PAGE_STYLE)
 
 SIDEBAR_STYLE = {
     "position": "fixed",
@@ -228,10 +146,13 @@ SIDEBAR_STYLE = {
     "left": 0,
     "bottom": 0,
     "width": "15rem",
-    "padding": "2rem 1rem",
-    "background-color": "#DADADA",
+    "padding": "0rem 1rem",
+    "background-color": color_background_div,
     "display":"inline-block",
-    "color": "black"
+    "color": "white",
+    "font-family": "Verdana",
+    "font-size": "10pt",
+
 }
 
 sidebar = html.Div(children = [
@@ -278,16 +199,107 @@ sidebar = html.Div(children = [
         ], style=SIDEBAR_STYLE
     )
 
+main_layout = html.Div([
+
+    dcc.Store(id="range-store", data=init_store_data),
+
+
+
+
+    html.Div([
+    html.Span("Besoin en meulage sur la ligne",
+            style={'padding-bottom': '40px', 'color':'white', "fontSize":23, "align-self": "flex-start", "font-weight":"bold"}),
+    info_cards,
+        html.Div(
+            dash_table.DataTable(
+                id="data-table",
+                fixed_rows={'headers': True},
+                style_table={"overflow": "scroll", "maxHeight": "200px", 'borderRadius': '0px',},
+                style_cell={'padding': '1px', 'textAlign': 'left', 'fontSize': 10,
+                            'font-family': 'sans-serif', 'minWidth': '60px'},
+                style_header={
+                    "backgroundColor": color_background_div, "color": "white", 'fontWeight': 'bold',
+                    'padding': '2px', 'whiteSpace': 'normal', 'fontSize': 10,
+                },
+
+                sort_action="native",
+                sort_mode="single",
+                column_selectable="single",
+                selected_columns=["annee"],
+                row_deletable=False,
+                style_data_conditional=[
+                    {"if": {"filter_query": "{annee} <= 0"}, "backgroundColor": "mistyrose", "color": "firebrick"},
+                    {"if": {"filter_query": "{annee} > 0 && {annee} < 1"}, "backgroundColor": "papayawhip",
+                     "color": "darkorange"},
+                    {"if": {"filter_query": "{annee} >= 1"}, "backgroundColor": "honeydew", "color": "darkolivegreen"},
+                ]
+            ),
+
+            style={"padding-top":"40px", "padding-bottom":"40px"}
+        ),
+
+        html.Div(
+            dcc.Graph(id="histogram", style={'width': "100%"}),
+            style={'width': '48%', 'padding-top': '20px'}
+        )
+    ], style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column', "background-color":color_background_div, "padding":"20px", "margin":"2rem",
+              "border-radius": "15px", "box-shadow": "1px 1px 5px #d2d2d7"}),
+
+    html.Div([
+        html.H2("Graphiques d'analyse linéaire",style={'padding-bottom': '20px', 'color':'white', "fontSize":23, "align-self": "flex-start", "font-weight":"bold"}),
+        html.Div("Réserve d'usure [mm]", style={"color": "white", "font-weight": "bold", "padding-bottom": "10px", "align-self": "flex-start"}),
+        html.Div([
+            html.Div("Explications:", style={"font-weight":"bold"}),
+            html.Div("Graphique d'analyse représentant la réserve d'usure médiane, pour chaque courbe considérée, pour le rail droite (gris clair) et le rail gauche (gris foncé). "
+                 "La réserve d'usure médiane est calculée par rapport à la valeur limite définie à 0.08 mm de profondeur: une valeur négative signifie que la valeur limite est dépassée pour le tronçon concerné et que des travaux de meulage sont donc nécessaires. "
+                 " Un tronçon est défini dès lors qu'un changement de rayon de courbure intervient sur la ligne."
+                 " La valeur présentée est toujours la valeur maximale en considérant les deux plages de fréquences (10 à 100 mm et 30 à 300 mm).")
+                 ],style={"padding": "15px", 'fontSize':12, "color": "white", "margin-left":108, "margin-right":59}),
+            dcc.Graph(id="graph-1", config={'scrollZoom': True},
+                  style={'height': FIGURE_HEIGHT, 'width': FIGURE_WIDTH}),
+
+        html.Div("Profondeur max. usure ondulatoire [mm]", style={"color": "white", "font-weight": "bold", "padding-bottom": "10px", "align-self": "flex-start"}),
+        html.Div(
+        dcc.Graph(id="graph-2", config={'scrollZoom': True},
+                  style={'height': FIGURE_HEIGHT, 'width': FIGURE_WIDTH})),
+
+    ], style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column', "background-color":color_background_div, "padding":"20px", "margin":"2rem",
+              "border-radius": "15px", "box-shadow": "1px 1px 5px #d2d2d7"}),
+
+
+    html.Div([
+    html.H2("Recommandation automatique des tronçons à meuler",
+            style={'padding-bottom': '20px', 'color':'white', "fontSize":23, "align-self": "flex-start", "font-weight":"bold"}),
+
+    html.Div(
+            dash_table.DataTable(
+                id="table-meulage",
+                fixed_rows={'headers': True},
+                style_table={"overflow": "scroll", "maxHeight": "190px"},
+                style_cell={'padding': '5px', 'textAlign': 'left', 'fontSize':10, 'font-family':'sans-serif'},
+                style_header={
+                "backgroundColor": "#7b7b8a", "color": "black",
+                    'fontWeight': 'bold', 'padding': '5px',
+                },
+                sort_action="native",
+                column_selectable="single",
+
+            ),
+
+            style={'padding': '10px'}
+    ),
+        ], style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column', "background-color":color_background_div, "padding":"20px", "margin":"2rem",
+              "border-radius": "15px", "box-shadow": "1px 1px 5px #d2d2d7"})
+
+], style=PAGE_STYLE)
+
 
 app.layout = html.Div(children = [
     sidebar,
     html.Div([
         main_layout
      ])
-], style={'backgroundColor':'white', "font-family": "Arial, sans-serif",
-    "top": 0,
-    "left": 0,
-    "bottom": 0})
+], )
 
 # --- Callback pour appliquer le zoom lors d'un clic sur `km_start` ---
 @app.callback(
@@ -501,22 +513,20 @@ def update_histogram(col_selected, table_data):
                        labels={"value":base_labels.get(col_selected[0],col_selected[0])})
     fig.update_layout(
         height=200,
-        plot_bgcolor="white",  # Fond blanc
-        paper_bgcolor="white",
-        font=dict(family="Arial", size=12, color="black"),
-        xaxis=dict(showgrid=True, gridcolor="lightgray"),
-        yaxis=dict(showgrid=True, gridcolor="lightgray"),
+        plot_bgcolor=color_background_div,
+        paper_bgcolor=color_background_div,
+        font=dict(family="Verdana", size=12, color="white"),
+        xaxis=dict(showgrid=True, gridcolor="white"),
+        yaxis=dict(showgrid=True, gridcolor="white",zeroline=True,linewidth=0.5),
         bargap=0.1,
-        barcornerradius=5,
+        barcornerradius=0,
         margin=dict(l=0, r=0, b=0, t=0, pad=0),
         yaxis_title="Longueur cumulée [m]",
         showlegend=False,
 
-
-
     )
-    fig.update_traces(textfont_size=11, textangle=0, marker_color='#DADADA', marker_line_color='black',
-                  marker_line_width=1.5, opacity=0.9, textfont_color="black")
+    fig.update_traces(textfont_size=11, textangle=0, marker_color='#80808e', marker_line_color='#28282d',
+                  marker_line_width=1.5, opacity=1, textfont_color="white")
 
     return fig
 

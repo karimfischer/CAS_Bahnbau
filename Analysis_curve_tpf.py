@@ -198,26 +198,40 @@ def reserve_usure_par_courbe_plot(line_riffel):
             x=[(row['km_debut'] + row['km_fin']) / 2, (row['km_debut'] + row['km_fin']) / 2],
             y=[row['reserve_usure_l'], row['reserve_usure_r']],
             mode="lines",
-            line=dict(color="black", width=1),
+            line=dict(color="black", width=0),
             name=f"ID tronçon: {row['groupe']}",
             showlegend=False
         ))
 
-    # Ajout des bandes rouges pour les tronçons avec réserve d'usure négative
-    for i, row in line_riffel.iterrows():
-        if row['reserve_usure_l'] < 0 or row['reserve_usure_r'] < 0:
-            fig.add_trace(go.Scatter(
-                x=[row['km_debut'], row['km_fin'], row['km_fin'], row['km_debut']],
-                y=[min(min(line_riffel['reserve_usure_l']),min(line_riffel['reserve_usure_r'])),
-                   min(min(line_riffel['reserve_usure_l']),min(line_riffel['reserve_usure_r'])),
-                   max(max(line_riffel['reserve_usure_l']),max(line_riffel['reserve_usure_r'])),
-                   max(max(line_riffel['reserve_usure_l']),max(line_riffel['reserve_usure_r']))],  # Bande 
-                fill='toself',
-                fillcolor='rgba(255, 0, 0, 0.1)',  # Rouge semi-transparent
-                line=dict(color='rgba(255, 0, 0, 0)'),
-                name="Tronçon critique",
-                showlegend=False
-            ))
+    # # Ajout des bandes rouges pour les tronçons avec réserve d'usure négative
+    # for i, row in line_riffel.iterrows():
+    #     if row['reserve_usure_l'] < 0 or row['reserve_usure_r'] < 0:
+    #         fig.add_trace(go.Scatter(
+    #             x=[row['km_debut'], row['km_fin'], row['km_fin'], row['km_debut']],
+    #             y=[min(row['reserve_usure_l'],row['reserve_usure_r']),
+    #                min(row['reserve_usure_l'],row['reserve_usure_r']),
+    #                max(row['reserve_usure_l'], row['reserve_usure_r']),
+    #                max(row['reserve_usure_l'], row['reserve_usure_r'])],  # Bande
+    #             fill='toself',
+    #             fillcolor='rgba(178, 34, 34, 0.8)',
+    #             line=dict(color='rgba(255, 0, 0, 0)'),
+    #             name="Tronçon critique",
+    #             showlegend=False
+    #         ))
+    #     elif row['reserve_usure_l'] > 0 and row['reserve_usure_r'] > 0:
+    #         fig.add_trace(go.Scatter(
+    #             x=[row['km_debut'], row['km_fin'], row['km_fin'], row['km_debut']],
+    #             y=[min(row['reserve_usure_l'], row['reserve_usure_r']),
+    #                min(row['reserve_usure_l'], row['reserve_usure_r']),
+    #                max(row['reserve_usure_l'], row['reserve_usure_r']),
+    #                max(row['reserve_usure_l'], row['reserve_usure_r'])],  # Bande
+    #             fill='toself',
+    #             fillcolor='honeydew',
+    #             line=dict(color='rgba(0, 255, 0, 0)'),
+    #             name="Tronçon critique",
+    #             showlegend=False
+    #         ))
+
 
     # Ajout d'une ligne horizontale à y=0
     fig.add_trace(go.Scatter(
