@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="ANALYZE_INJECTED_CODE" value="false" />
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="06.03 (1)">
-      <change afterPath="$PROJECT_DIR$/dashboard2.py" afterDir="false" />
+    <list default="true" id="bc905958-5adf-4433-a850-f09d71defabe" name="Changes" comment="10.03">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.~lock.ANALYSIS_RIFFEL_Chatel_St_Denis_Montbovon.csv#" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Analysis_curve_tpf.py" beforeDir="false" afterPath="$PROJECT_DIR$/Analysis_curve_tpf.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_25_cm_Chatel_St_Denis___Montbovon.json" beforeDir="false" afterPath="$PROJECT_DIR$/data_25_cm_Chatel_St_Denis___Montbovon.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_25_cm_Palezieux___Chatel_St_Denis.json" beforeDir="false" afterPath="$PROJECT_DIR$/data_25_cm_Palezieux___Chatel_St_Denis.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reserve_usure_Chatel_St_Denis___Montbovon.json" beforeDir="false" afterPath="$PROJECT_DIR$/reserve_usure_Chatel_St_Denis___Montbovon.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reserve_usure_Palezieux___Chatel_St_Denis.json" beforeDir="false" afterPath="$PROJECT_DIR$/reserve_usure_Palezieux___Chatel_St_Denis.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +80,8 @@
     "last_opened_file_path": "/home/karim/PycharmProjects/CAS_Bahnbau",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "node.js.selected.package.tslint": "(autodetect)",
+    "run.code.analysis.last.selected.profile": "aDefault"
   }
 }]]></component>
   <component name="Push.Settings">
@@ -389,7 +397,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741287990056</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="06.03 (1)">
+      <option name="closed" value="true" />
+      <created>1741634548183</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1741634548183</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

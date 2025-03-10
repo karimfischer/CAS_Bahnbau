@@ -124,7 +124,7 @@ def data_25_max(df_line):
         x=x_values,
         y=y_values_l,
         mode='lines',
-        line=dict(width=0.75, color='#414451'),  # Réduction de l'épaisseur de la ligne
+        line=dict(width=0.75, color='#ff3399'),  # Réduction de l'épaisseur de la ligne
         showlegend=False
     ))
 
@@ -132,7 +132,7 @@ def data_25_max(df_line):
         x=x_values,
         y=y_values_r,
         mode='lines',
-        line=dict(width=0.75, color='#a5acaf'),  # Réduction de l'épaisseur de la ligne
+        line=dict(width=0.75, color='#ffe36d'),  # Réduction de l'épaisseur de la ligne
         showlegend=False
     ))
 
@@ -180,7 +180,7 @@ def reserve_usure_par_courbe_plot(line_riffel):
             x=[row['km_debut'], row['km_fin']],
             y=[row['reserve_usure_l'], row['reserve_usure_l']],
             mode="lines",
-            line=dict(color='#414451', width=3),
+            line=dict(color='#ff3399', width=3),
             name=f"Rail G: {row['groupe']}",
             showlegend=False
         ))
@@ -189,7 +189,7 @@ def reserve_usure_par_courbe_plot(line_riffel):
             x=[row['km_debut'], row['km_fin']],
             y=[row['reserve_usure_r'], row['reserve_usure_r']],
             mode="lines",
-            line=dict(color='#a5acaf', width=3),
+            line=dict(color='#ffe36d', width=3),
             name=f"Rail D: {row['groupe']}",
             showlegend=False
         ))

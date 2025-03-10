@@ -19,13 +19,14 @@ PAGE_STYLE = {
     "top": 0,
     "left": "0",
     "bottom": 0,
-    "padding-left":"17rem",
+    "padding-left": "17rem",
     "background-color": "#28282d",
     "margin-right": "0rem",
-    "display":"inline-block",
+    "display": "inline-block",
     "font-family": "Verdana",
 
 }
+
 
 # Fonction pour formater les figures
 def format_figure(fig, sel_line):
@@ -38,19 +39,19 @@ def format_figure(fig, sel_line):
         title=None,
         margin=dict(l=70, r=20, t=5, b=5),
         font=dict(size=12),
-        #yaxis_range=[-0.1, 0.5],
+        # yaxis_range=[-0.1, 0.5],
         xaxis=dict(
             matches='x',
             showgrid=True, gridwidth=0.5,
             showline=True, linewidth=1, linecolor="white", mirror=True,
             color="white",
             zeroline=False,
-            range = range
+            range=range
         ),
         yaxis=dict(
             showgrid=True, gridwidth=0.5,
             showline=True, linewidth=1, linecolor="white", mirror=True,
-            #fixedrange=False,
+            # fixedrange=False,
             color="white",
             zeroline=False,
             autorangeoptions_clipmax=0.5,
@@ -60,9 +61,10 @@ def format_figure(fig, sel_line):
         plot_bgcolor=color_background_div,
         paper_bgcolor=color_background_div,
         showlegend=False,
-        #legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5)
+        # legend=dict(orientation="h", yanchor="bottom", y=-0.3, xanchor="center", x=0.5)
     )
     return fig
+
 
 # --- Création de l'application Dash ---
 app = dash.Dash(__name__)
@@ -73,14 +75,14 @@ init_store_data = {
     "selected_line": "Palézieux - Châtel-St-Denis"
 }
 
-
 # Ajout des cartes en haut du layout
 info_cards = html.Div([
     html.Div([
         html.Div("Valeur limite dépassée", style={"font-size": "12px", "color": "firebrick", "text-align": "center"}),
         html.Div([
             html.Span(id="km-this-year", style={"font-size": "28px", "font-weight": "bold", "color": "firebrick"}),
-            html.Span("km", style={"font-size": "14px", "color": "firebrick", "margin-left": "3px", "font-weight": "bold"}),
+            html.Span("km",
+                      style={"font-size": "14px", "color": "firebrick", "margin-left": "3px", "font-weight": "bold"}),
             html.Span("❘", style={"font-size": "14px", "color": "firebrick", "margin-left": "3px"}),
             html.Span(id="percent1", style={"font-size": "14px", "color": "firebrick", "margin-left": "3px"})
 
@@ -124,7 +126,8 @@ info_cards = html.Div([
             html.Span(id="km-no-grinding",
                       style={"font-size": "28px", "font-weight": "bold", "color": "darkolivegreen"}),
             html.Span("km",
-                      style={"font-size": "14px", "color": "darkolivegreen", "margin-left": "3px", "font-weight": "bold"}),
+                      style={"font-size": "14px", "color": "darkolivegreen", "margin-left": "3px",
+                             "font-weight": "bold"}),
             html.Span("❘", style={"font-size": "14px", "color": "darkolivegreen", "margin-left": "3px"}),
             html.Span(id="percent3", style={"font-size": "14px", "color": "darkolivegreen", "margin-left": "3px"})
         ])
@@ -149,75 +152,77 @@ SIDEBAR_STYLE = {
     "width": "15rem",
     "padding": "0rem 1rem",
     "background-color": color_background_div,
-    "display":"inline-block",
+    "display": "inline-block",
     "color": "white",
     "font-family": "Verdana",
     "font-size": "10pt",
 
 }
 
-sidebar = html.Div(children = [
-            html.H2("Meulage VM", className="display-4"),
-            html.P(
-                "Outil d'aide à la décision pour définir les tronçons à meuler sur le réseau TPF à voie métrique.", className="lead"
-            ),
-            html.Div("Sélectionner une ligne ferroviaire", style={'padding-top': '15px', 'padding-bottom': '5px', "font-weight": "bold", "font-size": "10pt"}),
-            dcc.Dropdown(
-                id="line-selector",
-                options=[
-                    {"label": "Palézieux - Châtel-St-Denis", "value": "Palézieux - Châtel-St-Denis"},
-                    {"label": "Châtel-St-Denis - Montbovon", "value": "Châtel-St-Denis - Montbovon"}
-                ],
-                value="Palézieux - Châtel-St-Denis",
-                style={'width': '100%', 'padding': '0px', 'font-family': 'sans-serif', 'font-size': '10pt', 'border': '0px', 'border-radius': '5px'},
-                clearable=False
-            ),
-            html.Div("Budget pour la ligne [CHF/an]", style={'padding-top': '15px', 'padding-bottom': '5px', "font-weight": "bold", "font-size": "10pt"}),
-            dcc.Input(
-                id="budget-input",
-                value=50000,
-                type="number",
-                min=0,
-                max=1000000,
-                step=1,
-                style={'width': '92%', 'padding': '9px', 'font-family': 'sans-serif', 'font-size': '10pt','border': '0px', 'border-radius': '5px'},
-                    ),
+sidebar = html.Div(children=[
+    html.H2("Meulage VM", className="display-4"),
+    html.P(
+        "Outil d'aide à la décision pour définir les tronçons à meuler sur le réseau TPF à voie métrique.",
+        className="lead"
+    ),
+    html.Div("Sélectionner une ligne ferroviaire",
+             style={'padding-top': '15px', 'padding-bottom': '5px', "font-weight": "bold", "font-size": "10pt"}),
+    dcc.Dropdown(
+        id="line-selector",
+        options=[
+            {"label": "Palézieux - Châtel-St-Denis", "value": "Palézieux - Châtel-St-Denis"},
+            {"label": "Châtel-St-Denis - Montbovon", "value": "Châtel-St-Denis - Montbovon"}
+        ],
+        value="Palézieux - Châtel-St-Denis",
+        style={'width': '100%', 'padding': '0px', 'font-family': 'sans-serif', 'font-size': '10pt', 'border': '0px',
+               'border-radius': '5px', 'color': 'black'},
+        clearable=False
+    ),
+    html.Div("Budget pour la ligne [CHF/an]",
+             style={'padding-top': '15px', 'padding-bottom': '5px', "font-weight": "bold", "font-size": "10pt"}),
+    dcc.Input(
+        id="budget-input",
+        value=50000,
+        type="number",
+        min=0,
+        max=1000000,
+        step=100,
+        style={'width': '92%', 'padding': '9px', 'font-family': 'sans-serif', 'font-size': '10pt', 'border': '0px',
+               'border-radius': '5px'},
+    ),
 
-
-            html.H3("Model"
+    html.H3("Model"
             ),
-            html.P(
-                "This project uses a Random Forest Classifier to predict heart failure based on 12 independent variables.", className="lead"
-            ),
+    html.P(
+        "This project uses a Random Forest Classifier to predict heart failure based on 12 independent variables.",
+        className="lead"
+    ),
 
-            html.H3("Code"
+    html.H3("Code"
             ),
-            html.P(
-                "The complete code for this project is available on github.", className="lead"
-            ),
+    html.P(
+        "The complete code for this project is available on github.", className="lead"
+    ),
 
-
-        ], style=SIDEBAR_STYLE
-    )
+], style=SIDEBAR_STYLE
+)
 
 main_layout = html.Div([
 
     dcc.Store(id="range-store", data=init_store_data),
 
-
-
-
     html.Div([
-    html.Span("Besoin en meulage sur la ligne",
-            style={'padding-bottom': '40px', 'color':'white', "fontSize":23, "align-self": "flex-start", "font-weight":"bold"}),
-    info_cards,
+        html.Span("Besoin en meulage sur la ligne",
+                  style={'padding-bottom': '40px', 'color': 'white', "fontSize": 23, "align-self": "flex-start",
+                         "font-weight": "bold"}),
+        info_cards,
         html.Div(
             dash_table.DataTable(
                 id="data-table",
                 fixed_rows={'headers': True},
-                style_table={"overflow": "scroll", "maxHeight": "200px", 'borderRadius': '0px',},
+                style_table={"overflow": "scroll", "maxHeight": "200px", 'borderRadius': '0px', },
                 style_cell={'padding': '1px', 'textAlign': 'left', 'fontSize': 10,
-                            'font-family': 'sans-serif', 'minWidth': '60px'},
+                            'font-family': 'Verdana', 'minWidth': '60px'},
                 style_header={
                     "backgroundColor": color_background_div, "color": "white", 'fontWeight': 'bold',
                     'padding': '2px', 'whiteSpace': 'normal', 'fontSize': 10,
@@ -236,52 +241,58 @@ main_layout = html.Div([
                 ]
             ),
 
-            style={"padding-top":"40px", "padding-bottom":"40px"}
+            style={"padding-top": "40px", "padding-bottom": "40px"}
         ),
 
         html.Div([
             dcc.Graph(id='histogram'),
             dcc.Graph(id='usure-graph')
-        ], style={'display': 'flex', 'justify-content': 'center', 'gap': '2rem'})
+        ], style={'display': 'flex', 'justify-content': 'space-evenly','align-items':'flex-start'})
 
-
-    ], style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column', "background-color":color_background_div, "padding":"20px", "margin":"2rem",
+    ], style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column',
+              "background-color": color_background_div, "padding": "20px", "margin": "2rem",
               "border-radius": "15px", "box-shadow": "1px 1px 5px #d2d2d7"}),
 
     html.Div([
-        html.H2("Graphiques d'analyse linéaire",style={'padding-bottom': '20px', 'color':'white', "fontSize":23, "align-self": "flex-start", "font-weight":"bold"}),
-        html.Div("Réserve d'usure [mm]", style={"color": "white", "font-weight": "bold", "padding-bottom": "10px", "align-self": "flex-start"}),
+        html.H2("Graphiques d'analyse linéaire",
+                style={'padding-bottom': '20px', 'color': 'white', "fontSize": 23, "align-self": "flex-start",
+                       "font-weight": "bold"}),
+        html.Div("Réserve d'usure [mm]",
+                 style={"color": "white", "font-weight": "bold", "padding-bottom": "10px", "align-self": "flex-start"}),
         html.Div([
-            html.Div("Explications:", style={"font-weight":"bold"}),
-            html.Div("Graphique d'analyse représentant la réserve d'usure médiane, pour chaque courbe considérée, pour le rail droite (gris clair) et le rail gauche (gris foncé). "
-                 "La réserve d'usure médiane est calculée par rapport à la valeur limite définie à 0.08 mm de profondeur: une valeur négative signifie que la valeur limite est dépassée pour le tronçon concerné et que des travaux de meulage sont donc nécessaires. "
-                 " Un tronçon est défini dès lors qu'un changement de rayon de courbure intervient sur la ligne."
-                 " La valeur présentée est toujours la valeur maximale en considérant les deux plages de fréquences (10 à 100 mm et 30 à 300 mm).")
-                 ],style={"padding": "15px", 'fontSize':12, "color": "white", "margin-left":108, "margin-right":59}),
-            dcc.Graph(id="graph-1", config={'scrollZoom': True},
+            html.Div("Explications:", style={"font-weight": "bold"}),
+            html.Div(
+                "Graphique d'analyse représentant la réserve d'usure médiane, pour chaque courbe considérée, pour le rail droite (jaune) et le rail gauche (rose). "
+                "La réserve d'usure médiane est calculée par rapport à la valeur limite définie à 0.08 mm de profondeur: une valeur négative signifie que la valeur limite est dépassée pour le tronçon concerné et que des travaux de meulage sont donc nécessaires. "
+                " Un tronçon est défini dès lors qu'un changement de rayon de courbure intervient sur la ligne."
+                " La valeur présentée est toujours la valeur maximale en considérant les deux plages de fréquences (10 à 100 mm et 30 à 300 mm).")
+        ], style={"padding": "15px", 'fontSize': 12, "color": "white", "margin-left": 108, "margin-right": 59}),
+        dcc.Graph(id="graph-1", config={'scrollZoom': True},
                   style={'height': FIGURE_HEIGHT, 'width': FIGURE_WIDTH}),
 
-        html.Div("Profondeur max. usure ondulatoire [mm]", style={"color": "white", "font-weight": "bold", "padding-bottom": "10px", "align-self": "flex-start"}),
+        html.Div("Profondeur max. usure ondulatoire [mm]",
+                 style={"color": "white", "font-weight": "bold", "padding-bottom": "10px", "align-self": "flex-start"}),
         html.Div(
-        dcc.Graph(id="graph-2", config={'scrollZoom': True},
-                  style={'height': FIGURE_HEIGHT, 'width': FIGURE_WIDTH})),
+            dcc.Graph(id="graph-2", config={'scrollZoom': True},
+                      style={'height': FIGURE_HEIGHT, 'width': FIGURE_WIDTH})),
 
-    ], style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column', "background-color":color_background_div, "padding":"20px", "margin":"2rem",
+    ], style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column',
+              "background-color": color_background_div, "padding": "20px", "margin": "2rem",
               "border-radius": "15px", "box-shadow": "1px 1px 5px #d2d2d7"}),
 
-
     html.Div([
-    html.H2("Recommandation automatique des tronçons à meuler",
-            style={'padding-bottom': '20px', 'color':'white', "fontSize":23, "align-self": "flex-start", "font-weight":"bold"}),
+        html.H2("Recommandation automatique des tronçons à meuler",
+                style={'padding-bottom': '20px', 'color': 'white', "fontSize": 23, "align-self": "flex-start",
+                       "font-weight": "bold"}),
 
-    html.Div(
+        html.Div(
             dash_table.DataTable(
                 id="table-meulage",
                 fixed_rows={'headers': True},
                 style_table={"overflow": "scroll", "maxHeight": "190px"},
-                style_cell={'padding': '5px', 'textAlign': 'left', 'fontSize':10, 'font-family':'sans-serif'},
+                style_cell={'padding': '5px', 'textAlign': 'left', 'fontSize': 10, 'font-family': 'sans-serif'},
                 style_header={
-                "backgroundColor": "#7b7b8a", "color": "black",
+                    "backgroundColor": "#7b7b8a", "color": "black",
                     'fontWeight': 'bold', 'padding': '5px',
                 },
                 sort_action="native",
@@ -290,23 +301,24 @@ main_layout = html.Div([
             ),
 
             style={'padding': '10px'}
-    ),
-        ], style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column', "background-color":color_background_div, "padding":"20px", "margin":"2rem",
+        ),
+    ], style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column',
+              "background-color": color_background_div, "padding": "20px", "margin": "2rem",
               "border-radius": "15px", "box-shadow": "1px 1px 5px #d2d2d7"})
 
 ], style=PAGE_STYLE)
 
-
-app.layout = html.Div(children = [
+app.layout = html.Div(children=[
     sidebar,
     html.Div([
         main_layout
-     ])
+    ])
 ], )
+
 
 # --- Callback pour appliquer le zoom lors d'un clic sur `km_start` ---
 @app.callback(
-    Output("range-store", "data",allow_duplicate=True),
+    Output("range-store", "data", allow_duplicate=True),
     Input("data-table", "active_cell"),
     State("data-table", "derived_virtual_data"),
     State("range-store", "data"),
@@ -337,9 +349,10 @@ def update_zoom_on_click(active_cell, table_data, current_store):
 
     # Met à jour la plage de zoom avec `km_start` et `km_end`
     new_store = current_store.copy()
-    new_store["xaxis"] = [km_start*1000, km_end*1000]
+    new_store["xaxis"] = [km_start * 1000, km_end * 1000]
 
     return new_store
+
 
 # --- Callback pour sauvegarder le zoom et la ligne sélectionnée ---
 @app.callback(
@@ -433,6 +446,7 @@ def update_graphs(selected_line, store_data):
 
     return fig1, fig2
 
+
 # --- Callback pour charger le tableau ---
 @app.callback(
     Output("data-table", "columns"),
@@ -459,17 +473,16 @@ def update_table(selected_line):
 
     df = df.sort_values(by="annee", ascending=True)
 
-
     df["km_start"] = df["km_start"].round(3)
     df["km_end"] = df["km_end"].round(3)
     df["reserve_usure_min"] = df["reserve_usure_min"].round(5)
     df["km_a_meuler"] = df["km_a_meuler"].round(3)
     df["annee"] = df["annee"].round(1)
-    df["longueur"] = (df["longueur"]*1000).round(3)
+    df["longueur"] = (df["longueur"] * 1000).round(3)
 
-    df = df.iloc[:, [0,1,2,3,4,5,6,7,8,9,10,12]]
+    df = df.iloc[:, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12]]
 
-    columns = [{"name": col, "id": col,  "deletable": True, "selectable": True} for col in df.columns]
+    columns = [{"name": col, "id": col, "deletable": True, "selectable": True} for col in df.columns]
     columns[0]["name"] = "km début"
     columns[1]["name"] = "km fin"
     columns[2]["name"] = "Traverse"
@@ -512,24 +525,25 @@ def update_histogram(col_selected, table_data):
         "longueur": "Longueur du tronçon [m]"
     }
     fig = px.histogram(df, x=col_selected, y="longueur", histfunc="sum",
-                        text_auto='.2s',
-                       labels={"value":base_labels.get(col_selected[0],col_selected[0])})
+                       text_auto='.2s',
+                       labels={"value": base_labels.get(col_selected[0], col_selected[0])})
     fig.update_layout(
-        height=200,
+        title="Histogramme de la colonne sélectionnée",
+        height=400,
         plot_bgcolor=color_background_div,
         paper_bgcolor=color_background_div,
-        font=dict(family="Verdana", size=12, color="white"),
-        xaxis=dict(showgrid=True, gridcolor="white"),
-        yaxis=dict(showgrid=True, gridcolor="white",zeroline=True,linewidth=0.5),
+        font=dict(family="Verdana", size=11, color="white"),
+        xaxis=dict(showgrid=True, gridcolor="white", showline=True, linewidth=0.5, linecolor='white', mirror=True),
+        yaxis=dict(showgrid=True, gridcolor="white", showline=True, linewidth=0.5, linecolor='white', mirror=True),
         bargap=0.1,
         barcornerradius=0,
-        margin=dict(l=0, r=0, b=0, t=0, pad=0),
+        #margin=dict(l=0, r=0, b=0, t=20, pad=10),
         yaxis_title="Longueur cumulée [m]",
         showlegend=False,
 
     )
     fig.update_traces(textfont_size=11, textangle=0, marker_color='#80808e', marker_line_color='#28282d',
-                  marker_line_width=1.5, opacity=1, textfont_color="white")
+                      marker_line_width=1.5, opacity=1, textfont_color="white")
 
     return fig
 
@@ -561,30 +575,31 @@ def update_graph(rows):
             y=usure,
             mode='lines',
             name=f'N° tronçon: {row["groupe"]}',
-            line=dict(color=color, width=4),
-            opacity = 0.5,
+            line=dict(color=color, width=2),
+            opacity=0.8,
             hoverinfo='text',
-            text=f"N° tronçon: {row['groupe']}<br> Emplacement km: [{row['km_start']}-{row['km_end']}]<br>Longueur: {row['longueur']} m<br>Réserve initiale: {row['reserve_usure_min']} mm<br>Dépassement à: {zero_time} an(s)"
+            text=f"N° tronçon: {row['groupe']}<br> Emplacement km: [{row['km_start']}-{row['km_end']}]<br>Longueur: {row['longueur']} m<br>Réserve initiale: {row['reserve_usure_min']} mm<br>Dépassement dans {zero_time} an(s)"
         ))
 
         fig.update_layout(
             title="Évolution temporelle de la réserve d'usure, par tronçon",
-            xaxis_title="Temps (années)",
-            yaxis_title="Réserve d'usure (mm)",
+            xaxis_title="Temps [années]",
+            yaxis_title="Réserve d'usure [mm]",
             plot_bgcolor=color_background_div,
-            paper_bgcolor = color_background_div,
+            paper_bgcolor=color_background_div,
             hovermode="closest",
             showlegend=False,
-            font=dict(family="Verdana", size=12, color="white"),
-            xaxis=dict(showgrid=True, gridcolor="white"),
-            yaxis=dict(showgrid=True, gridcolor="white", zeroline=True, linewidth=0.5),
+            #height=300,
+            font=dict(family="Verdana", size=11, color="white"),
+            xaxis=dict(showgrid=True, gridcolor="white", showline=True, linewidth=0.5, linecolor='white', mirror=True),
+            yaxis=dict(showgrid=True, gridcolor="white", showline=True, linewidth=0.5, linecolor='white', mirror=True),
         )
     return fig
 
 
 # Recommandation pour le meulage
 @app.callback(
-Output("table-meulage", "columns"),
+    Output("table-meulage", "columns"),
     Output("table-meulage", "data"),
     Input("line-selector", "value"),
     Input("budget-input", "value")
@@ -609,14 +624,14 @@ def recomm_meulage(line_selector, budget_input):
     if budget_input is None:
         raise dash.exceptions.PreventUpdate
     km_start_lim = 0
-    budget_max = budget_input # CHF
+    budget_max = budget_input  # CHF
 
     # Étape 1 : Filtrer les tronçons nécessitant un meulage (annee ≤ 1)
     df_meulage = df[(df["annee"] <= 1) & (df["km_start"] >= km_start_lim)].copy()
 
     # Ajouter une colonne de longueur + profondeur du tronçon à meuler en km
     df_meulage["Longueur"] = df_meulage["km_end"] - df_meulage["km_start"]
-    df_meulage["Prof. max. usure [mm]"] = 0.08-df_meulage["reserve_usure_min"]
+    df_meulage["Prof. max. usure [mm]"] = 0.08 - df_meulage["reserve_usure_min"]
 
     # Trier par priorité de meulage (annee la plus négative en premier)
     # df_meulage = df_meulage.sort_values(by="annee", ascending=True).reset_index(drop=True)
@@ -626,7 +641,7 @@ def recomm_meulage(line_selector, budget_input):
 
     cout_par_metre = 10  # CHF/m
     metres_max_km = (budget_max / cout_par_metre) / 1000  # Convertir en km
-    seuil_fusion = 0 #0.19  # Distance max entre tronçons pour fusionner (en km)
+    seuil_fusion = 0  # 0.19  # Distance max entre tronçons pour fusionner (en km)
 
     # Étape 2 : Fusion des tronçons proches en maintenant la priorité sur "annee" min
     troncons_fusionnes = []
@@ -676,17 +691,16 @@ def recomm_meulage(line_selector, budget_input):
         dernier_troncon_indx = non_select_reste_km["Longueur"].idxmax()
         selection_finale.append(non_select.loc[dernier_troncon_indx])
         metres_selectionnes_km += non_select.loc[dernier_troncon_indx, "Longueur"]
-        #print("Il vous reste une réserve de:",
-            #  ((metres_max_km - metres_selectionnes_km) * 1000).round(0), "m.")
+        # print("Il vous reste une réserve de:",
+        #  ((metres_max_km - metres_selectionnes_km) * 1000).round(0), "m.")
 
     # Transformer en DataFrame final
     df_selection_corrige = pd.DataFrame(selection_finale)
     df_selection_corrige["Longueur"] = (df_selection_corrige["Longueur"] * 1000).round(0)
 
-
     # Affichage des résultats
-    #print("km totaux selon budget:", metres_max_km)
-    #print("km totaux du programme:", df_selection_corrige["Longueur"].sum().round(3) / 1000, "km")
+    # print("km totaux selon budget:", metres_max_km)
+    # print("km totaux du programme:", df_selection_corrige["Longueur"].sum().round(3) / 1000, "km")
     df_selection_corrige["km_start"] = df_selection_corrige["km_start"].round(3)
     df_selection_corrige["km_end"] = df_selection_corrige["km_end"].round(3)
     df_selection_corrige["annee"] = df_selection_corrige["annee"].round(1)
@@ -696,6 +710,7 @@ def recomm_meulage(line_selector, budget_input):
     columns = [{"name": col, "id": col, "type": "numeric"} for col in df_selection_corrige.columns]
 
     return columns, df_selection_corrige.sort_values("km_start").to_dict("records")
+
 
 @app.callback(
     [Output("km-this-year", "children"),
@@ -712,15 +727,12 @@ def update_info_cards(table_data):
     km_this_year = df[df["annee"] <= 0]["longueur"].sum() / 1000  # en km
     km_next_year = df[(df["annee"] > 0) & (df["annee"] < 1)]["longueur"].sum() / 1000
     km_no_grinding = df[df["annee"] >= 1]["longueur"].sum() / 1000
-    percent1 = (km_this_year/(km_this_year+km_next_year+km_no_grinding)*100)
+    percent1 = (km_this_year / (km_this_year + km_next_year + km_no_grinding) * 100)
     percent2 = (km_next_year / (km_this_year + km_next_year + km_no_grinding) * 100)
     percent3 = (km_no_grinding / (km_this_year + km_next_year + km_no_grinding) * 100)
 
     return f"{km_this_year:.2f}", f"{km_next_year:.2f}", f"{km_no_grinding:.2f}", f"{percent1:.0f}%", f"{percent2:.0f}%", f"{percent3:.0f}%"
 
 
-
-
 if __name__ == '__main__':
     app.run_server(debug=True)
-
