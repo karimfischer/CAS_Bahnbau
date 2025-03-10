@@ -5,7 +5,6 @@ import copy
 import dash
 import plotly.express as px
 from dash.dependencies import Input, Output, State
-import plotly.graph_objects as go
 import pandas as pd
 
 # Color concept
@@ -239,12 +238,10 @@ main_layout = html.Div([
             style={"padding-top":"40px", "padding-bottom":"40px"}
         ),
 
-        html.Div([
-            dcc.Graph(id='histogram'),
-            dcc.Graph(id='usure-graph')
-        ], style={'display': 'flex', 'justify-content': 'center', 'gap': '2rem'})
-
-
+        html.Div(
+            dcc.Graph(id="histogram", style={'width': "100%"}),
+            style={'width': '48%', 'padding-top': '20px'}
+        )
     ], style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column', "background-color":color_background_div, "padding":"20px", "margin":"2rem",
               "border-radius": "15px", "box-shadow": "1px 1px 5px #d2d2d7"}),
 
@@ -532,55 +529,6 @@ def update_histogram(col_selected, table_data):
                   marker_line_width=1.5, opacity=1, textfont_color="white")
 
     return fig
-
-
-# Graphique linéaire du développement de la réserve d'usure:
-@app.callback(
-    Output('usure-graph', 'figure'),
-    Input('data-table', 'data')
-)
-def update_graph(rows):
-    df = pd.DataFrame(rows)
-    if df.empty:
-        return go.Figure()
-
-    fig = go.Figure()
-    GW = 0.08
-    time_steps = range(11)
-
-    for _, row in df.iterrows():
-        reserve_init = row["reserve_usure_min"]
-        freq = row["frequence"]
-        usure = [reserve_init - GW * freq * t for t in time_steps]
-
-        zero_time = next((t for t in time_steps if usure[t] <= 0), None)
-        color = "darkolivegreen" if zero_time is None or zero_time >= 1 else "papayawhip" if zero_time > 0 & zero_time < 1 else "firebrick"
-
-        fig.add_trace(go.Scatter(
-            x=list(time_steps),
-            y=usure,
-            mode='lines',
-            name=f'N° tronçon: {row["groupe"]}',
-            line=dict(color=color, width=4),
-            opacity = 0.5,
-            hoverinfo='text',
-            text=f"N° tronçon: {row['groupe']}<br> Emplacement km: [{row['km_start']}-{row['km_end']}]<br>Longueur: {row['longueur']} m<br>Réserve initiale: {row['reserve_usure_min']} mm<br>Dépassement à: {zero_time} an(s)"
-        ))
-
-        fig.update_layout(
-            title="Évolution temporelle de la réserve d'usure, par tronçon",
-            xaxis_title="Temps (années)",
-            yaxis_title="Réserve d'usure (mm)",
-            plot_bgcolor=color_background_div,
-            paper_bgcolor = color_background_div,
-            hovermode="closest",
-            showlegend=False,
-            font=dict(family="Verdana", size=12, color="white"),
-            xaxis=dict(showgrid=True, gridcolor="white"),
-            yaxis=dict(showgrid=True, gridcolor="white", zeroline=True, linewidth=0.5),
-        )
-    return fig
-
 
 # Recommandation pour le meulage
 @app.callback(
