@@ -245,8 +245,8 @@ main_layout = html.Div([
         ),
 
         html.Div([
-            dcc.Graph(id='histogram'),
-            dcc.Graph(id='usure-graph')
+            dcc.Graph(id='histogram', style={'flex':'1', 'marginTop':'0px'}),
+            dcc.Graph(id='usure-graph', style={'flex':'1', 'marginTop':'0px'}),
         ], style={'display': 'flex', 'justify-content': 'space-evenly','align-items':'flex-start'})
 
     ], style={'display': 'flex', 'align-items': 'center', 'flex-direction': 'column',
@@ -509,7 +509,7 @@ def update_table(selected_line):
 def update_histogram(col_selected, table_data):
     df = pd.DataFrame(table_data)
 
-    # ✅ Création de l'histogramme avec style blanc
+
     base_labels = {
         "km_start": "Point km du début de tronçon",
         "km_end": "Point km de fin de tronçon",
@@ -528,16 +528,17 @@ def update_histogram(col_selected, table_data):
                        text_auto='.2s',
                        labels={"value": base_labels.get(col_selected[0], col_selected[0])})
     fig.update_layout(
-        title="Histogramme de la colonne sélectionnée",
+        title=dict(text="Histogramme de la colonne sélectionnée"),
+        title_font_weight="bold",
         height=400,
         plot_bgcolor=color_background_div,
         paper_bgcolor=color_background_div,
-        font=dict(family="Verdana", size=11, color="white"),
+        font=dict(family="Verdana", size=12, color="white"),
         xaxis=dict(showgrid=True, gridcolor="white", showline=True, linewidth=0.5, linecolor='white', mirror=True),
         yaxis=dict(showgrid=True, gridcolor="white", showline=True, linewidth=0.5, linecolor='white', mirror=True),
         bargap=0.1,
         barcornerradius=0,
-        #margin=dict(l=0, r=0, b=0, t=20, pad=10),
+        margin=dict(l=50, r=50, t=50, b=50),
         yaxis_title="Longueur cumulée [m]",
         showlegend=False,
 
@@ -568,7 +569,7 @@ def update_graph(rows):
         usure = [reserve_init - GW * freq * t for t in time_steps]
 
         zero_time = next((t for t in time_steps if usure[t] <= 0), None)
-        color = "darkolivegreen" if zero_time is None or zero_time >= 1 else "papayawhip" if zero_time > 0 & zero_time < 1 else "firebrick"
+        color = "darkolivegreen" if zero_time is None or zero_time >= 1 else "papayawhip" if (zero_time > 0 & zero_time < 1) else "firebrick"
 
         fig.add_trace(go.Scatter(
             x=list(time_steps),
@@ -576,21 +577,23 @@ def update_graph(rows):
             mode='lines',
             name=f'N° tronçon: {row["groupe"]}',
             line=dict(color=color, width=2),
-            opacity=0.8,
+            opacity=0.6,
             hoverinfo='text',
             text=f"N° tronçon: {row['groupe']}<br> Emplacement km: [{row['km_start']}-{row['km_end']}]<br>Longueur: {row['longueur']} m<br>Réserve initiale: {row['reserve_usure_min']} mm<br>Dépassement dans {zero_time} an(s)"
         ))
 
         fig.update_layout(
-            title="Évolution temporelle de la réserve d'usure, par tronçon",
+            title=dict(text="Évolution temporelle de la réserve d'usure, par tronçon"),
+            title_font_weight="bold",
             xaxis_title="Temps [années]",
             yaxis_title="Réserve d'usure [mm]",
             plot_bgcolor=color_background_div,
             paper_bgcolor=color_background_div,
             hovermode="closest",
             showlegend=False,
-            #height=300,
-            font=dict(family="Verdana", size=11, color="white"),
+            height=400,
+            margin=dict(l=50, r=50, t=50, b=50),
+            font=dict(family="Verdana", size=12, color="white"),
             xaxis=dict(showgrid=True, gridcolor="white", showline=True, linewidth=0.5, linecolor='white', mirror=True),
             yaxis=dict(showgrid=True, gridcolor="white", showline=True, linewidth=0.5, linecolor='white', mirror=True),
         )
